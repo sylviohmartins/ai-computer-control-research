@@ -33,3 +33,17 @@ A lista de arquivos do chat continha referências repetidas ao relatório/CSV/JS
 Os exports `naming_candidates_*.{csv,json}` são projeções intermediárias grandes do mesmo universo de candidatos. Eles permanecem preservados em `artifacts/source/chatgpt/`, enquanto análises futuras devem preferir `canonical-naming-candidates.csv`.
 
 A imagem binária é o único artefato não copiado byte a byte; seu significado, arquivo original, tamanho e SHA-256 são preservados em `artifacts/evidence/` e no manifesto.
+
+
+## Artefatos gerados diretamente no repositório nesta etapa
+
+A Stage 2 de naming foi produzida diretamente na branch de pesquisa, portanto seus artefatos não precisam de uma segunda cópia em `artifacts/source/chatgpt/`. Eles são preservados pelo histórico Git e registrados no manifesto:
+
+| Artefato | Tipo | Papel |
+|---|---|---|
+| `artifacts/reports/naming/2026-10-01-constructed-names-discovery-report.md` | relatório | conclusão narrativa da Stage 2 |
+| `artifacts/datasets/naming/2026-10-01-constructed-name-candidates.csv` | dataset | 560 candidatos construídos |
+| `artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv` | dataset | shortlist comparativa |
+| `artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json` | dataset | gate, finalistas e pendências |
+
+A documentação viva correspondente está em `docs/discovery/naming/README.md`.
