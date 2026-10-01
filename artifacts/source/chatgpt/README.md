@@ -1,13 +1,16 @@
-# ChatGPT Source Artifacts
+# Artefatos de Origem do ChatGPT
 
-These folders preserve the original text/data exports used during the product's originating ChatGPT research.
+Estas pastas preservam exports de texto/dados utilizados na pesquisa que originou o produto.
 
-They exist for:
-- historical traceability;
-- reproduction of prior analyses;
-- understanding how naming/architecture decisions evolved;
-- future audits by human or AI contributors.
+Servem para:
 
-The repository also keeps curated reports/datasets elsewhere under `artifacts/`. Prefer curated data for ongoing analysis, but use these sources when reconstructing provenance.
+- rastreabilidade histórica;
+- reprodução de análises anteriores;
+- entendimento de como decisões de naming e arquitetura evoluíram;
+- auditorias futuras por pessoas ou agentes de IA.
 
-The original reference screenshot is tracked by checksum and narrative in `artifacts/provenance/source-manifest.json` and `docs/history/research-lineage.md`.
+Os **nomes dos arquivos foram normalizados em inglês**. Os nomes originais e checksums permanecem registrados em `artifacts/provenance/source-manifest.json`.
+
+O repositório também mantém relatórios e datasets curados em outras áreas de `artifacts/`. Para análise corrente, prefira as representações curadas; use estas fontes para reconstruir proveniência.
+
+A imagem de referência original é rastreada por checksum e narrativa em `artifacts/evidence/`, `artifacts/provenance/source-manifest.json` e `docs/history/research-lineage.md`.

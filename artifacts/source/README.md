@@ -1,7 +1,9 @@
-# Source Artifacts
+# Artefatos de Origem
 
-This directory preserves originating research material before/alongside curation.
+Este diretório preserva material de pesquisa de origem antes e ao lado de sua curadoria.
 
-- `chatgpt/` — artifacts generated or used in the originating ChatGPT research workflow.
+- `chatgpt/` — artefatos gerados ou utilizados no fluxo de pesquisa originado no ChatGPT.
 
-Source artifacts are historical evidence. They may contain superseded names, assumptions or mutable facts. Current truth lives under `docs/`.
+Os paths são normalizados em inglês para consistência do repositório. O nome original de cada arquivo é mantido no manifesto de proveniência.
+
+Artefatos de origem são evidência histórica. Podem conter nomes rejeitados, hipóteses superadas ou fatos mutáveis. A verdade atual vive em `docs/`.

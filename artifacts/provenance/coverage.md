@@ -1,33 +1,35 @@
-# ChatGPT Artifact Coverage
+# Cobertura dos Artefatos do ChatGPT
 
-This matrix answers a specific project-governance question: **is every file generated/used during the originating ChatGPT research represented in the repository?**
+Esta matriz responde à pergunta de governança: **todos os arquivos gerados ou utilizados no trabalho originário do ChatGPT estão contemplados no repositório?**
 
-As of 2026-10-01, **yes**. Every text/data source artifact is also preserved under `artifacts/source/chatgpt/<date>/` with its original filename, while curated/normalized representations remain available for practical use. The one binary reference image is represented by a dedicated evidence record plus original filename, size and SHA-256 checksum. See `source-manifest.json` for exact mappings.
+Em 2026-10-01, **sim**. Todos os artefatos únicos de texto/dados estão preservados em `artifacts/source/chatgpt/<date>/` com nomes de arquivo normalizados em inglês, além de suas representações curadas/canônicas. A imagem binária de referência é contemplada por um registro semântico de evidência, nome original, tamanho e SHA-256.
 
-| Source artifact | Repository representation | Treatment |
-|---|---|---|
-| `79CAF644-44B8-427F-BEDC-C35FB7D58E69.jpeg` | `docs/history/research-lineage.md` + manifest | historical evidence described; checksum preserved |
-| `relatorio_censo_ferramentas_ai_execucao_2026-09-29.md` | `artifacts/reports/2026-09-29-ai-computer-control-ecosystem-census.md` | archived report |
-| `censo_ferramentas_ai_execucao_2026-09-29.csv` | `artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.csv` | canonical dataset |
-| `censo_ferramentas_ai_execucao_2026-09-29.json` | `artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.json` | normalized structured dataset |
-| `machinaport_product_technical_blueprint_2026-09-29.md` | `artifacts/archive/...` + `artifacts/source/chatgpt/...` | superseded blueprint retained historically |
-| `naming_discovery_report_2026-09-29.md` | `artifacts/reports/naming/2026-09-29-naming-discovery-report.md` | archived report |
-| `naming_discovery_candidates_2026-09-29.json` | `artifacts/datasets/naming/2026-09-29-naming-discovery-candidates.json` | archived structured discovery |
-| `naming_candidates_2026-09-29.json` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | normalized/deduplicated |
-| `naming_candidates_2026-09-29.csv` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | normalized/deduplicated |
-| `naming_discovery_report_2026-10-01.md` | `artifacts/reports/naming/2026-10-01-naming-discovery-report.md` | archived report |
-| `naming_discovery_catalog_2026-10-01.json` | `artifacts/datasets/naming/2026-10-01-naming-discovery-catalog.json` | archived structured discovery |
-| `naming_discovery_top20_2026-10-01.csv` | `artifacts/datasets/naming/2026-10-01-naming-discovery-top20.csv` | archived shortlist |
-| `naming_discovery_raw_candidates_2026-10-01.csv` | `artifacts/datasets/naming/2026-10-01-naming-discovery-raw-candidates.csv` | archived raw shortlist export |
-| `naming_candidates_2026-10-01.json` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | normalized/deduplicated |
-| `naming_candidates_2026-10-01.csv` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | normalized/deduplicated |
+Consulte `source-manifest.json` para o mapeamento exato.
 
-## Duplicate references
+| Artefato original | Fonte normalizada no repositório | Representação principal | Tratamento |
+|---|---|---|---|
+| `79CAF644-44B8-427F-BEDC-C35FB7D58E69.jpeg` | registro em `artifacts/evidence/` | `docs/history/research-lineage.md` + manifesto | evidência histórica descrita; checksum preservado |
+| `relatorio_censo_ferramentas_ai_execucao_2026-09-29.md` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-ai-computer-control-ecosystem-census-report.md` | `artifacts/reports/2026-09-29-ai-computer-control-ecosystem-census.md` | relatório arquivado |
+| `censo_ferramentas_ai_execucao_2026-09-29.csv` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-ai-computer-control-ecosystem-census.csv` | `artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.csv` | dataset canônico |
+| `censo_ferramentas_ai_execucao_2026-09-29.json` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-ai-computer-control-ecosystem-census.json` | `artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.json` | dataset estruturado normalizado |
+| `machinaport_product_technical_blueprint_2026-09-29.md` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-product-technical-blueprint-machinaport-draft.md` | `artifacts/archive/2026-09-29-product-technical-blueprint-machinaport-draft.md` | blueprint superado preservado historicamente |
+| `naming_discovery_report_2026-09-29.md` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-naming-discovery-report.md` | `artifacts/reports/naming/2026-09-29-naming-discovery-report.md` | relatório histórico |
+| `naming_discovery_candidates_2026-09-29.json` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-naming-discovery-candidates.json` | `artifacts/datasets/naming/2026-09-29-naming-discovery-candidates.json` | discovery estruturado |
+| `naming_candidates_2026-09-29.json` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-naming-candidates.json` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | export preservado + projeção canônica |
+| `naming_candidates_2026-09-29.csv` | `artifacts/source/chatgpt/2026-09-29/2026-09-29-naming-candidates.csv` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | export preservado + projeção canônica |
+| `naming_discovery_report_2026-10-01.md` | `artifacts/source/chatgpt/2026-10-01/2026-10-01-naming-discovery-report.md` | `artifacts/reports/naming/2026-10-01-naming-discovery-report.md` | relatório histórico |
+| `naming_discovery_catalog_2026-10-01.json` | `artifacts/source/chatgpt/2026-10-01/2026-10-01-naming-discovery-catalog.json` | `artifacts/datasets/naming/2026-10-01-naming-discovery-catalog.json` | discovery estruturado |
+| `naming_discovery_top20_2026-10-01.csv` | `artifacts/source/chatgpt/2026-10-01/2026-10-01-naming-discovery-top20.csv` | `artifacts/datasets/naming/2026-10-01-naming-discovery-top20.csv` | shortlist histórica |
+| `naming_discovery_raw_candidates_2026-10-01.csv` | `artifacts/source/chatgpt/2026-10-01/2026-10-01-naming-discovery-raw-candidates.csv` | `artifacts/datasets/naming/2026-10-01-naming-discovery-raw-candidates.csv` | export bruto histórico |
+| `naming_candidates_2026-10-01.json` | `artifacts/source/chatgpt/2026-10-01/2026-10-01-naming-candidates.json` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | export preservado + projeção canônica |
+| `naming_candidates_2026-10-01.csv` | `artifacts/source/chatgpt/2026-10-01/2026-10-01-naming-candidates.csv` | `artifacts/datasets/naming/canonical-naming-candidates.csv` | export preservado + projeção canônica |
 
-The ChatGPT file list contained repeated references to the census report/CSV/JSON and the MachinaPort blueprint. They are the same source artifacts and are intentionally represented once.
+## Referências duplicadas
 
-## Why normalize some exports?
+A lista de arquivos do chat continha referências repetidas ao relatório/CSV/JSON do censo e ao blueprint MachinaPort. São o mesmo artefato de origem e são representados uma única vez.
 
-The large `naming_candidates_*.{csv,json}` files are intermediate projections of the same candidate pool. They are preserved under `artifacts/source/chatgpt/` for provenance, while ongoing analysis should use `canonical-naming-candidates.csv`, which deduplicates the candidate universe and retains source-file lineage per candidate.
+## Por que manter fonte e representação canônica?
 
-The binary screenshot is the only source not copied verbatim; its semantic evidence record and SHA-256 allow later recovery/verification if required.
+Os exports `naming_candidates_*.{csv,json}` são projeções intermediárias grandes do mesmo universo de candidatos. Eles permanecem preservados em `artifacts/source/chatgpt/`, enquanto análises futuras devem preferir `canonical-naming-candidates.csv`.
+
+A imagem binária é o único artefato não copiado byte a byte; seu significado, arquivo original, tamanho e SHA-256 são preservados em `artifacts/evidence/` e no manifesto.
