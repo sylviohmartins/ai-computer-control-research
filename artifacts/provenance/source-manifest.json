@@ -195,5 +195,43 @@
   ],
   "duplicates_not_repeated": [
     "A lista apresentada no chat continha referências repetidas ao relatório/CSV/JSON do censo e ao blueprint MachinaPort; cada artefato único é representado uma única vez."
+  ],
+  "repo_generated_artifacts": [
+    {
+      "path": "artifacts/reports/naming/2026-10-01-constructed-names-discovery-report.md",
+      "source_date": "2026-10-01",
+      "kind": "repo-native-report",
+      "generated_by": "ChatGPT naming discovery Stage 2",
+      "purpose": "Registrar metodologia, screening, finalistas e gate da etapa de nomes construídos.",
+      "source_of_truth": false
+    },
+    {
+      "path": "artifacts/datasets/naming/2026-10-01-constructed-name-candidates.csv",
+      "source_date": "2026-10-01",
+      "kind": "repo-native-dataset",
+      "generated_by": "ChatGPT naming discovery Stage 2",
+      "purpose": "Preservar o universo materializado de 560 candidatos construídos.",
+      "source_of_truth": false
+    },
+    {
+      "path": "artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv",
+      "source_date": "2026-10-01",
+      "kind": "repo-native-dataset",
+      "generated_by": "ChatGPT naming discovery Stage 2",
+      "purpose": "Preservar a shortlist comparativa da etapa.",
+      "source_of_truth": false
+    },
+    {
+      "path": "artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json",
+      "source_date": "2026-10-01",
+      "kind": "repo-native-dataset",
+      "generated_by": "ChatGPT naming discovery Stage 2",
+      "purpose": "Preservar gate, finalistas, metodologia e pendências de clearance.",
+      "source_of_truth": false
+    }
+  ],
+  "notes": [
+    "Artefatos repo-native gerados diretamente durante trabalho no GitHub não são duplicados em artifacts/source/chatgpt; o próprio histórico Git funciona como fonte imutável.",
+    "O estado atual do naming vive em docs/discovery/naming/README.md."
   ]
 }
