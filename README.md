@@ -2,7 +2,7 @@
 
 Repositório de pesquisa, discovery de produto e arquitetura para uma futura plataforma que permita que clientes de IA autorizados operem computadores e ambientes executáveis por meio de uma camada de controle segura e auditável.
 
-> **Estado do projeto:** pesquisa e discovery técnico/de produto. Nenhuma implementação de produção foi iniciada. O nome do produto permanece intencionalmente **TBD**; a rodada mais recente de naming terminou em `NAME_NOT_READY`.
+> **Estado do projeto:** pesquisa e discovery técnico/de produto. Nenhuma implementação de produção foi iniciada. O nome do produto permanece juridicamente/operacionalmente **TBD**; o naming está em `NAME_CONDITIONAL`, com **Telechir** como primary candidate.
 
 ## Por que este repositório existe
 
@@ -42,7 +42,7 @@ Este repositório é a fonte de verdade para:
 
 ## Linhagem da pesquisa
 
-O projeto começou com uma observação prática: após o esgotamento de uma quota principal de coding agent, o Remote Desktop Commander ainda expunha filesystem e processos úteis a partir do ChatGPT. Isso levou a um censo mais amplo de 181 ferramentas e arquiteturas, a um primeiro blueprint completo, a uma correção importante sobre distribuição via ChatGPT Plus/plugin público e a múltiplas rodadas de naming.
+O projeto começou com uma observação prática: após o esgotamento de uma quota principal de coding agent, o Remote Desktop Commander ainda expunha filesystem e processos úteis a partir do ChatGPT. Isso levou a um censo mais amplo de 181 ferramentas e arquiteturas, a um primeiro blueprint completo, a uma correção importante sobre distribuição via ChatGPT Plus/plugin público e a múltiplas rodadas de naming, incluindo uma Stage 2 com 560 nomes construídos que não superaram Telechir em autenticidade e fit.
 
 Veja `docs/history/research-lineage.md` para a narrativa completa.
 
