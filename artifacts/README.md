@@ -19,3 +19,9 @@ This directory stores dated, mostly immutable snapshots produced during research
 - `datasets/2026-09-29-ai-computer-control-ecosystem-census.json` — structured catalog.
 
 The source research normalized 181 materially relevant candidates spanning bridges/MCP servers, coding agents, computer-use/browser tools, sandboxes and CI/CD executors. Treat individual mutable claims as dated research and revalidate them before shipping product decisions.
+
+### 2026-09-29 — Product & technical blueprint draft
+
+- `archive/2026-09-29-product-technical-blueprint-machinaport-draft.md` — first complete product/technical blueprint snapshot.
+
+This file is intentionally under `archive/`: it used the now-rejected **MachinaPort** working name and predates the current ChatGPT Plus/public-plugin feasibility gate. It remains valuable as historical design context but is not the current source of truth.
