@@ -11,7 +11,7 @@ A implementação **não começou**. O repositório funciona como base versionad
 ## Gates atuais
 
 - [~] Naming discovery: **discovery concluído; `NAME_CONDITIONAL` — Telechir é o primary candidate**. O que resta é clearance autoritativo externo, não uma nova rodada criativa.
-- [ ] Caminho ChatGPT Plus + plugin público validado ponta a ponta.
+- [~] ChatGPT Plus + plugin público: caminho de referência validado empiricamente com Remote Desktop Commander (write/process); review/disponibilidade do plugin próprio continuam como release gates.
 - [ ] Blueprint técnico/de produto v2 atualizado após naming + validação de distribuição.
 - [ ] Definition of Ready reexecutada e aprovada.
 - [ ] Estratégia de licenciamento open source definida.
