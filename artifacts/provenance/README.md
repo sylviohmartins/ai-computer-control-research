@@ -1,15 +1,17 @@
-# Artifact Provenance
+# Proveniência dos Artefatos
 
-This directory is the audit trail between the ChatGPT research conversation and the structured repository.
+Este diretório é a trilha de auditoria entre a pesquisa feita no ChatGPT e o repositório estruturado.
 
-## Policy
+## Política
 
-The repository does **not** need to mirror every generated filename byte-for-byte to preserve history. Instead:
+O repositório não precisa espelhar byte a byte os nomes originais para preservar a história. Em vez disso:
 
-1. human-readable reports are archived as dated reports;
-2. important superseded source snapshots are retained under `artifacts/source/` or `artifacts/archive/`;
-3. large intermediate exports may be normalized into canonical datasets;
-4. every source artifact is listed in `source-manifest.json` with its original filename, date, size, SHA-256 checksum and repository representation;
-5. living conclusions belong under `docs/`; archived artifacts are evidence, not current truth.
+1. relatórios legíveis são arquivados como relatórios datados;
+2. snapshots relevantes e superados ficam em `artifacts/source/` ou `artifacts/archive/`;
+3. exports intermediários grandes podem ser normalizados em datasets canônicos;
+4. cada artefato de origem é listado em `source-manifest.json` com nome original, caminho normalizado, data, tamanho, SHA-256 e representação no repositório;
+5. conclusões vivas ficam em `docs/`; artefatos arquivados são evidência histórica, não verdade atual.
 
-This gives the project both reproducibility and a readable history without turning the repository into an unstructured dump of ChatGPT downloads.
+## Convenção de idioma
+
+Os **paths do repositório são padronizados em inglês**. O conteúdo documental do projeto é mantido em **português do Brasil**. O campo de nome original no manifesto pode preservar a grafia original porque faz parte da proveniência.

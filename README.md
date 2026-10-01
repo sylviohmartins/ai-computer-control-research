@@ -1,70 +1,78 @@
-# AI Computer Control Research
+# Pesquisa sobre Controle de Computadores por IA
 
-Research and architecture workspace for a future platform that lets authorized AI clients operate computers and executable environments through a secure, auditable control layer.
+Repositório de pesquisa, discovery de produto e arquitetura para uma futura plataforma que permita que clientes de IA autorizados operem computadores e ambientes executáveis por meio de uma camada de controle segura e auditável.
 
-> **Project status:** research and product/technical discovery. No production implementation has started. The product name is intentionally **TBD**; the latest naming round ended at `NAME_NOT_READY`.
+> **Estado do projeto:** pesquisa e discovery técnico/de produto. Nenhuma implementação de produção foi iniciada. O nome do produto permanece intencionalmente **TBD**; a rodada mais recente de naming terminou em `NAME_NOT_READY`.
 
-## Why this repository exists
+## Por que este repositório existe
 
-The project is exploring a model-agnostic execution layer that can connect AI clients such as ChatGPT, Codex, Claude, Gemini, Copilot and MCP-compatible tools to authorized machines while keeping device identity, permissions, approvals, auditability and future sandboxing as first-class concerns.
+O projeto investiga uma camada de execução agnóstica a modelos que possa conectar clientes como ChatGPT, Codex, Claude, Gemini, Copilot e ferramentas compatíveis com MCP a máquinas autorizadas, tratando identidade do dispositivo, permissões, aprovações, auditoria, revogação e futuro sandboxing como preocupações de primeira classe.
 
-This repository is the source of truth for:
+Este repositório é a fonte de verdade para:
 
-- market and ecosystem research;
-- product discovery and positioning;
-- technical feasibility studies;
-- architecture decisions and ADRs;
-- security and threat-model work;
-- naming and brand discovery;
-- the historical lineage of how the product idea evolved;
-- immutable/normalized research artifacts and datasets;
-- the future implementation roadmap.
+- pesquisa de mercado e ecossistema;
+- discovery e posicionamento de produto;
+- estudos de viabilidade técnica;
+- decisões arquiteturais e ADRs;
+- segurança e threat modeling;
+- naming e estratégia de marca;
+- histórico de como a ideia e as decisões evoluíram;
+- artefatos e datasets de pesquisa;
+- futuro roadmap de implementação.
 
-## Current principles
+## Princípios atuais
 
-- **Model agnostic:** the execution layer should not depend on a single LLM provider.
-- **Least privilege:** local policy is expected to remain authoritative.
-- **Outbound-first connectivity:** avoid requiring inbound ports on user machines.
-- **Typed tools first:** prefer explicit filesystem, process and Git operations over an unrestricted "execute anything" interface.
-- **Auditability:** remote actions should be attributable, reviewable and revocable.
-- **Progressive isolation:** distinguish host execution, guarded-host execution and sandboxed execution.
-- **Research before implementation:** unresolved platform, security and naming gates are documented before code is written.
-- **Preserve lineage:** superseded research is retained as historical evidence rather than silently rewritten.
+- **Agnóstico a modelos:** a camada de execução não deve depender de um único provedor de LLM.
+- **Menor privilégio:** a política local deve continuar sendo a autoridade final.
+- **Conectividade outbound-first:** evitar exigir portas de entrada abertas nas máquinas do usuário.
+- **Typed tools primeiro:** preferir operações explícitas de filesystem, processos e Git a uma interface irrestrita de “execute qualquer coisa”.
+- **Auditabilidade:** ações remotas devem ser atribuíveis, revisáveis e revogáveis.
+- **Isolamento progressivo:** diferenciar execução no host, guarded host e sandbox.
+- **Pesquisa antes da implementação:** gates não resolvidos de plataforma, segurança e naming devem ser documentados antes do código.
+- **Preservação da linhagem:** pesquisas superadas continuam registradas como evidência histórica.
 
-## Repository map
+## Mapa do repositório
 
-- `PROJECT_STATE.md` — current phase, gates and implementation status.
-- `AGENTS.md` — rules for AI coding/research agents working in this repository.
-- `docs/` — living product, discovery, architecture, security, testing and history documentation.
-- `docs/history/research-lineage.md` — concise narrative of how the project was born and why key decisions changed.
-- `artifacts/` — dated research snapshots, reports and structured datasets.
-- `artifacts/provenance/` — mapping from original ChatGPT-generated artifacts to their canonical repository representations.
+- `PROJECT_STATE.md` — fase atual, gates e estado da implementação.
+- `AGENTS.md` — regras para agentes de IA que trabalhem neste repositório.
+- `docs/` — documentação viva de produto, discovery, arquitetura, segurança, testes e histórico.
+- `docs/history/research-lineage.md` — narrativa de como o projeto nasceu e por que decisões importantes mudaram.
+- `artifacts/` — snapshots datados, relatórios e datasets estruturados.
+- `artifacts/provenance/` — rastreabilidade entre os artefatos originados no ChatGPT e suas representações no repositório.
 
-## Research lineage
+## Linhagem da pesquisa
 
-The project began from a practical observation: when a primary coding-agent quota was exhausted, Remote Desktop Commander still exposed useful filesystem/process access from ChatGPT. That prompted a broader census of 181 tools and architectures, a first complete blueprint, a correction around ChatGPT Plus/public-plugin distribution, and multiple naming-discovery rounds.
+O projeto começou com uma observação prática: após o esgotamento de uma quota principal de coding agent, o Remote Desktop Commander ainda expunha filesystem e processos úteis a partir do ChatGPT. Isso levou a um censo mais amplo de 181 ferramentas e arquiteturas, a um primeiro blueprint completo, a uma correção importante sobre distribuição via ChatGPT Plus/plugin público e a múltiplas rodadas de naming.
 
-See `docs/history/research-lineage.md` for the full project narrative.
+Veja `docs/history/research-lineage.md` para a narrativa completa.
 
-## Artifact coverage
+## Cobertura dos artefatos
 
-The originating ChatGPT work produced census datasets/reports, a first blueprint, naming reports, candidate exports and a reference screenshot. Every unique source artifact is now represented either directly or through a normalized canonical dataset, with SHA-256 provenance recorded in:
+Os trabalhos originados neste chat produziram datasets e relatórios de censo, blueprint técnico, pesquisas de naming, exports de candidatos e uma imagem de referência. Cada artefato único está representado diretamente ou por uma representação canônica/normalizada com proveniência registrada em:
 
 - `artifacts/provenance/source-manifest.json`
 - `artifacts/provenance/coverage.md`
 
-Large intermediate naming exports are intentionally deduplicated into `artifacts/datasets/naming/canonical-naming-candidates.csv` instead of being copied repeatedly.
+Exports intermediários grandes de naming são preservados como fontes e também consolidados em `artifacts/datasets/naming/canonical-naming-candidates.csv`.
 
-## Important status notes
+## Convenção de idioma
 
-The repository name is descriptive and temporary. It is **not** the final product brand.
+- **nomes de arquivos e diretórios:** inglês;
+- **conteúdo documental:** português do Brasil;
+- **identificadores técnicos, comandos, nomes de produtos, APIs e campos de schemas:** mantidos em inglês quando isso melhora interoperabilidade ou precisão.
 
-The repository is public for transparent research. **No open-source license has been selected yet**, so public visibility must not be interpreted as permission to reuse or redistribute the contents beyond what applicable law allows. Licensing is a pending product/governance decision.
+Veja `docs/language-and-naming-conventions.md`.
 
-## Contributing
+## Observações importantes
 
-The project is still in discovery. See `CONTRIBUTING.md` before opening issues or proposing changes.
+O nome do repositório é descritivo e temporário. Ele **não** é a marca final do produto.
 
-## Security
+O repositório é público para transparência da pesquisa. **Nenhuma licença open source foi escolhida ainda**; visibilidade pública não implica permissão automática de reutilização ou redistribuição além do permitido pela legislação aplicável.
 
-Do not publish secrets, credentials, tokens, private infrastructure details or actionable vulnerability reports in public issues. See `SECURITY.md`.
+## Contribuição
+
+O projeto ainda está em discovery. Consulte `CONTRIBUTING.md` antes de abrir issues ou propor alterações.
+
+## Segurança
+
+Não publique secrets, credenciais, tokens, detalhes privados de infraestrutura ou relatos de vulnerabilidade acionáveis em issues públicas. Consulte `SECURITY.md`.

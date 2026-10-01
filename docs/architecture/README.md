@@ -1,10 +1,10 @@
-# Architecture
+# Arquitetura
 
-This directory contains the **living** architecture of the project.
+Este diretório contém a arquitetura **viva** do projeto.
 
-- `overview/` — current system direction and boundaries.
-- `adr/` — durable Architecture Decision Records.
-- future `protocols/` — external MCP contracts and internal device transport.
-- future `data-model/` — durable entities and storage mappings once Blueprint v2 is approved.
+- `overview/` — direção atual do sistema e boundaries;
+- `adr/` — Architecture Decision Records duráveis;
+- futuro `protocols/` — contratos MCP externos e transporte interno de dispositivo;
+- futuro `data-model/` — entidades persistentes e mapeamento de armazenamento após aprovação do Blueprint v2.
 
-Generated or superseded design snapshots belong under `artifacts/archive/`.
+Snapshots gerados ou superados pertencem a `artifacts/archive/`.

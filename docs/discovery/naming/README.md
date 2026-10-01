@@ -1,87 +1,87 @@
 # Naming Discovery
 
-**Status:** research round completed; further round/clearance required  
+**Status:** rodada de pesquisa concluída; nova rodada/clearance ainda necessária  
 **Gate:** `NAME_NOT_READY`  
-**Updated:** 2026-10-01
+**Atualizado em:** 2026-10-01
 
-The project intentionally has **no approved product name yet**.
+O projeto intencionalmente **ainda não possui um nome de produto aprovado**.
 
-## Historical sequence
+## Sequência histórica
 
-### Round 1 — 2026-09-29
+### Rodada 1 — 2026-09-29
 
-The first structured naming round elevated **Telechir** to `NAME_CONDITIONAL`.
+A primeira rodada estruturada elevou **Telechir** a `NAME_CONDITIONAL`.
 
-Why it survived:
-- authentic historical teleoperation term;
-- unusually strong fit with the “remote hand/action layer” product concept;
-- strong story and visual potential;
-- low preliminary software collision.
+Por que sobreviveu:
+- termo histórico autêntico de teleoperação;
+- fit incomumente forte com o conceito de “mão remota/camada de ação”;
+- história de marca e potencial visual fortes;
+- baixa colisão preliminar com software.
 
-Why it did not pass:
-- pronunciation/spellability concern;
-- domain/package availability not authoritatively verified;
-- trademark clearance incomplete.
+Por que não passou:
+- preocupação com pronúncia/spellability;
+- disponibilidade de domínio/packages não verificada de forma autoritativa;
+- trademark clearance incompleto.
 
-Source: `artifacts/reports/naming/2026-09-29-naming-discovery-report.md`.
+Fonte: `artifacts/reports/naming/2026-09-29-naming-discovery-report.md`.
 
-### Round 2 — 2026-10-01
+### Rodada 2 — 2026-10-01
 
-A broader creative round explored additional semantic territories and generated a larger candidate universe.
+Uma rodada criativa mais ampla explorou novos territórios semânticos e gerou universo maior de candidatos.
 
-Creative finalists included:
+Finalistas criativos incluíram:
 - Grapnel;
 - Skeg;
 - Nervo;
 - Prehend;
 - Hawse.
 
-The round returned to **`NAME_NOT_READY`** because the strongest names had material search/software/package collision or unresolved clearance issues. The process intentionally refused to choose the least-bad option merely to create a product repository.
+O gate voltou a **`NAME_NOT_READY`** porque os nomes mais fortes apresentaram colisões relevantes em busca, software/packages ou pendências de clearance. O processo recusou intencionalmente escolher “o menos ruim” apenas para avançar.
 
-Source: `artifacts/reports/naming/2026-10-01-naming-discovery-report.md`.
+Fonte: `artifacts/reports/naming/2026-10-01-naming-discovery-report.md`.
 
-## Rejected working name
+## Working name rejeitado
 
-**MachinaPort** was rejected after the first blueprint because it felt overly pragmatic/descriptive, lacked authentic brand character and did not pass the intended oral/viral-brand standard. Historical artifacts may still contain the name; do not treat those occurrences as a current decision.
+**MachinaPort** foi rejeitado após o primeiro blueprint por parecer excessivamente pragmático/descritivo e não atingir o padrão esperado de oralidade, autenticidade e potencial de marca. Artefatos históricos podem continuar contendo esse nome; essas ocorrências não representam decisão atual.
 
-## Brand goal
+## Objetivo da marca
 
-Find a name that can stand on its own in the way strong technology brands do: memorable, easy to pronounce, easy to spell, internationally usable and broad enough to remain relevant if the product expands beyond remote desktop.
+Encontrar um nome que consiga existir por conta própria como marcas fortes de tecnologia: memorável, fácil de pronunciar, fácil de escrever, utilizável internacionalmente e amplo o suficiente para continuar válido caso o produto ultrapasse o caso de remote desktop.
 
-The brand should suggest some combination of **capability, trust, intelligence and movement** without mechanically concatenating words such as `AI`, `Agent`, `Machine`, `Desktop`, `Remote`, `Bridge`, `Port` or `Control`.
+A marca deve sugerir alguma combinação de **capacidade, confiança, inteligência e movimento**, evitando concatenações mecânicas de palavras como `AI`, `Agent`, `Machine`, `Desktop`, `Remote`, `Bridge`, `Port` ou `Control`.
 
-## Required funnel
+## Funil obrigatório
 
-1. Research category language and competitor naming.
-2. Define independent semantic territories.
-3. Generate hundreds of diverse candidates.
-4. Filter by semantics, phonetics and memorability.
-5. Run search-collision screening.
-6. Run PT-BR / EN / ES oral and connotation checks.
-7. Check packages/domains/handles.
-8. Deep-analyze finalists.
-9. Perform preliminary trademark screening.
-10. Set one of `NAME_READY`, `NAME_CONDITIONAL`, or `NAME_NOT_READY`.
+1. Pesquisar linguagem da categoria e naming de concorrentes.
+2. Definir territórios semânticos independentes.
+3. Gerar centenas de candidatos diversos.
+4. Filtrar por semântica, fonética e memorabilidade.
+5. Executar search-collision screening.
+6. Executar testes de oralidade e conotação em PT-BR / EN / ES.
+7. Verificar packages, domínios e handles.
+8. Analisar profundamente os finalistas.
+9. Fazer preliminary trademark screening.
+10. Definir `NAME_READY`, `NAME_CONDITIONAL` ou `NAME_NOT_READY`.
 
-## Evaluation priorities
+## Prioridades de avaliação
 
-Highest weight:
-- memorability and distinctiveness;
-- sonority and pronunciation across PT-BR / English / Spanish;
-- natural spelling / radio test;
-- credible brand story;
-- extensibility to Agent, CLI, Cloud, MCP, Runtime and SDK;
-- low search collision.
+Maior peso para:
+- memorabilidade e distintividade;
+- sonoridade e pronúncia em PT-BR / inglês / espanhol;
+- escrita natural / radio test;
+- história de marca convincente;
+- extensibilidade para Agent, CLI, Cloud, MCP, Runtime e SDK;
+- baixa colisão em busca.
 
-SEO should come primarily from the product descriptor and content architecture rather than keyword-stuffing the brand name.
+SEO deve vir principalmente do descriptor e da arquitetura de conteúdo do produto, não de keyword stuffing no nome.
 
-## Data lineage
+## Linhagem dos dados
 
-The original naming exports from both rounds are represented in:
-- dated discovery datasets under `artifacts/datasets/naming/`;
-- `artifacts/datasets/naming/canonical-naming-candidates.csv`, a deduplicated projection retaining source-file provenance;
-- `artifacts/provenance/source-manifest.json`, which records every originating file and SHA-256.
+Os exports das duas rodadas estão representados em:
+- datasets datados em `artifacts/datasets/naming/`;
+- `artifacts/datasets/naming/canonical-naming-candidates.csv`, projeção deduplicada que preserva proveniência;
+- `artifacts/provenance/source-manifest.json`, que registra todo arquivo originário e seu SHA-256.
 
-## Repository naming
+## Naming do repositório
 
-`ai-computer-control-research` is intentionally descriptive and safe to use while brand discovery is unfinished. Do not rename the repository to a product brand until the naming gate is passed.
+`ai-computer-control-research` é intencionalmente descritivo e seguro enquanto a marca estiver pendente. Não renomeie o repositório para uma marca de produto antes de o naming gate ser aprovado.

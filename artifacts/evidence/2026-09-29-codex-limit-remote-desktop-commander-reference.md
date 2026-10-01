@@ -1,25 +1,25 @@
-# Reference image — Codex limit / Remote Desktop Commander
+# Imagem de Referência — Limite do Codex / Remote Desktop Commander
 
-**Original filename:** `79CAF644-44B8-427F-BEDC-C35FB7D58E69.jpeg`  
-**Original size:** 135,446 bytes  
+**Nome original:** `79CAF644-44B8-427F-BEDC-C35FB7D58E69.jpeg`  
+**Tamanho original:** 135.446 bytes  
 **SHA-256:** `bda7fbb41278f270955cac11a712bf0c673baf4ba908adac21867038b76bd95b`  
-**Historical date:** 2026-09-29 research context
+**Data histórica:** contexto de pesquisa de 2026-09-29
 
-## What the image showed
+## O que a imagem mostrava
 
-A mobile/social screenshot with the prominent Portuguese caption:
+Uma captura mobile/social com a legenda em destaque:
 
 > “Limite Semanal do Codex acabou, mas...”
 
-The lower portion showed ChatGPT using **Remote Desktop Commander**, visually reinforcing the original practical insight behind the research: when one coding-agent quota is exhausted, an independent computer-control/execution layer can still let a general AI operate an authorized machine.
+Na parte inferior, o ChatGPT aparecia utilizando **Remote Desktop Commander**, reforçando visualmente o insight prático que originou a pesquisa: quando uma quota específica de coding agent termina, uma camada independente de controle/execução ainda pode permitir que uma IA geral opere uma máquina autorizada.
 
-## Why it matters
+## Por que isso importa
 
-The image is not product UI, a design reference or a branding asset. It is **historical evidence of the problem trigger** that led to:
+A imagem não é UI do produto, referência de design ou asset de branding. Ela é **evidência histórica do gatilho do problema** que levou a:
 
-1. investigation of Remote Desktop Commander;
-2. global census of equivalent/complementary tools;
-3. the universal AI computer-control product concept;
-4. the decision to separate AI intelligence from the execution/device layer.
+1. investigar Remote Desktop Commander;
+2. realizar o censo global de ferramentas equivalentes/complementares;
+3. formular o conceito de uma plataforma universal de controle de computadores por IA;
+4. separar a inteligência da IA da camada de execução/dispositivo.
 
-The binary is not duplicated in this public repository. Its provenance is preserved by the original filename, size, SHA-256 checksum and this semantic record.
+O binário não é duplicado neste repositório público. Sua proveniência é preservada pelo nome original, tamanho, SHA-256, este registro semântico e o manifesto.

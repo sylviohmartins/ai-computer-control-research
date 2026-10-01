@@ -1,31 +1,31 @@
-# Product Vision
+# Visão do Produto
 
-## One-line concept
+## Conceito em uma linha
 
-A secure, auditable action layer that lets authorized AI clients operate authorized computers and executable environments without being tied to a single model provider.
+Uma camada segura e auditável de ação que permite que clientes de IA autorizados operem computadores e ambientes executáveis autorizados sem depender de um único provedor de modelo.
 
-## Problem
+## Problema
 
-AI tools increasingly need filesystem, process, Git, browser and computer-use capabilities, but these capabilities are fragmented across provider-specific agents, MCP servers, remote desktop products and cloud sandboxes. Users often have to choose between convenience, portability and safety.
+Ferramentas de IA precisam cada vez mais de filesystem, processos, Git, browser e computer-use, mas essas capabilities estão fragmentadas entre agentes específicos de provedor, MCP servers, produtos de remote desktop e cloud sandboxes. Usuários frequentemente precisam escolher entre conveniência, portabilidade e segurança.
 
-## Intended value
+## Valor pretendido
 
-Provide one execution layer that can be reused by multiple AI clients while centralizing device identity, permissions, approvals, auditability, revocation and later sandboxing.
+Oferecer uma única camada de execução reutilizável por múltiplos clientes de IA, centralizando identidade do dispositivo, permissões, approvals, auditabilidade, revogação e, futuramente, sandboxing.
 
-## Initial jobs to be done
+## Jobs to be done iniciais
 
-- connect an authorized AI client to one of the user's authorized machines;
-- safely list/read/write files inside explicitly permitted roots;
-- run and observe bounded or long-running development processes;
-- inspect Git status/diffs without silently publishing changes;
-- revoke a device or session centrally;
-- understand what the AI did through an auditable activity timeline.
+- conectar um cliente de IA autorizado a uma máquina autorizada;
+- listar/ler/escrever arquivos dentro de roots explicitamente permitidos;
+- executar e observar processos curtos ou long-running de desenvolvimento;
+- inspecionar Git status/diff sem publicar alterações silenciosamente;
+- revogar dispositivo ou sessão centralmente;
+- entender o que a IA fez por uma timeline auditável.
 
-## Non-goals for the first implementation
+## Non-goals da primeira implementação
 
-- building a new LLM;
-- replacing full RMM/MDM platforms;
-- silent privilege escalation;
-- unrestricted remote administration by default;
-- full-screen remote desktop streaming in the MVP;
-- autonomous deployment to production without explicit policy and approval.
+- construir um novo LLM;
+- substituir plataformas completas de RMM/MDM;
+- realizar privilege escalation silencioso;
+- administração remota irrestrita por padrão;
+- streaming completo de remote desktop no MVP;
+- deploy autônomo em produção sem policy e approval explícitos.

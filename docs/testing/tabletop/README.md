@@ -1,18 +1,18 @@
 # Architecture Tabletop Exercises
 
-The first blueprint exercised the architecture on paper before implementation. The core scenarios to preserve for Blueprint v2 are:
+O primeiro blueprint simulou a arquitetura no papel antes da implementação. Cenários que devem ser preservados no Blueprint v2:
 
-- bounded filesystem read/write;
-- long-running `mvn test` without holding one request open;
-- detached application process lifecycle;
-- offline device behavior;
-- device reconnect without duplicate execution;
-- dangerous-command approval/denial;
-- prompt injection from repository content;
-- concurrent clients on one workspace;
-- very large command output;
-- future GUI/screenshot action safety;
-- signed agent update and rollback;
-- hosted control-plane outage.
+- read/write de filesystem com limites;
+- `mvn test` long-running sem manter uma request aberta;
+- lifecycle de processo de aplicação detached;
+- comportamento com device offline;
+- reconnect sem execução duplicada;
+- approval/negação de comando perigoso;
+- prompt injection proveniente do repositório;
+- clientes concorrentes no mesmo workspace;
+- output de comando muito grande;
+- segurança futura de GUI/screenshot;
+- update assinado do agent e rollback;
+- indisponibilidade do control plane hospedado.
 
-Each scenario should become an executable integration or chaos test when the relevant subsystem exists.
+Cada cenário deve virar integration/chaos test executável quando o subsistema correspondente existir.

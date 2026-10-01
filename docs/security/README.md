@@ -1,15 +1,15 @@
-# Security Discovery
+# Discovery de Segurança
 
-Security is a product capability, not a later hardening task.
+Segurança é uma capability do produto, não uma etapa posterior de hardening.
 
-Current direction:
+Direção atual:
 
-- local device policy is expected to be authoritative;
-- permissions use explicit allow / ask / deny semantics;
-- dangerous operations should require stronger approval or remain denied;
-- filesystem authorization must be based on canonical resolved paths;
-- device identity, revocation and short-lived sessions are first-class concerns;
-- host execution, guarded-host execution and sandbox execution are distinct security modes;
-- secrets should be referenced/injected without unnecessarily exposing values to the model.
+- policy local do dispositivo deve ser a autoridade final;
+- permissões usam semântica explícita allow / ask / deny;
+- operações perigosas exigem aprovação mais forte ou permanecem negadas;
+- autorização de filesystem deve operar sobre paths resolvidos/canônicos;
+- identidade do dispositivo, revogação e sessões curtas são preocupações de primeira classe;
+- host, guarded-host e sandbox são modos de segurança distintos;
+- secrets devem ser referenciados/injetados sem expor valores desnecessariamente ao modelo.
 
-The current threat model is still a discovery artifact and will be frozen into a formal specification only after Blueprint v2.
+O threat model atual ainda é artefato de discovery e só será congelado em especificação formal após o Blueprint v2.

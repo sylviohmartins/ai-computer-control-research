@@ -1,14 +1,14 @@
-# Cloudflare Research
+# Pesquisa sobre Cloudflare
 
-Cloudflare is the leading hosted-control-plane candidate, but mutable quotas, pricing and service behavior must be revalidated before implementation milestones.
+Cloudflare é o principal candidato ao control plane hospedado, mas quotas, preços e comportamento dos serviços devem ser revalidados antes dos marcos de implementação.
 
-Research topics include:
+Temas de pesquisa:
 
-- Workers for public MCP/OAuth/API endpoints;
-- Durable Objects for per-device coordination and realtime presence;
-- D1 for durable metadata;
-- R2 for large artifacts;
-- Queues/Analytics Engine/KV only where their semantics justify them;
-- Tunnel/Access for future private or enterprise connectivity.
+- Workers para endpoints públicos MCP/OAuth/API;
+- Durable Objects para coordenação por dispositivo e presença realtime;
+- D1 para metadata durável;
+- R2 para artefatos grandes;
+- Queues/Analytics Engine/KV somente quando suas semânticas justificarem;
+- Tunnel/Access para conectividade privada ou enterprise futura.
 
-Historical Cloudflare findings are preserved in the archived 2026-09-29 product blueprint.
+Achados históricos de Cloudflare estão preservados no blueprint técnico de 2026-09-29.

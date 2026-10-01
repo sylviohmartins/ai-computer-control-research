@@ -1,9 +1,9 @@
 # Discovery
 
-This area contains active product discovery work that has not yet hardened into implementation specifications.
+Esta área contém discovery ativo de produto que ainda não se consolidou em especificações de implementação.
 
-- `competitors/` — ecosystem and competitor discovery.
-- `naming/` — brand/naming brief, rejected names and clearance status.
-- `feasibility/` — platform, plan and distribution constraints that can change the product architecture.
+- `competitors/` — descoberta de ecossistema e concorrentes;
+- `naming/` — brief de marca, nomes rejeitados e estado de clearance;
+- `feasibility/` — restrições mutáveis de plataforma, plano e distribuição que podem alterar a arquitetura.
 
-When a discovery becomes a durable architecture choice, capture it in an ADR rather than leaving the decision implicit in research notes.
+Quando um discovery virar decisão arquitetural durável, registre-o em ADR em vez de deixá-lo implícito em notas de pesquisa.

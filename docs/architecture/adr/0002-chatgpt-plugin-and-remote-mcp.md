@@ -1,25 +1,25 @@
-# ADR-0002: Treat the ChatGPT Plugin as Distribution and Remote MCP as an Integration Backend
+# ADR-0002: Tratar o Plugin do ChatGPT como Distribuição e o Remote MCP como Backend de Integração
 
 - **Status:** Proposed
-- **Date:** 2026-10-01
+- **Data:** 2026-10-01
 
-## Context
+## Contexto
 
-A primary target user may have ChatGPT Plus and may not have access to manually register a full custom MCP server with write/modify capabilities. Remote Desktop Commander demonstrates a published-plugin experience backed by a remote MCP service.
+Um usuário-alvo pode possuir somente ChatGPT Plus e não ter permissão para registrar manualmente um custom MCP completo com write/modify. O Remote Desktop Commander demonstra uma experiência de plugin publicado apoiada por um serviço Remote MCP.
 
-## Proposed decision
+## Decisão proposta
 
-For ChatGPT, treat a **published plugin/app** as the user-facing distribution mechanism and a **remote MCP server** as the tool backend. Do not require end users to manually configure a custom MCP server.
+No ChatGPT, tratar um **plugin/app publicado** como mecanismo de distribuição para o usuário e um **Remote MCP server** como backend de tools. O usuário final não deve precisar configurar manualmente um custom MCP.
 
-The core runtime remains usable through direct MCP integration for other compatible AI clients.
+O runtime principal continua utilizável por integração MCP direta em outros clientes compatíveis.
 
 ## Trade-offs
 
-- improves onboarding for ChatGPT users;
-- keeps the core multi-AI;
-- introduces OpenAI review/eligibility constraints;
-- exact Plus availability and write/process capability must be validated before acceptance.
+- melhora onboarding no ChatGPT;
+- preserva o core multi-IA;
+- introduz dependência de review/eligibilidade da OpenAI;
+- disponibilidade real no Plus e capability de write/process precisam ser validadas.
 
-## Acceptance gate
+## Gate de aceite
 
-This ADR cannot move to Accepted until an end-to-end Plus test verifies the required public-plugin behavior on the intended ChatGPT surface.
+Este ADR não pode migrar para Accepted até um teste ponta a ponta em conta Plus validar o comportamento necessário do plugin público na surface pretendida.

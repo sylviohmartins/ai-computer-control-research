@@ -1,18 +1,18 @@
-# ADR-0003: Make Local Device Policy Authoritative
+# ADR-0003: Tornar a Política Local do Dispositivo a Autoridade Final
 
 - **Status:** Proposed
-- **Date:** 2026-10-01
+- **Data:** 2026-10-01
 
-## Context
+## Contexto
 
-A hosted service or AI client may be compromised, misconfigured or affected by prompt injection. The remote control plane must not be able to silently expand a device's maximum permissions.
+Um serviço hospedado ou cliente de IA pode ser comprometido, configurado incorretamente ou sofrer prompt injection. O control plane remoto não pode expandir silenciosamente as permissões máximas de um dispositivo.
 
-## Proposed decision
+## Decisão proposta
 
-The local agent enforces the final permission ceiling. Cloud/account/session policy may further restrict actions but may not grant permissions beyond the locally configured boundary.
+O agente local aplica o teto final de permissões. Políticas de cloud, conta ou sessão podem restringir ainda mais, mas nunca conceder permissões além do limite configurado localmente.
 
-## Consequences
+## Consequências
 
-- compromise of the hosted control plane has a smaller blast radius;
-- local configuration and recovery paths become security-critical;
-- enterprise policy synchronization must preserve this precedence model or explicitly supersede this ADR.
+- comprometimento do control plane hospedado tem blast radius menor;
+- configuração e recovery local se tornam security-critical;
+- eventual sincronização de políticas enterprise deve preservar essa precedência ou substituir explicitamente este ADR.

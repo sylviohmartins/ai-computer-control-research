@@ -1,18 +1,18 @@
-# ADR-0001: Record Architecture Decisions
+# ADR-0001: Registrar Decisões Arquiteturais
 
 - **Status:** Accepted
-- **Date:** 2026-10-01
+- **Data:** 2026-10-01
 
-## Context
+## Contexto
 
-The project is research-heavy and likely to evolve across AI platforms, Cloudflare services, local-agent technology and security boundaries. Important decisions need durable rationale.
+O projeto é intensivo em pesquisa e deve evoluir entre plataformas de IA, serviços Cloudflare, tecnologia do agente local e boundaries de segurança. Decisões importantes precisam manter justificativa durável.
 
-## Decision
+## Decisão
 
-Use Architecture Decision Records under `docs/architecture/adr/`. Historical ADRs are immutable except for small factual corrections; changed decisions are superseded by new ADRs.
+Utilizar Architecture Decision Records em `docs/architecture/adr/`. ADRs históricos são imutáveis, exceto por pequenas correções factuais; decisões alteradas devem ser substituídas por novos ADRs.
 
-## Consequences
+## Consequências
 
-- decisions remain explainable to future contributors and AI agents;
-- trade-offs are visible;
-- documentation overhead increases slightly but reduces repeated redesign.
+- decisões permanecem explicáveis para futuros colaboradores e agentes;
+- trade-offs ficam visíveis;
+- existe pequeno custo documental adicional, compensado pela redução de redesenho repetido.

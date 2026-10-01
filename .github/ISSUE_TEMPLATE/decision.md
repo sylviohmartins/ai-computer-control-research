@@ -1,18 +1,18 @@
 ---
-name: Decision proposal
-about: Propose a product or architecture decision before turning it into an ADR
+name: Proposta de decisão
+about: Proponha uma decisão de produto ou arquitetura antes de convertê-la em ADR
 title: "decision: "
 labels: decision
 ---
 
-## Context
+## Contexto
 
-## Options considered
+## Opções consideradas
 
-## Proposed decision
+## Decisão proposta
 
 ## Trade-offs
 
-## Evidence
+## Evidências
 
-## Reversibility
+## Reversibilidade

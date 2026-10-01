@@ -1,11 +1,11 @@
-# ChatGPT sources — 2026-10-01
+# Fontes do ChatGPT — 2026-10-01
 
-This folder contains the second naming-discovery round:
+Esta pasta contém a segunda rodada de naming discovery:
 
-- full naming report;
-- compact discovery catalog;
-- Top 20 export;
-- raw candidate export;
-- complete candidate working exports.
+- relatório completo;
+- catálogo compacto;
+- export do Top 20;
+- export de candidatos brutos;
+- exports completos de trabalho.
 
-The final gate for this round was `NAME_NOT_READY`. No candidate in this folder is an approved product brand.
+Os nomes de arquivo foram normalizados em inglês. O gate final desta rodada foi `NAME_NOT_READY`; nenhum candidato desta pasta é uma marca aprovada.

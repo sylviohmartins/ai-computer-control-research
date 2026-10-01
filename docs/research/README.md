@@ -1,11 +1,11 @@
-# Research Standards
+# Padrões de Pesquisa
 
-Research documents should be reproducible enough for another contributor or AI agent to understand what was searched, when it was searched and how strongly the evidence supports the conclusion.
+Documentos de pesquisa devem ser reproduzíveis o suficiente para que outra pessoa ou agente entenda o que foi pesquisado, quando e com que força a evidência sustenta a conclusão.
 
-For mutable claims such as plan availability, pricing, limits, plugin requirements and current product capabilities:
+Para afirmações mutáveis como disponibilidade por plano, preços, limites, requisitos de plugin e capabilities atuais:
 
-1. record the research date;
-2. prefer vendor documentation or primary repositories;
-3. distinguish confirmed, probable and unverified conclusions;
-4. preserve important raw/generated snapshots under `artifacts/`;
-5. revisit claims before a release or irreversible architecture decision.
+1. registre a data da pesquisa;
+2. prefira documentação do fornecedor ou repositório primário;
+3. diferencie conclusões confirmadas, prováveis e não verificadas;
+4. preserve snapshots importantes em `artifacts/`;
+5. revalide afirmações antes de release ou decisão arquitetural irreversível.

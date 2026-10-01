@@ -1,34 +1,36 @@
-# Contributing
+# Contribuindo
 
-Thank you for your interest. The project is currently in **research and architecture discovery**, so contribution workflow is intentionally conservative.
+Obrigado pelo interesse. O projeto está em **pesquisa e discovery de arquitetura**, portanto o fluxo de contribuição é intencionalmente conservador.
 
-## What is useful now
+## O que é útil agora
 
-- corrections to research with primary-source evidence;
-- competitor or ecosystem discoveries;
-- security/threat-model observations;
-- naming conflicts or clearance evidence;
-- architecture feedback tied to concrete trade-offs.
+- correções de pesquisa acompanhadas de fonte primária;
+- descobertas de concorrentes ou ecossistema;
+- observações de segurança/threat model;
+- evidências de colisão ou clearance de naming;
+- feedback arquitetural associado a trade-offs concretos.
 
-## What is not ready yet
+## O que ainda não está pronto
 
-- production feature implementations;
-- large framework or dependency additions;
-- deployment automation;
-- provider-specific lock-in that has not been discussed in an ADR.
+- implementação de features de produção;
+- grandes frameworks ou dependências;
+- automação de deploy;
+- lock-in específico de provedor sem discussão em ADR.
 
 ## Pull requests
 
-Keep pull requests focused, explain why the change is needed, cite sources for mutable technical claims, and update `PROJECT_STATE.md` only when a project gate or phase genuinely changes.
+Mantenha PRs focados, explique por que a mudança pertence à fase atual, cite fontes para afirmações técnicas mutáveis e altere `PROJECT_STATE.md` somente quando um gate ou fase realmente mudar.
 
-## Commit style
+## Estilo de commit
 
-Use focused Conventional Commit-style messages, for example:
+Use mensagens focadas no estilo Conventional Commits, por exemplo:
 
 - `docs(research): add Cloudflare Durable Objects findings`
 - `docs(architecture): propose device identity ADR`
 - `chore(repo): refine research issue templates`
 
-## Licensing
+As mensagens podem permanecer em inglês para compatibilidade com tooling; o conteúdo documental deve permanecer em PT-BR.
 
-No open-source license has been selected yet. Do not assume public visibility grants reuse rights. A formal license will be added only after the licensing strategy is decided.
+## Licenciamento
+
+Nenhuma licença open source foi escolhida. Não presuma que visibilidade pública concede direitos de reutilização. Uma licença formal será adicionada somente após definição da estratégia de licenciamento.

@@ -1,14 +1,14 @@
-# MCP Research
+# Pesquisa sobre MCP
 
-MCP is currently the leading **external AI-tool protocol** for the project. It should not automatically be reused as the internal cloud-to-device transport.
+MCP é atualmente o principal **protocolo externo de tools de IA** considerado pelo projeto. Isso não significa que ele deva ser reutilizado automaticamente como transporte interno entre cloud e dispositivo.
 
-Research focus:
+Focos de pesquisa:
 
-- public remote MCP server requirements;
-- OAuth and authorization;
-- tool schemas and annotations;
-- stateless/handle-based task patterns;
-- client compatibility across ChatGPT, Claude, Gemini, Copilot and third-party agents;
-- plugin/app distribution semantics where MCP is packaged behind a user-facing integration.
+- requisitos de Remote MCP público;
+- OAuth e autorização;
+- schemas e annotations de tools;
+- padrões stateless/baseados em handles para tasks;
+- compatibilidade entre ChatGPT, Claude, Gemini, Copilot e agentes de terceiros;
+- semântica de distribuição plugin/app quando o MCP fica por trás de uma integração voltada ao usuário.
 
-Protocol-version-specific claims must be dated and revalidated before implementation.
+Afirmações dependentes de versão do protocolo devem ser datadas e revalidadas antes da implementação.

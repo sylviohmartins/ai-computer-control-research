@@ -1,10 +1,10 @@
-# ChatGPT sources — 2026-09-29
+# Fontes do ChatGPT — 2026-09-29
 
-This folder contains the source exports from the first major discovery day:
+Esta pasta contém os exports de origem do primeiro grande dia de discovery:
 
-- ecosystem census report and structured exports;
-- first complete product/technical blueprint using the rejected MachinaPort working name;
-- first naming discovery report and datasets;
-- large candidate working exports.
+- relatório e exports estruturados do censo do ecossistema;
+- primeiro blueprint técnico/de produto, ainda com o working name rejeitado MachinaPort;
+- primeiro relatório e datasets de naming discovery;
+- exports completos de candidatos.
 
-These files are preserved for history. Do not treat the MachinaPort name or older platform assumptions as current decisions.
+Os nomes de arquivo foram normalizados em inglês. O conteúdo é preservado para histórico e proveniência; não trate MachinaPort nem hipóteses antigas de plataforma como decisões atuais.

@@ -1,22 +1,22 @@
 ---
-name: Research finding
-about: Record a sourced ecosystem, platform or feasibility finding
+name: Descoberta de pesquisa
+about: Registre uma descoberta fundamentada sobre ecossistema, plataforma ou viabilidade
 title: "research: "
 labels: research
 ---
 
-## Question
+## Pergunta
 
-What are we trying to verify?
+O que estamos tentando verificar?
 
-## Finding
+## Descoberta
 
-What did the research establish?
+O que a pesquisa estabeleceu?
 
-## Evidence
+## Evidências
 
-Prefer primary sources. Include access dates for mutable claims.
+Prefira fontes primárias. Inclua a data de acesso para afirmações mutáveis.
 
-## Impact
+## Impacto
 
-What product, architecture or roadmap decision could this change?
+Que decisão de produto, arquitetura ou roadmap pode ser alterada por esta descoberta?

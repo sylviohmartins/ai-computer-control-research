@@ -1,8 +1,8 @@
-# Product
+# Produto
 
-Living product documents:
+Documentos vivos de produto:
 
-- `vision.md` — problem, value and non-goals.
-- `roadmap.md` — discovery gates and implementation sequence.
+- `vision.md` — problema, valor e non-goals;
+- `roadmap.md` — gates de discovery e sequência de implementação.
 
-The product brand is currently TBD. Product documents should avoid hard-coding a rejected working name.
+A marca do produto permanece TBD. Documentos de produto não devem hard-code um working name rejeitado.

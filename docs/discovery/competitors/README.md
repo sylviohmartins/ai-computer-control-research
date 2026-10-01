@@ -1,21 +1,21 @@
-# Ecosystem and Competitor Discovery
+# Discovery de Ecossistema e Concorrentes
 
-The canonical raw snapshot is the 2026-09-29 ecosystem census stored under `artifacts/`.
+O snapshot bruto canônico é o censo de 2026-09-29 armazenado em `artifacts/`.
 
-The research showed that the product category is broader than remote desktop. Relevant architectures include:
+A pesquisa mostrou que a categoria é mais ampla que remote desktop. Arquiteturas relevantes incluem:
 
-- remote bridges and MCP servers;
-- local/IDE coding agents;
-- computer-use and GUI automation;
-- browser automation;
-- remote executors and SSH tooling;
-- sandboxes and disposable environments;
-- CI/CD as an execution substrate;
-- orchestration layers that combine multiple agents.
+- bridges remotos e MCP servers;
+- coding agents locais/IDE;
+- computer-use e automação de GUI;
+- automação de browser;
+- remote executors e ferramentas SSH;
+- sandboxes e ambientes descartáveis;
+- CI/CD como substrate de execução;
+- camadas de orquestração que combinam múltiplos agentes.
 
-This distinction is important: the future product should synthesize useful capabilities rather than copy one competitor feature-for-feature.
+Essa distinção é importante: o produto futuro deve sintetizar capacidades úteis, e não copiar um concorrente feature por feature.
 
-## Snapshot references
+## Snapshots
 
 - `../../../artifacts/reports/2026-09-29-ai-computer-control-ecosystem-census.md`
 - `../../../artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.csv`

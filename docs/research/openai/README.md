@@ -1,8 +1,8 @@
-# OpenAI Integration Research
+# Pesquisa de Integração com OpenAI
 
-This directory tracks dated findings about ChatGPT/Codex plugin distribution, MCP behavior and plan/surface constraints.
+Este diretório acompanha descobertas datadas sobre distribuição de plugins ChatGPT/Codex, comportamento MCP e restrições por plano/surface.
 
-Current decision-impacting note:
-- see `../../discovery/feasibility/chatgpt-plus-public-plugin.md`.
+Nota com impacto atual:
+- consulte `../../discovery/feasibility/chatgpt-plus-public-plugin.md`.
 
-Because OpenAI plan entitlements and plugin surfaces change, these findings must be revalidated immediately before beta/release.
+Como entitlements e surfaces da OpenAI mudam, essas conclusões devem ser revalidadas imediatamente antes de beta/release.

@@ -1,28 +1,28 @@
-# Threat Model — Working Set
+# Threat Model — Conjunto de Trabalho
 
-**Status:** discovery, not final security specification.
+**Status:** discovery, não especificação final de segurança.
 
-Threat families already identified in the archived blueprint include:
+Famílias de ameaça já identificadas:
 
-1. account/OAuth token theft;
-2. device-key compromise;
-3. pairing phishing and replay;
-4. session hijacking/replay;
-5. malicious or over-privileged AI clients;
-6. path traversal and symlink/reparse-point escapes;
-7. sensitive-file access;
-8. destructive filesystem operations;
-9. encoded or obfuscated shell commands;
+1. roubo de token OAuth/conta;
+2. comprometimento da chave do dispositivo;
+3. phishing e replay de pairing;
+4. sequestro/replay de sessão;
+5. clientes de IA maliciosos ou superprivilegiados;
+6. path traversal e escape por symlink/reparse point;
+7. acesso a arquivos sensíveis;
+8. operações destrutivas de filesystem;
+9. comandos shell codificados/ofuscados;
 10. privilege escalation;
-11. process/resource exhaustion;
-12. dependency-install and supply-chain risk;
-13. network exfiltration;
-14. prompt injection from files, terminal output, webpages, screenshots or clipboard;
-15. concurrent AI clients overwriting the same workspace;
-16. duplicated execution after retries/reconnects;
-17. stale approvals;
-18. hosted control-plane compromise;
-19. malicious auto-update;
-20. secrets leaking through logs/artifacts.
+11. exaustão de processos/recursos;
+12. risco de instalação de dependências e supply chain;
+13. exfiltração de rede;
+14. prompt injection por arquivos, terminal output, páginas, screenshots ou clipboard;
+15. múltiplas IAs sobrescrevendo o mesmo workspace;
+16. execução duplicada após retries/reconnects;
+17. approvals vencidos;
+18. comprometimento do control plane;
+19. auto-update malicioso;
+20. vazamento de secrets em logs/artefatos.
 
-Before implementation, this should be converted into a formal STRIDE-style model with assets, trust boundaries, threat owners, mitigations and test cases.
+Antes da implementação, converter isso em modelo formal no estilo STRIDE com ativos, trust boundaries, ameaças, mitigations e test cases.

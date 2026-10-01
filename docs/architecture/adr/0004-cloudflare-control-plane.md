@@ -1,26 +1,26 @@
-# ADR-0004: Use Cloudflare as the Leading Hosted Control-Plane Candidate
+# ADR-0004: Usar Cloudflare como Principal Candidato ao Control Plane Hospedado
 
 - **Status:** Proposed
-- **Date:** 2026-10-01
+- **Data:** 2026-10-01
 
-## Context
+## Contexto
 
-The product needs public HTTPS endpoints, authentication, low-cost routing, realtime device presence, durable metadata and artifact storage. Earlier discovery identified Cloudflare Workers, Durable Objects, D1 and R2 as a coherent candidate stack.
+O produto precisa de endpoints HTTPS públicos, autenticação, routing de baixo custo, presença realtime de dispositivos, metadata durável e armazenamento de artefatos. O discovery anterior identificou Workers, Durable Objects, D1 e R2 como stack coerente.
 
-## Proposed decision
+## Decisão proposta
 
-Use Cloudflare as the default hosted-control-plane target for the first implementation, while keeping the device protocol and local agent provider-independent.
+Utilizar Cloudflare como alvo padrão do primeiro control plane hospedado, mantendo protocolo de dispositivo e agente local independentes do provedor.
 
-## Expected mapping
+## Mapeamento esperado
 
-- Workers: public APIs, MCP/OAuth and routing;
-- Durable Objects: per-device realtime coordination/presence;
-- D1: durable metadata and policy references;
-- R2: large artifacts;
-- Analytics Engine/Queues/KV: optional supporting roles where justified.
+- Workers: APIs públicas, MCP/OAuth e routing;
+- Durable Objects: coordenação/presença realtime por dispositivo;
+- D1: metadata durável e referências de policy;
+- R2: artefatos grandes;
+- Analytics Engine/Queues/KV: papéis auxiliares quando justificados.
 
-## Risks
+## Riscos
 
-- websocket/message billing and limits require load validation;
-- architecture must not force long-running user processes into Workers;
-- a future self-hosted/private-control-plane option may require adapters.
+- billing/limites de WebSocket e mensagens exigem load validation;
+- processos long-running do usuário jamais devem executar em Workers;
+- futura opção self-hosted/private pode exigir adapters.
