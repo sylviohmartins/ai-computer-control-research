@@ -11,9 +11,10 @@ The project is in research/discovery. **Do not implement production code, deploy
 1. `PROJECT_STATE.md`
 2. accepted ADRs under `docs/architecture/adr/`
 3. living documentation under `docs/`
-4. immutable snapshots under `artifacts/`
+4. project lineage under `docs/history/`
+5. immutable snapshots and source provenance under `artifacts/`
 
-If a living document conflicts with an archived artifact, prefer the living document and preserve the artifact unchanged.
+If a living document conflicts with an archived artifact, prefer the living document and preserve the artifact unchanged. Before redesigning product scope, naming, distribution or core architecture, read `docs/history/research-lineage.md` and the relevant entries in `artifacts/provenance/` so earlier decisions are not accidentally rediscovered or erased.
 
 ## Research standards
 
@@ -35,7 +36,8 @@ If a living document conflicts with an archived artifact, prefer the living docu
 - Use focused commits with Conventional Commit-style messages.
 - Do not mix unrelated research, architecture and implementation changes in one commit.
 - Do not commit secrets, tokens, credentials, private infrastructure identifiers or user data.
-- Do not edit files under `artifacts/` except to add a new immutable snapshot or correct accidental corruption with an explicit explanation.
+- Do not edit files under `artifacts/` except to add a new immutable snapshot, add provenance metadata, or correct accidental corruption with an explicit explanation.
+- When importing ChatGPT/research outputs, preserve the original source under `artifacts/source/` when practical and map it in `artifacts/provenance/source-manifest.json`.
 
 ## Documentation language
 

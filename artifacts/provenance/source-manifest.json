@@ -1,0 +1,195 @@
+{
+  "generated_at": "2026-10-01",
+  "purpose": "Trace every ChatGPT-generated/source artifact used in product discovery into its repository representation. Exact source bytes are not duplicated when a canonical or normalized representation already exists; SHA-256 values preserve provenance.",
+  "policy": {
+    "preserve_reports_readably": true,
+    "preserve_key_source_snapshots": true,
+    "normalize_large_working_exports": true,
+    "retain_superseded_material_for_history": true,
+    "do_not_treat_archived_decisions_as_current_truth": true,
+    "source_copies": "All text/data source artifacts are preserved under artifacts/source/chatgpt/<date>/ using their original filenames. The only non-text source is the reference image; it is represented by checksum + historical description rather than duplicated binary."
+  },
+  "artifacts": [
+    {
+      "source_name": "79CAF644-44B8-427F-BEDC-C35FB7D58E69.jpeg",
+      "source_date": "2026-09-29",
+      "kind": "image-evidence",
+      "size_bytes": 135446,
+      "sha256": "bda7fbb41278f270955cac11a712bf0c673baf4ba908adac21867038b76bd95b",
+      "repo_representation": [
+        "docs/history/research-lineage.md"
+      ],
+      "notes": "Reference screenshot that motivated the original investigation: Codex weekly limit exhausted while Remote Desktop Commander was being used from ChatGPT. Binary is intentionally not duplicated in the repository; its content and checksum are recorded here."
+    },
+    {
+      "source_name": "relatorio_censo_ferramentas_ai_execucao_2026-09-29.md",
+      "source_date": "2026-09-29",
+      "kind": "report",
+      "size_bytes": 36570,
+      "sha256": "e2ac1528efea9ac23cf51b75913ca9d90f134ab40e67a6167906cff1ecee347a",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/relatorio_censo_ferramentas_ai_execucao_2026-09-29.md",
+        "artifacts/reports/2026-09-29-ai-computer-control-ecosystem-census.md"
+      ]
+    },
+    {
+      "source_name": "censo_ferramentas_ai_execucao_2026-09-29.csv",
+      "source_date": "2026-09-29",
+      "kind": "dataset",
+      "size_bytes": 65759,
+      "sha256": "22f5f856c3c960e1be87e3d1ae2646323d838f178fec2997dfc12e03e6ad14c2",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/censo_ferramentas_ai_execucao_2026-09-29.csv",
+        "artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.csv"
+      ]
+    },
+    {
+      "source_name": "censo_ferramentas_ai_execucao_2026-09-29.json",
+      "source_date": "2026-09-29",
+      "kind": "dataset",
+      "size_bytes": 170867,
+      "sha256": "d597fa48d4364eb3f35dca0335ef42fa9092796fc96d09ee8a0e694874c87f0f",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/censo_ferramentas_ai_execucao_2026-09-29.json",
+        "artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.json"
+      ],
+      "notes": "Repository copy is normalized for long-term use; source checksum is retained here."
+    },
+    {
+      "source_name": "machinaport_product_technical_blueprint_2026-09-29.md",
+      "source_date": "2026-09-29",
+      "kind": "report",
+      "size_bytes": 45979,
+      "sha256": "ba0f40eee60a51b23d903c073e5ff204537d515d805461a5b2a9524564df1f51",
+      "repo_representation": [
+        "artifacts/archive/2026-09-29-product-technical-blueprint-machinaport-draft.md",
+        "artifacts/source/chatgpt/2026-09-29/machinaport_product_technical_blueprint_2026-09-29.md",
+        "docs/history/research-lineage.md"
+      ],
+      "notes": "Superseded blueprint; preserved because it records architecture before the Plus/plugin and naming corrections."
+    },
+    {
+      "source_name": "naming_discovery_report_2026-09-29.md",
+      "source_date": "2026-09-29",
+      "kind": "report",
+      "size_bytes": 12665,
+      "sha256": "786f03d2ddc6937262646137d585cc3098cfabfafb4263fe51db140d6f697e2b",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/naming_discovery_report_2026-09-29.md",
+        "artifacts/reports/naming/2026-09-29-naming-discovery-report.md",
+        "docs/discovery/naming/README.md"
+      ]
+    },
+    {
+      "source_name": "naming_discovery_candidates_2026-09-29.json",
+      "source_date": "2026-09-29",
+      "kind": "dataset",
+      "size_bytes": 121174,
+      "sha256": "b797bb5c16a00d88a12abe6159a45181fd8eef850e84147765f78c03a9aba678",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/naming_discovery_candidates_2026-09-29.json",
+        "artifacts/datasets/naming/2026-09-29-naming-discovery-candidates.json",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ]
+    },
+    {
+      "source_name": "naming_candidates_2026-09-29.json",
+      "source_date": "2026-09-29",
+      "kind": "working-export",
+      "size_bytes": 506487,
+      "sha256": "dd2654a1f2cd479512721cc3a742d5735b88e15b76d2d4e4ce85c45a23c28fd4",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/naming_candidates_2026-09-29.json",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ],
+      "notes": "Large working export normalized into the canonical naming dataset."
+    },
+    {
+      "source_name": "naming_candidates_2026-09-29.csv",
+      "source_date": "2026-09-29",
+      "kind": "working-export",
+      "size_bytes": 84817,
+      "sha256": "03775eaf33659a6762b7c1d9fc0dd61b28e31f40d52f8b0fec00e3a40be8ffcc",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-09-29/naming_candidates_2026-09-29.csv",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ],
+      "notes": "Large working export normalized into the canonical naming dataset."
+    },
+    {
+      "source_name": "naming_discovery_report_2026-10-01.md",
+      "source_date": "2026-10-01",
+      "kind": "report",
+      "size_bytes": 14666,
+      "sha256": "d6cfc8aa41244b0ed8755b95fba9ced4b11c9e9907fa55e96ccd26fd9b5b3b9b",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-10-01/naming_discovery_report_2026-10-01.md",
+        "artifacts/reports/naming/2026-10-01-naming-discovery-report.md",
+        "docs/discovery/naming/README.md"
+      ]
+    },
+    {
+      "source_name": "naming_discovery_catalog_2026-10-01.json",
+      "source_date": "2026-10-01",
+      "kind": "dataset",
+      "size_bytes": 21430,
+      "sha256": "d222ca47bf4cfb437f110d9e763d6bd824e7e7b9fc17147824b7eb7f4ce7c1bb",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-10-01/naming_discovery_catalog_2026-10-01.json",
+        "artifacts/datasets/naming/2026-10-01-naming-discovery-catalog.json",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ]
+    },
+    {
+      "source_name": "naming_discovery_top20_2026-10-01.csv",
+      "source_date": "2026-10-01",
+      "kind": "dataset",
+      "size_bytes": 11027,
+      "sha256": "22127231f84017b6f250ecafaecff9c953a661ea92b6a4679c27b088934097a4",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-10-01/naming_discovery_top20_2026-10-01.csv",
+        "artifacts/datasets/naming/2026-10-01-naming-discovery-top20.csv",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ]
+    },
+    {
+      "source_name": "naming_discovery_raw_candidates_2026-10-01.csv",
+      "source_date": "2026-10-01",
+      "kind": "dataset",
+      "size_bytes": 15545,
+      "sha256": "324c33210f51f96d204b562277505c553e986a3e45f35dc919aeb31706881bdc",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-10-01/naming_discovery_raw_candidates_2026-10-01.csv",
+        "artifacts/datasets/naming/2026-10-01-naming-discovery-raw-candidates.csv",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ]
+    },
+    {
+      "source_name": "naming_candidates_2026-10-01.json",
+      "source_date": "2026-10-01",
+      "kind": "working-export",
+      "size_bytes": 721654,
+      "sha256": "8ad50eb19ef34cd5728e984b88b78bd2018b4c44514c3bf67ffb8c97ea6012ca",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-10-01/naming_candidates_2026-10-01.json",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ],
+      "notes": "Large working export normalized into the canonical naming dataset."
+    },
+    {
+      "source_name": "naming_candidates_2026-10-01.csv",
+      "source_date": "2026-10-01",
+      "kind": "working-export",
+      "size_bytes": 263776,
+      "sha256": "b127e99cf7938c7866af34e2cb83480792e60e083d4ea91986118a4fb8009aac",
+      "repo_representation": [
+        "artifacts/source/chatgpt/2026-10-01/naming_candidates_2026-10-01.csv",
+        "artifacts/datasets/naming/canonical-naming-candidates.csv"
+      ],
+      "notes": "Large working export normalized into the canonical naming dataset."
+    }
+  ],
+  "duplicates_not_repeated": [
+    "The user-facing file list contained repeated references to the census report/CSV/JSON and the MachinaPort blueprint. These are one source artifact each and are represented once."
+  ]
+}
