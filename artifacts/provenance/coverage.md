@@ -2,7 +2,7 @@
 
 This matrix answers a specific project-governance question: **is every file generated/used during the originating ChatGPT research represented in the repository?**
 
-As of 2026-10-01, **yes at the content/provenance level**. Some large working exports are intentionally normalized instead of duplicated verbatim. See `source-manifest.json` for SHA-256 checksums and exact mappings.
+As of 2026-10-01, **yes**. Every text/data source artifact is also preserved under `artifacts/source/chatgpt/<date>/` with its original filename, while curated/normalized representations remain available for practical use. The one binary reference image is represented by a dedicated evidence record plus original filename, size and SHA-256 checksum. See `source-manifest.json` for exact mappings.
 
 | Source artifact | Repository representation | Treatment |
 |---|---|---|
@@ -28,6 +28,6 @@ The ChatGPT file list contained repeated references to the census report/CSV/JSO
 
 ## Why normalize some exports?
 
-The large `naming_candidates_*.{csv,json}` files are intermediate projections of the same candidate pool. Keeping each verbatim would create redundant, noisy sources of truth. Their candidate content is merged into `canonical-naming-candidates.csv`, which retains source-file lineage per candidate. The original source checksums remain in `source-manifest.json`.
+The large `naming_candidates_*.{csv,json}` files are intermediate projections of the same candidate pool. They are preserved under `artifacts/source/chatgpt/` for provenance, while ongoing analysis should use `canonical-naming-candidates.csv`, which deduplicates the candidate universe and retains source-file lineage per candidate.
 
-If a future audit requires byte-for-byte recovery, the manifest identifies which original artifact needs to be recovered from the originating ChatGPT/library export.
+The binary screenshot is the only source not copied verbatim; its semantic evidence record and SHA-256 allow later recovery/verification if required.
