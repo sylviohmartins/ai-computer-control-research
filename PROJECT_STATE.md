@@ -10,7 +10,7 @@ A implementação **não começou**. O repositório funciona como base versionad
 
 ## Gates atuais
 
-- [~] Naming discovery: **`NAME_CONDITIONAL` — Telechir é o primary candidate**. Faltam verificações autoritativas de domínio/packages/trademark e teste oral.
+- [~] Naming discovery: **discovery concluído; `NAME_CONDITIONAL` — Telechir é o primary candidate**. O que resta é clearance autoritativo externo, não uma nova rodada criativa.
 - [ ] Caminho ChatGPT Plus + plugin público validado ponta a ponta.
 - [ ] Blueprint técnico/de produto v2 atualizado após naming + validação de distribuição.
 - [ ] Definition of Ready reexecutada e aprovada.
@@ -20,6 +20,7 @@ A implementação **não começou**. O repositório funciona como base versionad
 
 - O nome do repositório é descritivo e temporário; não é a marca do produto.
 - **Telechir** é a recomendação primária de naming, mas ainda não está aprovado para rename/public launch.
+- Não executar nova rodada criativa de naming enquanto Telechir não falhar no clearance autoritativo.
 - O produto deve permanecer agnóstico a modelos e multi-IA por design.
 - A distribuição pública no ChatGPT deve usar plugin/app publicado apoiado por um serviço Remote MCP, sem exigir que usuários Plus registrem manualmente um custom MCP.
 - Cloudflare continua sendo o principal candidato a control plane, sujeito à validação de viabilidade.
@@ -31,9 +32,10 @@ A implementação **não começou**. O repositório funciona como base versionad
 ## Estado do naming
 
 - 2026-09-29: Telechir chegou a `NAME_CONDITIONAL`.
-- 2026-10-01, palavras reais: Grapnel, Skeg, Nervo, Prehend e Hawse foram bloqueados por colisões; gate `NAME_NOT_READY`.
-- 2026-10-01, Stage 2 Constructed Distinctive Names: 560 candidatos materializados; nenhum construído superou Telechir; finalistas Telechir, Clevren, Ferenis, Kheric e Tactren; gate **`NAME_CONDITIONAL`**.
-- Próximo subgate de naming: clearance autoritativo de Telechir.
+- 2026-10-01, palavras reais: Grapnel, Skeg, Nervo, Prehend e Hawse bloqueados por colisões; gate `NAME_NOT_READY`.
+- 2026-10-01, Stage 2: 560 nomes construídos; nenhum superou Telechir; gate `NAME_CONDITIONAL`.
+- 2026-10-01, Stage 3: screening final executado; nenhuma colisão contemporânea material de AI/dev tooling localizada; domínio/packages/trademark continuam sem verificação autoritativa direta.
+- **Conclusão:** discovery criativo encerrado com Telechir como primary candidate.
 
 ## Rejeições explícitas
 
@@ -45,7 +47,7 @@ Consulte `docs/history/research-lineage.md` para a evolução desde a observaç�
 
 ## Próximos trabalhos recomendados
 
-1. Executar o clearance autoritativo de Telechir (domínio/packages/trademark/handles + teste oral) até `NAME_READY` ou rejeição.
+1. Executar fora do ambiente atual o clearance autoritativo/reserva de Telechir (domínio, packages, trademark e handles) para promoção a `NAME_READY` ou rejeição.
 2. Validar o caminho de plugin público no ChatGPT Plus, incluindo write/process execution, surface disponível e comportamento de quota.
 3. Produzir Blueprint v2.
 4. Reexecutar Definition of Ready antes da implementação.
