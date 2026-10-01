@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-10-01",
+  "stage": "Naming Discovery Stage 2 — Constructed Distinctive Names",
+  "gate": "NAME_CONDITIONAL",
+  "primary_recommendation": "Telechir",
+  "candidate_count": 560,
+  "semantic_territories": [
+    "guidance_navigation",
+    "teleoperation_history",
+    "nervous_system",
+    "touch_haptics",
+    "mechanical_linkage",
+    "motion_action",
+    "praxis_action",
+    "reach_grasp",
+    "threshold_gateway",
+    "paths_channels",
+    "messenger_delegate",
+    "security_trust",
+    "weave_coordination"
+  ],
+  "methodology_notes": [
+    "A etapa construída foi executada para tentar superar a saturação observada entre palavras reais curtas.",
+    "Candidatos construídos são matéria-prima de naming; somente shortlist recebeu screening aprofundado.",
+    "Nenhuma disponibilidade de domínio/package/trademark é afirmada sem consulta autoritativa."
+  ],
+  "finalists": [
+    {
+      "name": "Telechir",
+      "brand_score": 94,
+      "status": "NAME_CONDITIONAL",
+      "type": "Autêntico",
+      "strength": "Termo histórico real para manipulador remoto semelhante a uma mão; melhor fit semântico e storytelling.",
+      "risk": "Nenhuma colisão comercial de software material encontrada no screening; domínio e trademark oficiais pendentes."
+    },
+    {
+      "name": "Clevren",
+      "brand_score": 87,
+      "status": "FINALIST",
+      "type": "Construído",
+      "strength": "Curto, forte em PT/EN/ES e ligado a linkage/motion.",
+      "risk": "Nenhum repo exato no GitHub; clearance de marca/domínio ainda pendente."
+    },
+    {
+      "name": "Ferenis",
+      "brand_score": 85,
+      "status": "FINALIST",
+      "type": "Construído",
+      "strength": "Som natural e narrativa de condução/transmissão.",
+      "risk": "Baixa colisão comercial preliminar; ocorrências pessoais não impeditivas; trademark/domínio pendentes."
+    },
+    {
+      "name": "Kheric",
+      "brand_score": 82,
+      "status": "FINALIST",
+      "type": "Construído",
+      "strength": "Raiz de 'kheir/cheir' preserva a metáfora de mão.",
+      "risk": "É sobrenome e topônimo raros; radio test menos previsível."
+    },
+    {
+      "name": "Tactren",
+      "brand_score": 81,
+      "status": "FINALIST",
+      "type": "Construído",
+      "strength": "Evoca tato, ação e transferência; oralidade razoável.",
+      "risk": "Storytelling mais fabricado; clearance oficial pendente."
+    }
+  ],
+  "remaining_clearance": [
+    "consulta autoritativa de domínio em registrador/WHOIS",
+    "busca direta INPI para marca exata e similares nas classes relevantes",
+    "busca direta USPTO/EUIPO/WIPO se lançamento internacional",
+    "checagem em tempo real de npm/PyPI/crates e handles sociais",
+    "teste oral com usuários PT-BR/EN/ES antes de congelar a marca"
+  ],
+  "primary_story": "A IA pensa; Telechir é a mão remota, autorizada e auditável que transforma intenção em ação sobre uma máquina.",
+  "descriptor": "Secure computer control for AI agents"
+}
