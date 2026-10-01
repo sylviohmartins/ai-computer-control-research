@@ -42,10 +42,19 @@ A segunda correção é a estratégia de distribuição: o projeto **não pode d
 - componentes do control plane hospedado não executam workloads do usuário;
 - host, guarded-host e sandbox são níveis de segurança distintos e devem ser descritos honestamente.
 
+## Evidência nova
+
+Em 2026-10-01, o caminho de referência ChatGPT Plus + plugin público foi validado empiricamente com Remote Desktop Commander: device listing, execução de processo e escrita/leitura de arquivo funcionaram na conta Plus usada no discovery.
+
+Isso reduz o risco arquitetural, mas não garante aprovação/disponibilidade do nosso futuro plugin específico.
+
 ## Validações pendentes
 
-- comportamento exato do ChatGPT Plus para plugin publicado com write/process;
-- quota/metering nessa surface;
-- naming final;
+- aprovação e disponibilidade do plugin próprio no Plus;
+- quota/metering do plugin próprio;
+- naming final (`Telechir` permanece `NAME_CONDITIONAL`);
 - custos/limites Cloudflare com tráfego WebSocket realista;
-- decisão da linguagem do agente local após ADR específico de implementação.
+- estratégia de licenciamento/open source;
+- ADR final da linguagem do agente local antes de Phase 1.
+
+Blueprint vivo: `docs/architecture/overview/product-technical-blueprint-v2.md`.
