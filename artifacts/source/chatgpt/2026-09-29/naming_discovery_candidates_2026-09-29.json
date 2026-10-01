@@ -1,0 +1,4418 @@
+{
+  "generated_at": "2026-09-29",
+  "project": "Universal AI computer-control platform (brand TBD)",
+  "gate": "NAME_CONDITIONAL",
+  "primary_candidate": {
+    "name": "Telechir",
+    "pronunciation": {
+      "authoritative_british": "TEL-i-keer approx.; Collins IPA /ˈtɛlɪˌkɪə/",
+      "risk": "pronunciation is not fully intuitive across PT-BR/EN/ES and online sources differ"
+    },
+    "origin": "robotics / teleoperation terminology",
+    "meaning": "a handlike remote manipulator; a robotic arm controlled remotely",
+    "brand_story": "The AI provides intent and reasoning; Telechir is the secure remote hand that turns intent into authorized action on a machine.",
+    "descriptor_options": [
+      "Secure computer control for AI agents",
+      "AI Computer Control & Agent Runtime",
+      "The secure action layer for AI"
+    ],
+    "tagline_options": [
+      "Give AI a hand.",
+      "Your machines, within reach.",
+      "AI can think. Telechir lets it act."
+    ],
+    "cli": "telechir",
+    "agent": "telechir-agent",
+    "mcp": "telechir-mcp",
+    "package_examples": [
+      "@telechir/core",
+      "@telechir/mcp",
+      "telechir-agent"
+    ],
+    "gate_blockers": [
+      "official INPI trademark search",
+      "official USPTO trademark search",
+      "official EUIPO/WIPO trademark search if global launch is intended",
+      "real-time registrar/RDAP check for target domains",
+      "exact npm/PyPI/crates ownership check at registration time",
+      "user acceptance of pronunciation/radio test"
+    ]
+  },
+  "funnel": {
+    "raw_unique": 500,
+    "first_phonetic_semantic_shortlist": 100,
+    "deep_collision_pool": 40,
+    "strong_semantic_pool": 20,
+    "deep_brand_pool": 10,
+    "qualified_finalists": 1
+  },
+  "top100": [
+    "Soma",
+    "Limb",
+    "Reach",
+    "Span",
+    "Tactus",
+    "Hapta",
+    "Dextra",
+    "Tendon",
+    "Nerve",
+    "Axon",
+    "Neurite",
+    "Handspan",
+    "Palmar",
+    "Digit",
+    "Grip",
+    "Grasp",
+    "Manualis",
+    "Brachia",
+    "Cheir",
+    "Telechir",
+    "Vicar",
+    "Legate",
+    "Envoy",
+    "Proxy",
+    "Delegate",
+    "Proctor",
+    "Mandate",
+    "Bearer",
+    "Charter",
+    "Consul",
+    "Emissary",
+    "Factotum",
+    "Actant",
+    "Agency",
+    "Deputize",
+    "Hinge",
+    "Coupler",
+    "Spline",
+    "Splice",
+    "Gimbal",
+    "Pulley",
+    "Truss",
+    "Linkpin",
+    "Trunnion",
+    "Toggle",
+    "Bellcrank",
+    "Turnbuckle",
+    "Helm",
+    "Vane",
+    "Skipper",
+    "Bearing",
+    "Azimuth",
+    "Compass",
+    "Sextant",
+    "Waypoint",
+    "Keel",
+    "Tack",
+    "Trim",
+    "Binnacle",
+    "Lodestar",
+    "Pilot",
+    "Coxswain",
+    "Waymark",
+    "Beacon",
+    "Courier",
+    "Herald",
+    "Dispatch",
+    "Crier",
+    "Raven",
+    "Mercury",
+    "Hermes",
+    "Post",
+    "Carrier",
+    "Runner",
+    "Channel",
+    "Emitter",
+    "Transmitter",
+    "CourierX",
+    "Tempo",
+    "Cadence",
+    "Score",
+    "Coda",
+    "Chorus",
+    "Meter",
+    "Beat",
+    "Maestro",
+    "Conductor",
+    "Aria",
+    "Pulse",
+    "Rhythm",
+    "Accent",
+    "Measure",
+    "Tonic",
+    "TempoX",
+    "Syncop",
+    "Loom",
+    "Weft",
+    "Warp",
+    "Braid",
+    "Twine"
+  ],
+  "top40": [
+    "Telechir",
+    "Effector",
+    "Wield",
+    "Tether",
+    "Reins",
+    "Sinew",
+    "Servo",
+    "Prehensor",
+    "Farhand",
+    "Writ",
+    "Signet",
+    "Ordo",
+    "Caracal",
+    "Bower",
+    "Tine",
+    "Rivet",
+    "Clevis",
+    "Tiller",
+    "Rudder",
+    "Bosun",
+    "Capstan",
+    "Davit",
+    "Plectrum",
+    "Tactus",
+    "Motus",
+    "Praxis",
+    "Actant",
+    "Exsequor",
+    "Sequi",
+    "Maniple",
+    "Haptor",
+    "Dromus",
+    "Iungar",
+    "Nectra",
+    "Movere",
+    "Traho",
+    "Telefactor",
+    "Vicar",
+    "Legate",
+    "Custos"
+  ],
+  "top20": [
+    "Telechir",
+    "Effector",
+    "Wield",
+    "Tether",
+    "Reins",
+    "Sinew",
+    "Servo",
+    "Prehensor",
+    "Farhand",
+    "Writ",
+    "Signet",
+    "Ordo",
+    "Caracal",
+    "Bower",
+    "Tine",
+    "Rivet",
+    "Capstan",
+    "Davit",
+    "Maniple",
+    "Haptor"
+  ],
+  "top10": [
+    "Telechir",
+    "Effector",
+    "Wield",
+    "Tether",
+    "Reins",
+    "Sinew",
+    "Prehensor",
+    "Farhand",
+    "Ordo",
+    "Caracal"
+  ],
+  "territories": {
+    "Embodiment / hand / reach": [
+      "Soma",
+      "Limb",
+      "Reach",
+      "Span",
+      "Tactus",
+      "Hapta",
+      "Dextra",
+      "Sinew",
+      "Tendon",
+      "Nerve",
+      "Axon",
+      "Neurite",
+      "Effector",
+      "Handspan",
+      "Prehensor",
+      "Palmar",
+      "Digit",
+      "Grip",
+      "Grasp",
+      "Clasp",
+      "Manualis",
+      "Brachia",
+      "Cheir",
+      "Telechir"
+    ],
+    "Delegated agency": [
+      "Vicar",
+      "Legate",
+      "Envoy",
+      "Steward",
+      "Proxy",
+      "Delegate",
+      "Deputy",
+      "Factor",
+      "Proctor",
+      "Mandate",
+      "Bearer",
+      "Warrant",
+      "Charter",
+      "Consul",
+      "Emissary",
+      "Factotum",
+      "Operator",
+      "Actant",
+      "Agency",
+      "Deputize"
+    ],
+    "Mechanical linkage": [
+      "Clevis",
+      "Rivet",
+      "Tenon",
+      "Dowel",
+      "Ferrule",
+      "Hinge",
+      "Latch",
+      "Coupler",
+      "Spline",
+      "Splice",
+      "Gimbal",
+      "Pulley",
+      "Trestle",
+      "Truss",
+      "Mandrel",
+      "Fulcrum",
+      "Yoke",
+      "Linkpin",
+      "Trunnion",
+      "Toggle",
+      "Detent",
+      "Pawl",
+      "Pinion",
+      "Arbor",
+      "Bellcrank",
+      "Turnbuckle"
+    ],
+    "Navigation / steering": [
+      "Tiller",
+      "Rudder",
+      "Helm",
+      "Vane",
+      "Bosun",
+      "Skipper",
+      "Bearing",
+      "Azimuth",
+      "Compass",
+      "Sextant",
+      "Waypoint",
+      "Keel",
+      "Tack",
+      "Trim",
+      "Binnacle",
+      "Lodestar",
+      "Pilot",
+      "Coxswain",
+      "Waymark",
+      "Beacon"
+    ],
+    "Messenger / transmission": [
+      "Courier",
+      "Herald",
+      "Relay",
+      "Dispatch",
+      "Crier",
+      "Raven",
+      "Mercury",
+      "Hermes",
+      "Nuntio",
+      "Nuntius",
+      "Post",
+      "Carrier",
+      "Runner",
+      "Signal",
+      "Conduit",
+      "Channel",
+      "Link",
+      "Emitter",
+      "Transmitter",
+      "CourierX"
+    ],
+    "Orchestration / music": [
+      "Baton",
+      "Cue",
+      "Tempo",
+      "Cadence",
+      "Score",
+      "Coda",
+      "Chorus",
+      "Meter",
+      "Beat",
+      "Maestro",
+      "Conductor",
+      "Stave",
+      "Aria",
+      "Pulse",
+      "Rhythm",
+      "Accent",
+      "Measure",
+      "Tonic",
+      "TempoX",
+      "Syncop"
+    ],
+    "Weaving / connection": [
+      "Loom",
+      "Twill",
+      "Weft",
+      "Warp",
+      "Braid",
+      "Twine",
+      "Skein",
+      "Shuttle",
+      "Bobbin",
+      "Thread",
+      "Strand",
+      "Stitch",
+      "Lace",
+      "Knot",
+      "Spool",
+      "Filament",
+      "Ply",
+      "Thrum",
+      "Weave",
+      "Selvedge"
+    ],
+    "Portals / passages": [
+      "Hatch",
+      "Gate",
+      "Portal",
+      "Iris",
+      "Lintel",
+      "Arch",
+      "Threshold",
+      "Sluice",
+      "Airlock",
+      "Ford",
+      "Passage",
+      "Causeway",
+      "Viaduct",
+      "Aperture",
+      "Ingress",
+      "Egress",
+      "Waygate",
+      "Crossing",
+      "Transit",
+      "HingeWay"
+    ],
+    "Trust / permission": [
+      "Pact",
+      "Oath",
+      "Accord",
+      "Grant",
+      "Seal",
+      "Bond",
+      "Permit",
+      "Consent",
+      "Aegis",
+      "Guard",
+      "Sentinel",
+      "Warden",
+      "Custos",
+      "Charter",
+      "Signet",
+      "Warrant",
+      "Trustee",
+      "Attest",
+      "Covenant",
+      "Surety"
+    ],
+    "Motion / action": [
+      "Motus",
+      "Kine",
+      "Kinesis",
+      "Sway",
+      "Glide",
+      "Drift",
+      "Surge",
+      "Flux",
+      "Vector",
+      "Thrust",
+      "Rove",
+      "Leap",
+      "Nudge",
+      "Pivot",
+      "Drive",
+      "Stride",
+      "Movere",
+      "Traho",
+      "Pello",
+      "Verto"
+    ],
+    "Remote manipulation": [
+      "Waldo",
+      "Telechir",
+      "Telecheric",
+      "Teleoperator",
+      "Telemanipulator",
+      "Telerator",
+      "Servo",
+      "Pantograph",
+      "Tether",
+      "Puppet",
+      "Marionette",
+      "Rig",
+      "Handle",
+      "Grip",
+      "Wield",
+      "Reins",
+      "Bridle",
+      "Prehensor",
+      "Haptor",
+      "Outrigger"
+    ],
+    "Tools / craft": [
+      "Awl",
+      "Chisel",
+      "Lathe",
+      "Anvil",
+      "Forge",
+      "Jig",
+      "Vise",
+      "Mallet",
+      "Spanner",
+      "Wrench",
+      "Gauge",
+      "Spindle",
+      "Quill",
+      "Tongs",
+      "Clamp",
+      "Davit",
+      "Sheave",
+      "Capstan",
+      "Windlass",
+      "Gantry"
+    ],
+    "Signals / network": [
+      "Beacon",
+      "Conduit",
+      "Circuit",
+      "Bus",
+      "Trunk",
+      "Fiber",
+      "Cord",
+      "Mesh",
+      "Node",
+      "Link",
+      "Switch",
+      "Router",
+      "Backplane",
+      "Shunt",
+      "Synchro",
+      "Rotor",
+      "Stator",
+      "Contactor",
+      "Manifold",
+      "Trigger"
+    ],
+    "Command / language": [
+      "Verb",
+      "Rune",
+      "Glyph",
+      "Sigil",
+      "Lex",
+      "Token",
+      "Trace",
+      "Script",
+      "Intent",
+      "Prompt",
+      "Directive",
+      "Clause",
+      "Imperative",
+      "Command",
+      "Writ",
+      "Ordo",
+      "Actum",
+      "Praxis",
+      "Factum",
+      "Actus"
+    ],
+    "Animals / organisms": [
+      "Mantis",
+      "Kestrel",
+      "Saker",
+      "Skua",
+      "Kea",
+      "Shrike",
+      "Heron",
+      "Ibis",
+      "Lynx",
+      "Gecko",
+      "Rook",
+      "Tern",
+      "Myna",
+      "Loris",
+      "Caracal",
+      "Serval",
+      "Corvid",
+      "Osprey",
+      "Kite",
+      "Caddis"
+    ],
+    "Myth / history": [
+      "Argus",
+      "Ariadne",
+      "Hermod",
+      "Talos",
+      "Janus",
+      "Proteus",
+      "Daedalus",
+      "Icarus",
+      "Orpheus",
+      "Puck",
+      "Anansi",
+      "Bragi",
+      "Vidar",
+      "Skadi",
+      "Briareus",
+      "Atlas",
+      "Mercury",
+      "Hermes",
+      "Hephaestus",
+      "Telamon"
+    ],
+    "Biology / nervous system": [
+      "Reflex",
+      "Efferent",
+      "Afferent",
+      "Myelin",
+      "Plexus",
+      "Ganglia",
+      "Motor",
+      "Cortex",
+      "Spine",
+      "Synapse",
+      "Effera",
+      "Soma",
+      "Axon",
+      "Dendrite",
+      "Nervel",
+      "Motoris",
+      "Effer",
+      "Efferon",
+      "Neuralis",
+      "Ganglion"
+    ],
+    "Transport / carrying": [
+      "Ferry",
+      "Caravan",
+      "Transit",
+      "Porter",
+      "Haul",
+      "Tow",
+      "Lift",
+      "Convey",
+      "Skiff",
+      "Dray",
+      "Carrier",
+      "Shuttle",
+      "Dromon",
+      "Dromus",
+      "Wayfarer",
+      "Convoy",
+      "Freight",
+      "Bearer",
+      "Ferryway",
+      "Transfer"
+    ],
+    "Latin / action roots": [
+      "Praxis",
+      "Actum",
+      "Motum",
+      "Opero",
+      "Facio",
+      "Movo",
+      "Ago",
+      "Traho",
+      "Pello",
+      "Verto",
+      "Necto",
+      "Mitto",
+      "Fero",
+      "Iungo",
+      "Dromon",
+      "Telos",
+      "Exsequor",
+      "Sequi",
+      "Agere",
+      "Operant"
+    ],
+    "Telepresence / embodiment": [
+      "Avatar",
+      "Vessel",
+      "Presence",
+      "Standin",
+      "Surrogate",
+      "Echo",
+      "Shade",
+      "Ghost",
+      "Familiar",
+      "Embod",
+      "Persona",
+      "Double",
+      "Replica",
+      "Shadow",
+      "Waldo",
+      "Projection",
+      "Proxybody",
+      "RemoteSelf",
+      "SecondSelf",
+      "Embodiment"
+    ],
+    "Structure / support": [
+      "Strut",
+      "Beam",
+      "Brace",
+      "Pillar",
+      "Frame",
+      "Keystone",
+      "Rafter",
+      "Girder",
+      "Joist",
+      "Buttress",
+      "Scaffold",
+      "Mantle",
+      "Bower",
+      "Quoin",
+      "Gusset",
+      "Trestle",
+      "Truss",
+      "Spar",
+      "Stanchion",
+      "Bracket"
+    ],
+    "Rare real words": [
+      "Cairn",
+      "Meld",
+      "Sable",
+      "Rill",
+      "Mote",
+      "Brim",
+      "Lilt",
+      "Kith",
+      "Thrum",
+      "Tine",
+      "Ply",
+      "Glean",
+      "Trove",
+      "Mettle",
+      "Fathom",
+      "Vellum",
+      "Sonder",
+      "Brio",
+      "Vigor",
+      "Axiom"
+    ],
+    "Grounded coined forms": [
+      "Praxen",
+      "Tactum",
+      "Nectra",
+      "Iungar",
+      "Dromi",
+      "Somar",
+      "Vicaris",
+      "Legaro",
+      "Tendra",
+      "Rivon",
+      "Nervel",
+      "Sendar",
+      "Kinet",
+      "Motera",
+      "Actera",
+      "Nexum",
+      "Praxo",
+      "Tactis",
+      "Effero",
+      "Manuor"
+    ],
+    "Remote extension": [
+      "Farhand",
+      "Longreach",
+      "Outrigger",
+      "Sidecar",
+      "Wayhand",
+      "Crosswire",
+      "Farpoint",
+      "Waymark",
+      "Handspan",
+      "Remotehand",
+      "Longarm",
+      "Armature",
+      "RightHand",
+      "Reachline",
+      "Farline",
+      "Wayarm",
+      "Handlink",
+      "Reachway",
+      "Extendr",
+      "Longwire"
+    ],
+    "Control engineering": [
+      "Resolver",
+      "Actuator",
+      "Transducer",
+      "Solenoid",
+      "Servo",
+      "Rotor",
+      "Stator",
+      "Shunt",
+      "Valve",
+      "Trigger",
+      "Governor",
+      "Regulator",
+      "Controller",
+      "Feedback",
+      "Loop",
+      "Plant",
+      "Setpoint",
+      "Encoder",
+      "Decoder",
+      "Relay"
+    ],
+    "Maritime mechanics": [
+      "Bollard",
+      "Hawser",
+      "Mooring",
+      "Fairlead",
+      "Davit",
+      "Capstan",
+      "Windlass",
+      "Tiller",
+      "Rudder",
+      "Keel",
+      "Bosun",
+      "Coxswain",
+      "Anchor",
+      "Mast",
+      "Spar",
+      "Tackle",
+      "Rigging",
+      "Shackle",
+      "Cleat",
+      "Bitts"
+    ],
+    "Abstract / brandable real words": [
+      "Fathom",
+      "Kindle",
+      "Sable",
+      "Rook",
+      "Morrow",
+      "Fable",
+      "Mettle",
+      "Trove",
+      "Lumen",
+      "Vellum",
+      "Sonder",
+      "Kith",
+      "Brio",
+      "Vigor",
+      "Axiom",
+      "Motive",
+      "Talon",
+      "Wand",
+      "Spur",
+      "Mantle"
+    ],
+    "Policy / governance": [
+      "Steward",
+      "Custos",
+      "Warden",
+      "Marshal",
+      "Keeper",
+      "Ledger",
+      "Policy",
+      "Boundary",
+      "Guardrail",
+      "Fence",
+      "Permit",
+      "Grant",
+      "Scope",
+      "Lease",
+      "Attest",
+      "Signet",
+      "Seal",
+      "Charter",
+      "Accord",
+      "Covenant"
+    ],
+    "Presence / distance": [
+      "Remote",
+      "Far",
+      "Beyond",
+      "Elsewhere",
+      "Reach",
+      "Horizon",
+      "Parallax",
+      "Relay",
+      "Nearfield",
+      "Farfield",
+      "Overthere",
+      "Proxy",
+      "Echo",
+      "Shadow",
+      "Standin",
+      "Presence",
+      "Span",
+      "Across",
+      "Traverse",
+      "Range"
+    ],
+    "Hand / grasp mechanics": [
+      "Prehensor",
+      "Clasper",
+      "Gripper",
+      "Manipulator",
+      "Pincer",
+      "Talon",
+      "Hook",
+      "Latch",
+      "Clamp",
+      "Tongs",
+      "Vice",
+      "Vise",
+      "Grip",
+      "Cheir",
+      "Manus",
+      "Dextra",
+      "Palma",
+      "Haptor",
+      "Digit",
+      "Phalanx"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Soma",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Limb",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Reach",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Span",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tactus",
+      "territory": "Embodiment / hand / reach",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Hapta",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Dextra",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sinew",
+      "territory": "Embodiment / hand / reach",
+      "status": "eliminated_collision",
+      "screening": "agentic IDE and AI dev tools",
+      "confidence": "high"
+    },
+    {
+      "name": "Tendon",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Nerve",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Axon",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Neurite",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Effector",
+      "territory": "Embodiment / hand / reach",
+      "status": "eliminated_collision",
+      "screening": "active AI capability/tooling products",
+      "confidence": "high"
+    },
+    {
+      "name": "Handspan",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Prehensor",
+      "territory": "Embodiment / hand / reach",
+      "status": "eliminated_collision",
+      "screening": "existing remote-manipulator trademark/product history",
+      "confidence": "high"
+    },
+    {
+      "name": "Palmar",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Digit",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Grip",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Grasp",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Clasp",
+      "territory": "Embodiment / hand / reach",
+      "status": "eliminated_collision",
+      "screening": "AI proxy/MCP product",
+      "confidence": "high"
+    },
+    {
+      "name": "Manualis",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Brachia",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Cheir",
+      "territory": "Embodiment / hand / reach",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Telechir",
+      "territory": "Embodiment / hand / reach",
+      "status": "conditional_finalist",
+      "screening": "strong semantic fit; low observed software collision; domain and official trademark clearance pending",
+      "pronunciation_note": "British Collins: /ˈtɛlɪˌkɪə/; other online pronunciation sources vary, creating a real radio-test risk",
+      "meaning": "historical technical term for a handlike remote manipulator / remotely controlled robotic arm",
+      "confidence": "medium-high"
+    },
+    {
+      "name": "Vicar",
+      "territory": "Delegated agency",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Legate",
+      "territory": "Delegated agency",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Envoy",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Steward",
+      "territory": "Delegated agency",
+      "status": "eliminated_collision",
+      "screening": "multiple active AI/control-plane products",
+      "confidence": "high"
+    },
+    {
+      "name": "Proxy",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Delegate",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Deputy",
+      "territory": "Delegated agency",
+      "status": "eliminated_collision",
+      "screening": "large existing company / AI agent",
+      "confidence": "high"
+    },
+    {
+      "name": "Factor",
+      "territory": "Delegated agency",
+      "status": "eliminated_collision",
+      "screening": "major AI platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Proctor",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mandate",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bearer",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Warrant",
+      "territory": "Delegated agency",
+      "status": "eliminated_collision",
+      "screening": "AI governance products",
+      "confidence": "high"
+    },
+    {
+      "name": "Charter",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Consul",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Emissary",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Factotum",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Operator",
+      "territory": "Delegated agency",
+      "status": "eliminated_collision",
+      "screening": "heavily saturated AI/operator category",
+      "confidence": "high"
+    },
+    {
+      "name": "Actant",
+      "territory": "Delegated agency",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Agency",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Deputize",
+      "territory": "Delegated agency",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Clevis",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "Clevis AI / existing software",
+      "confidence": "high"
+    },
+    {
+      "name": "Rivet",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "large AI agent/orchestration ecosystem",
+      "confidence": "high"
+    },
+    {
+      "name": "Tenon",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "AI workspace",
+      "confidence": "high"
+    },
+    {
+      "name": "Dowel",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "dowel.ai",
+      "confidence": "high"
+    },
+    {
+      "name": "Ferrule",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "MCP/Notion + developer tooling",
+      "confidence": "high"
+    },
+    {
+      "name": "Hinge",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Latch",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "AI workflow/process platform with MCP",
+      "confidence": "high"
+    },
+    {
+      "name": "Coupler",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Spline",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Splice",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Gimbal",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Pulley",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Trestle",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "AI API routing",
+      "confidence": "high"
+    },
+    {
+      "name": "Truss",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mandrel",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "AI-native ERP",
+      "confidence": "high"
+    },
+    {
+      "name": "Fulcrum",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "AI debugger/startup",
+      "confidence": "high"
+    },
+    {
+      "name": "Yoke",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "SDK for Claude/Codex + AI products",
+      "confidence": "high"
+    },
+    {
+      "name": "Linkpin",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Trunnion",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Toggle",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Detent",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "AI work orchestration",
+      "confidence": "high"
+    },
+    {
+      "name": "Pawl",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "pawl.ai",
+      "confidence": "high"
+    },
+    {
+      "name": "Pinion",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "PinionAI",
+      "confidence": "high"
+    },
+    {
+      "name": "Arbor",
+      "territory": "Mechanical linkage",
+      "status": "eliminated_collision",
+      "screening": "coding-agent product",
+      "confidence": "high"
+    },
+    {
+      "name": "Bellcrank",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Turnbuckle",
+      "territory": "Mechanical linkage",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tiller",
+      "territory": "Navigation / steering",
+      "status": "eliminated_collision",
+      "screening": "finance + AI orchestration",
+      "confidence": "high"
+    },
+    {
+      "name": "Rudder",
+      "territory": "Navigation / steering",
+      "status": "eliminated_collision",
+      "screening": "AI framework/orchestrator",
+      "confidence": "high"
+    },
+    {
+      "name": "Helm",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vane",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bosun",
+      "territory": "Navigation / steering",
+      "status": "eliminated_collision",
+      "screening": "AI SDLC orchestration",
+      "confidence": "high"
+    },
+    {
+      "name": "Skipper",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bearing",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Azimuth",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Compass",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sextant",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Waypoint",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Keel",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tack",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Trim",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Binnacle",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lodestar",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Pilot",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Coxswain",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Waymark",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Beacon",
+      "territory": "Navigation / steering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Courier",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Herald",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Relay",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Dispatch",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Crier",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Raven",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mercury",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Hermes",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Nuntio",
+      "territory": "Messenger / transmission",
+      "status": "eliminated_collision",
+      "screening": "AI-agent business platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Nuntius",
+      "territory": "Messenger / transmission",
+      "status": "eliminated_collision",
+      "screening": "AI/company collisions",
+      "confidence": "high"
+    },
+    {
+      "name": "Post",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Carrier",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Runner",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Signal",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Conduit",
+      "territory": "Messenger / transmission",
+      "status": "eliminated_collision",
+      "screening": "AI/coding-agent products",
+      "confidence": "high"
+    },
+    {
+      "name": "Channel",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Link",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Emitter",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Transmitter",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "CourierX",
+      "territory": "Messenger / transmission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Baton",
+      "territory": "Orchestration / music",
+      "status": "eliminated_collision",
+      "screening": "active AI coding/agent tools",
+      "confidence": "high"
+    },
+    {
+      "name": "Cue",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tempo",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Cadence",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Score",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Coda",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Chorus",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Meter",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Beat",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Maestro",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Conductor",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Stave",
+      "territory": "Orchestration / music",
+      "status": "eliminated_collision",
+      "screening": "AI/forecasting",
+      "confidence": "high"
+    },
+    {
+      "name": "Aria",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Pulse",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rhythm",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Accent",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Measure",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tonic",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "TempoX",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Syncop",
+      "territory": "Orchestration / music",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Loom",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Twill",
+      "territory": "Weaving / connection",
+      "status": "eliminated_collision",
+      "screening": "AI-native project/coding platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Weft",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Warp",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Braid",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Twine",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Skein",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Shuttle",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bobbin",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Thread",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Strand",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Stitch",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lace",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Knot",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Spool",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Filament",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ply",
+      "territory": "Weaving / connection",
+      "status": "eliminated_collision",
+      "screening": "AI workflow builder",
+      "confidence": "high"
+    },
+    {
+      "name": "Thrum",
+      "territory": "Weaving / connection",
+      "status": "eliminated_collision",
+      "screening": "cross-machine AI-agent messaging",
+      "confidence": "high"
+    },
+    {
+      "name": "Weave",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Selvedge",
+      "territory": "Weaving / connection",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Hatch",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Gate",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Portal",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Iris",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lintel",
+      "territory": "Portals / passages",
+      "status": "eliminated_collision",
+      "screening": "AI construction product",
+      "confidence": "high"
+    },
+    {
+      "name": "Arch",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Threshold",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sluice",
+      "territory": "Portals / passages",
+      "status": "eliminated_collision",
+      "screening": "credential-governance/MCP gateway",
+      "confidence": "high"
+    },
+    {
+      "name": "Airlock",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ford",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Passage",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Causeway",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Viaduct",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Aperture",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ingress",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Egress",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Waygate",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Crossing",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Transit",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "HingeWay",
+      "territory": "Portals / passages",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Pact",
+      "territory": "Trust / permission",
+      "status": "eliminated_collision",
+      "screening": "AI agent programming/MCP projects",
+      "confidence": "high"
+    },
+    {
+      "name": "Oath",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Accord",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Grant",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Seal",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bond",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Permit",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Consent",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Aegis",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Guard",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sentinel",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Warden",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Custos",
+      "territory": "Trust / permission",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Signet",
+      "territory": "Trust / permission",
+      "status": "eliminated_collision",
+      "screening": "AI agent identity/trust products",
+      "confidence": "high"
+    },
+    {
+      "name": "Trustee",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Attest",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Covenant",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Surety",
+      "territory": "Trust / permission",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Motus",
+      "territory": "Motion / action",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Kine",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Kinesis",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sway",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Glide",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Drift",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Surge",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Flux",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vector",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Thrust",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rove",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Leap",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Nudge",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Pivot",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Drive",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Stride",
+      "territory": "Motion / action",
+      "status": "eliminated_collision",
+      "screening": "active AI delivery/agent products",
+      "confidence": "high"
+    },
+    {
+      "name": "Movere",
+      "territory": "Motion / action",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Traho",
+      "territory": "Motion / action",
+      "status": "eliminated_collision",
+      "screening": "active programming/consulting company",
+      "confidence": "high"
+    },
+    {
+      "name": "Pello",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Verto",
+      "territory": "Motion / action",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Waldo",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Telecheric",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Teleoperator",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Telemanipulator",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Telerator",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Servo",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "AI/browser automation product",
+      "confidence": "high"
+    },
+    {
+      "name": "Pantograph",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "AI/CAD/robotics products",
+      "confidence": "high"
+    },
+    {
+      "name": "Tether",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "remote supervision for coding agents; very adjacent",
+      "confidence": "high"
+    },
+    {
+      "name": "Puppet",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Marionette",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rig",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Handle",
+      "territory": "Remote manipulation",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Wield",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "MCP gateway / secrets-policy tooling; adjacent",
+      "confidence": "high"
+    },
+    {
+      "name": "Reins",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "AI-agent security/control",
+      "confidence": "high"
+    },
+    {
+      "name": "Bridle",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "AI browser handoff/harness",
+      "confidence": "high"
+    },
+    {
+      "name": "Haptor",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "haptor.ai",
+      "confidence": "high"
+    },
+    {
+      "name": "Outrigger",
+      "territory": "Remote manipulation",
+      "status": "eliminated_collision",
+      "screening": "AI search product",
+      "confidence": "high"
+    },
+    {
+      "name": "Awl",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Chisel",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lathe",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Anvil",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Forge",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Jig",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vise",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mallet",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Spanner",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Wrench",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Gauge",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Spindle",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Quill",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tongs",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Clamp",
+      "territory": "Tools / craft",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Davit",
+      "territory": "Tools / craft",
+      "status": "eliminated_collision",
+      "screening": "software/company and model collisions",
+      "confidence": "high"
+    },
+    {
+      "name": "Sheave",
+      "territory": "Tools / craft",
+      "status": "eliminated_collision",
+      "screening": "agentic workflow project",
+      "confidence": "high"
+    },
+    {
+      "name": "Capstan",
+      "territory": "Tools / craft",
+      "status": "eliminated_collision",
+      "screening": "current AI/agent framework",
+      "confidence": "high"
+    },
+    {
+      "name": "Windlass",
+      "territory": "Tools / craft",
+      "status": "eliminated_collision",
+      "screening": "AI framework",
+      "confidence": "high"
+    },
+    {
+      "name": "Gantry",
+      "territory": "Tools / craft",
+      "status": "eliminated_collision",
+      "screening": "multiple AI harness/framework projects",
+      "confidence": "high"
+    },
+    {
+      "name": "Circuit",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bus",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Trunk",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Fiber",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Cord",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mesh",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Node",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Switch",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Router",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Backplane",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Shunt",
+      "territory": "Signals / network",
+      "status": "eliminated_collision",
+      "screening": "AI gateway/remote-agent tools",
+      "confidence": "high"
+    },
+    {
+      "name": "Synchro",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rotor",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Stator",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Contactor",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Manifold",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Trigger",
+      "territory": "Signals / network",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Verb",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rune",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Glyph",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sigil",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lex",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Token",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Trace",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Script",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Intent",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Prompt",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Directive",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Clause",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Imperative",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Command",
+      "territory": "Command / language",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Writ",
+      "territory": "Command / language",
+      "status": "eliminated_collision",
+      "screening": "web→API/MCP product; adjacent",
+      "confidence": "high"
+    },
+    {
+      "name": "Ordo",
+      "territory": "Command / language",
+      "status": "eliminated_collision",
+      "screening": "local-first agent/policy products",
+      "confidence": "high"
+    },
+    {
+      "name": "Actum",
+      "territory": "Command / language",
+      "status": "eliminated_collision",
+      "screening": "AI/news/agency products",
+      "confidence": "high"
+    },
+    {
+      "name": "Praxis",
+      "territory": "Command / language",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Factum",
+      "territory": "Command / language",
+      "status": "eliminated_collision",
+      "screening": "agent/event + AI software",
+      "confidence": "high"
+    },
+    {
+      "name": "Actus",
+      "territory": "Command / language",
+      "status": "eliminated_collision",
+      "screening": "current AI products",
+      "confidence": "high"
+    },
+    {
+      "name": "Mantis",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Kestrel",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Saker",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "AI collaboration product",
+      "confidence": "high"
+    },
+    {
+      "name": "Skua",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Kea",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "agentic AI/voice AI",
+      "confidence": "high"
+    },
+    {
+      "name": "Shrike",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "autonomous AI security agent",
+      "confidence": "high"
+    },
+    {
+      "name": "Heron",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ibis",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lynx",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Gecko",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rook",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "AI coding terminal/MCP products",
+      "confidence": "high"
+    },
+    {
+      "name": "Tern",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Myna",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Loris",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Caracal",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "agent authorization product; adjacent",
+      "confidence": "high"
+    },
+    {
+      "name": "Serval",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Corvid",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "autonomous AI dev platform / AI language",
+      "confidence": "high"
+    },
+    {
+      "name": "Osprey",
+      "territory": "Animals / organisms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Kite",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "agent-economy/AI infrastructure",
+      "confidence": "high"
+    },
+    {
+      "name": "Caddis",
+      "territory": "Animals / organisms",
+      "status": "eliminated_collision",
+      "screening": "software with MCP/agent access",
+      "confidence": "high"
+    },
+    {
+      "name": "Argus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ariadne",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Hermod",
+      "territory": "Myth / history",
+      "status": "eliminated_collision",
+      "screening": "voice/AI software",
+      "confidence": "high"
+    },
+    {
+      "name": "Talos",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Janus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Proteus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Daedalus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Icarus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Orpheus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Puck",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Anansi",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bragi",
+      "territory": "Myth / history",
+      "status": "eliminated_collision",
+      "screening": "AI audio platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Vidar",
+      "territory": "Myth / history",
+      "status": "eliminated_collision",
+      "screening": "robotics foundation model / AI package",
+      "confidence": "high"
+    },
+    {
+      "name": "Skadi",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Briareus",
+      "territory": "Myth / history",
+      "status": "eliminated_collision",
+      "screening": "existing software package",
+      "confidence": "high"
+    },
+    {
+      "name": "Atlas",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Hephaestus",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Telamon",
+      "territory": "Myth / history",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Reflex",
+      "territory": "Biology / nervous system",
+      "status": "eliminated_collision",
+      "screening": "multiple AI products",
+      "confidence": "high"
+    },
+    {
+      "name": "Efferent",
+      "territory": "Biology / nervous system",
+      "status": "eliminated_collision",
+      "screening": "active communications platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Afferent",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Myelin",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Plexus",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ganglia",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Motor",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Cortex",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Spine",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Synapse",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Effera",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Dendrite",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Nervel",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Motoris",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Effer",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Efferon",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Neuralis",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ganglion",
+      "territory": "Biology / nervous system",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ferry",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Caravan",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Porter",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Haul",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tow",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lift",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Convey",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Skiff",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Dray",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Dromon",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Dromus",
+      "territory": "Transport / carrying",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Wayfarer",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Convoy",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Freight",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ferryway",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Transfer",
+      "territory": "Transport / carrying",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Motum",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "communications brand",
+      "confidence": "high"
+    },
+    {
+      "name": "Opero",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "multiple current AI/software brands",
+      "confidence": "high"
+    },
+    {
+      "name": "Facio",
+      "territory": "Latin / action roots",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Movo",
+      "territory": "Latin / action roots",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ago",
+      "territory": "Latin / action roots",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Necto",
+      "territory": "Latin / action roots",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mitto",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "coding-agent remote/control products",
+      "confidence": "high"
+    },
+    {
+      "name": "Fero",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "AI logistics platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Iungo",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "active Brazilian cloud/PABX company",
+      "confidence": "high"
+    },
+    {
+      "name": "Telos",
+      "territory": "Latin / action roots",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Exsequor",
+      "territory": "Latin / action roots",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Sequi",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "cybersecurity/remote access company",
+      "confidence": "high"
+    },
+    {
+      "name": "Agere",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "agent framework",
+      "confidence": "high"
+    },
+    {
+      "name": "Operant",
+      "territory": "Latin / action roots",
+      "status": "eliminated_collision",
+      "screening": "AI agent control plane/security products",
+      "confidence": "high"
+    },
+    {
+      "name": "Avatar",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vessel",
+      "territory": "Telepresence / embodiment",
+      "status": "eliminated_collision",
+      "screening": "AI runtime/agent products",
+      "confidence": "high"
+    },
+    {
+      "name": "Presence",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Standin",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Surrogate",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Echo",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Shade",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ghost",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Familiar",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Embod",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Persona",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Double",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Replica",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Shadow",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Projection",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Proxybody",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "RemoteSelf",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "SecondSelf",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Embodiment",
+      "territory": "Telepresence / embodiment",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Strut",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Beam",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Brace",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Pillar",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Frame",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Keystone",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rafter",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Girder",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Joist",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Buttress",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Scaffold",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mantle",
+      "territory": "Structure / support",
+      "status": "eliminated_collision",
+      "screening": "self-hosted agent brain",
+      "confidence": "high"
+    },
+    {
+      "name": "Bower",
+      "territory": "Structure / support",
+      "status": "eliminated_collision",
+      "screening": "file server for AI agents; very adjacent",
+      "confidence": "high"
+    },
+    {
+      "name": "Quoin",
+      "territory": "Structure / support",
+      "status": "eliminated_collision",
+      "screening": "agentic research desktop app",
+      "confidence": "high"
+    },
+    {
+      "name": "Gusset",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Spar",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Stanchion",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bracket",
+      "territory": "Structure / support",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Cairn",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "multiple AI coding/memory/automation tools",
+      "confidence": "high"
+    },
+    {
+      "name": "Meld",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "active AI platforms",
+      "confidence": "high"
+    },
+    {
+      "name": "Sable",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "multiple active AI products, including computer agent",
+      "confidence": "high"
+    },
+    {
+      "name": "Rill",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mote",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Brim",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lilt",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "major translation AI company",
+      "confidence": "high"
+    },
+    {
+      "name": "Kith",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tine",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "AI notebook and Linux desktop-control bridge",
+      "confidence": "high"
+    },
+    {
+      "name": "Glean",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "large enterprise AI brand",
+      "confidence": "high"
+    },
+    {
+      "name": "Trove",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "multiple AI/MCP products",
+      "confidence": "high"
+    },
+    {
+      "name": "Mettle",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "active AI product",
+      "confidence": "high"
+    },
+    {
+      "name": "Fathom",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vellum",
+      "territory": "Rare real words",
+      "status": "eliminated_collision",
+      "screening": "major AI product family, including computer control",
+      "confidence": "high"
+    },
+    {
+      "name": "Sonder",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Brio",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vigor",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Axiom",
+      "territory": "Rare real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Praxen",
+      "territory": "Grounded coined forms",
+      "status": "eliminated_collision",
+      "screening": "AI consulting/system brand",
+      "confidence": "high"
+    },
+    {
+      "name": "Tactum",
+      "territory": "Grounded coined forms",
+      "status": "eliminated_collision",
+      "screening": "physical-AI company",
+      "confidence": "high"
+    },
+    {
+      "name": "Nectra",
+      "territory": "Grounded coined forms",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Iungar",
+      "territory": "Grounded coined forms",
+      "status": "screened_not_final",
+      "screening": "not stronger than Telechir after semantic/brand/collision review; further clearance would be required",
+      "confidence": "medium"
+    },
+    {
+      "name": "Dromi",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Somar",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Vicaris",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Legaro",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tendra",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rivon",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sendar",
+      "territory": "Grounded coined forms",
+      "status": "eliminated_collision",
+      "screening": "AI fintech/messaging",
+      "confidence": "high"
+    },
+    {
+      "name": "Kinet",
+      "territory": "Grounded coined forms",
+      "status": "eliminated_collision",
+      "screening": "active AI/media products",
+      "confidence": "high"
+    },
+    {
+      "name": "Motera",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Actera",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Nexum",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Praxo",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tactis",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Effero",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Manuor",
+      "territory": "Grounded coined forms",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Farhand",
+      "territory": "Remote extension",
+      "status": "eliminated_collision",
+      "screening": "robotics field-service company with AI platform",
+      "confidence": "high"
+    },
+    {
+      "name": "Longreach",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Sidecar",
+      "territory": "Remote extension",
+      "status": "eliminated_collision",
+      "screening": "AI coding/MCP frameworks",
+      "confidence": "high"
+    },
+    {
+      "name": "Wayhand",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Crosswire",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Farpoint",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Remotehand",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Longarm",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Armature",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "RightHand",
+      "territory": "Remote extension",
+      "status": "eliminated_collision",
+      "screening": "AI business agent",
+      "confidence": "high"
+    },
+    {
+      "name": "Reachline",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Farline",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Wayarm",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Handlink",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Reachway",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Extendr",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Longwire",
+      "territory": "Remote extension",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Resolver",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Actuator",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Transducer",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Solenoid",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Valve",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Governor",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Regulator",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Controller",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Feedback",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Loop",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Plant",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Setpoint",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Encoder",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Decoder",
+      "territory": "Control engineering",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bollard",
+      "territory": "Maritime mechanics",
+      "status": "eliminated_collision",
+      "screening": "AI-assisted dev/MCP project",
+      "confidence": "high"
+    },
+    {
+      "name": "Hawser",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mooring",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Fairlead",
+      "territory": "Maritime mechanics",
+      "status": "eliminated_collision",
+      "screening": "active technology company",
+      "confidence": "high"
+    },
+    {
+      "name": "Anchor",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Mast",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Tackle",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Rigging",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Shackle",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Cleat",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Bitts",
+      "territory": "Maritime mechanics",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Kindle",
+      "territory": "Abstract / brandable real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Morrow",
+      "territory": "Abstract / brandable real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Fable",
+      "territory": "Abstract / brandable real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Lumen",
+      "territory": "Abstract / brandable real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Motive",
+      "territory": "Abstract / brandable real words",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Talon",
+      "territory": "Abstract / brandable real words",
+      "status": "eliminated_collision",
+      "screening": "multiple agent runtimes/platforms",
+      "confidence": "high"
+    },
+    {
+      "name": "Wand",
+      "territory": "Abstract / brandable real words",
+      "status": "eliminated_collision",
+      "screening": "enterprise agent infrastructure / simulator MCP",
+      "confidence": "high"
+    },
+    {
+      "name": "Spur",
+      "territory": "Abstract / brandable real words",
+      "status": "eliminated_collision",
+      "screening": "AI-coding-agent orchestrator",
+      "confidence": "high"
+    },
+    {
+      "name": "Marshal",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Keeper",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Ledger",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Policy",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Boundary",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Guardrail",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Fence",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    },
+    {
+      "name": "Scope",
+      "territory": "Policy / governance",
+      "status": "raw_or_first_filter",
+      "screening": "not advanced to deep clearance in this round",
+      "confidence": "low"
+    }
+  ],
+  "sources": [
+    "https://www.btb.termiumplus.gc.ca/tpv2alpha/alpha-eng.html?i=&index=alt&lang=eng&srchtxt=TELEOPERATEUR",
+    "https://www.collinsdictionary.com/dictionary/english/telechir",
+    "https://www.collinsdictionary.com/dictionary/english/prehensor",
+    "https://github.com/Martian-Engineering/maniple",
+    "https://haptor.ai/",
+    "https://trademarks.justia.com/875/47/prehensor-87547286.html"
+  ],
+  "limitations": [
+    "No reliable keyword-volume or SEO-difficulty figures were available; none were invented.",
+    "Domain URLs were not accessible through the research environment, so availability is not claimed.",
+    "Official trademark databases were not fully queryable in this session; absence from general web search is not legal clearance.",
+    "X/Discord and some social handles were not exhaustively searchable.",
+    "Search collision screening is deeper for the top conceptual candidates than for the full raw pool."
+  ]
+}
