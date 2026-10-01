@@ -1,25 +1,55 @@
 # ADR-0002: Tratar o Plugin do ChatGPT como Distribuição e o Remote MCP como Backend de Integração
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Data:** 2026-10-01
+- **Evidência atualizada:** 2026-10-01
 
 ## Contexto
 
-Um usuário-alvo pode possuir somente ChatGPT Plus e não ter permissão para registrar manualmente um custom MCP completo com write/modify. O Remote Desktop Commander demonstra uma experiência de plugin publicado apoiada por um serviço Remote MCP.
+O usuário-alvo pode possuir somente ChatGPT Plus. O produto não pode depender de ele registrar manualmente um custom MCP com write completo.
 
-## Decisão proposta
+A documentação oficial permite publicar plugins cujo backend é um Remote MCP. O Remote Desktop Commander é uma implementação pública desse padrão.
 
-No ChatGPT, tratar um **plugin/app publicado** como mecanismo de distribuição para o usuário e um **Remote MCP server** como backend de tools. O usuário final não deve precisar configurar manualmente um custom MCP.
+## Decisão
 
-O runtime principal continua utilizável por integração MCP direta em outros clientes compatíveis.
+No ChatGPT:
 
-## Trade-offs
+- o **plugin público** é a camada de distribuição/onboarding;
+- o **Remote MCP** é a interface de tools hospedada;
+- o **control plane** roteia as chamadas ao dispositivo autorizado;
+- o usuário final não precisa cadastrar manualmente um custom MCP.
 
-- melhora onboarding no ChatGPT;
-- preserva o core multi-IA;
-- introduz dependência de review/eligibilidade da OpenAI;
-- disponibilidade real no Plus e capability de write/process precisam ser validadas.
+Para outros clientes, o Remote MCP pode ser consumido diretamente quando compatível.
 
-## Gate de aceite
+## Evidência
 
-Este ADR não pode migrar para Accepted até um teste ponta a ponta em conta Plus validar o comportamento necessário do plugin público na surface pretendida.
+Em uma conta Plus durante este discovery, o Remote Desktop Commander:
+
+- estava disponível/instalado;
+- listou dispositivo autorizado;
+- executou processo;
+- escreveu e leu arquivo temporário com sucesso.
+
+Isso valida a arquitetura de referência, sem garantir a aprovação futura do nosso plugin específico.
+
+## Consequências
+
+### Positivas
+- onboarding compatível com usuário Plus por plugin publicado;
+- core continua multi-IA;
+- não dependemos de Developer Mode full MCP no Plus;
+- arquitetura reproduz padrão já usado por plugin público existente.
+
+### Custos/riscos
+- dependência de review e políticas de distribuição da OpenAI;
+- availability/capabilities podem variar por plano/surface;
+- quota não pode ser inferida;
+- tools específicas podem ser restringidas ou bloqueadas durante review.
+
+## Release gates
+
+A decisão arquitetural é Accepted, mas lançamento depende de:
+
+- `OPENAI-PRODUCT-001`: aprovação e disponibilidade do plugin próprio no Plus;
+- `OPENAI-PRODUCT-002`: tools mínimas write/process habilitadas;
+- `OPENAI-QUOTA-001`: quota/metering documentados empiricamente.
