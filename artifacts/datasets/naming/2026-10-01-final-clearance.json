@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-10-01",
+  "stage": "naming-stage-3-clearance",
+  "final_discovery_gate": "NAME_CONDITIONAL",
+  "primary_candidate": "Telechir",
+  "creative_discovery_complete": true,
+  "checks": {
+    "semantics": {
+      "status": "confirmed",
+      "evidence": [
+        "TERMIUM Plus",
+        "Collins English Dictionary",
+        "technical literature"
+      ]
+    },
+    "github": {
+      "status": "favorable_non_authoritative",
+      "notes": "No material contemporary competitor found in exact/variant repository searches."
+    },
+    "packages": {
+      "status": "favorable_indexed_only",
+      "registries": [
+        "npm",
+        "PyPI",
+        "crates.io",
+        "Docker Hub"
+      ],
+      "authoritative_lookup": false
+    },
+    "domains": {
+      "status": "inconclusive",
+      "names": [
+        "telechir.com",
+        "telechir.dev",
+        "telechir.ai",
+        "telechir.io"
+      ],
+      "authoritative_lookup": false
+    },
+    "trademarks": {
+      "status": "inconclusive",
+      "databases": [
+        "INPI",
+        "USPTO",
+        "EUIPO",
+        "WIPO"
+      ],
+      "indexed_red_flag_found": false,
+      "authoritative_lookup": false
+    },
+    "multilingual": {
+      "status": "acceptable",
+      "languages": [
+        "pt-BR",
+        "en",
+        "es"
+      ],
+      "negative_connotation_found": false
+    },
+    "pronunciation": {
+      "status": "acceptable_with_radio_test_risk"
+    }
+  },
+  "observed_non_competing_uses": [
+    "historical robotics/teleoperation term",
+    "music artist/project on SoundCloud/Bandcamp",
+    "old usernames/forum activity"
+  ],
+  "recommendation": "Do not run another creative naming round unless Telechir fails authoritative clearance.",
+  "repo_rename_allowed": false
+}
