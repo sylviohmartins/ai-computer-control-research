@@ -1,11 +1,11 @@
 # Naming Discovery
 
-**Status:** etapa de nomes construídos concluída; clearance autoritativo ainda necessário  
+**Status:** discovery criativo concluído; clearance autoritativo externo ainda necessário  
 **Gate:** `NAME_CONDITIONAL`  
 **Primary candidate:** **Telechir**  
 **Atualizado em:** 2026-10-01
 
-O projeto ainda não possui uma marca juridicamente/operacionalmente aprovada. A recomendação primária atual é **Telechir**, mas o repositório continua com nome descritivo até `NAME_READY`.
+O projeto ainda não possui uma marca juridicamente/operacionalmente aprovada. A recomendação primária é **Telechir**, mas o repositório continua com nome descritivo até `NAME_READY`.
 
 ## Sequência histórica
 
@@ -19,11 +19,6 @@ Por que sobreviveu:
 - fit excepcional com o conceito de transformar intenção de uma IA em ação autorizada na máquina;
 - boa extensibilidade para Agent, CLI, MCP, Runtime e SDK.
 
-Pendências identificadas:
-- pronúncia/spellability;
-- domínio/packages sem verificação autoritativa;
-- trademark clearance incompleto.
-
 Fonte: `artifacts/reports/naming/2026-09-29-naming-discovery-report.md`.
 
 ### Rodada ampliada de palavras reais — 2026-10-01
@@ -36,15 +31,12 @@ Fonte: `artifacts/reports/naming/2026-10-01-naming-discovery-report.md`.
 
 ### Stage 2 — Constructed Distinctive Names — 2026-10-01
 
-A etapa seguinte testou a hipótese de que nomes construídos poderiam escapar da saturação observada entre palavras reais curtas.
-
 Resultados:
-- **560 candidatos construídos/normalizados** materializados;
-- screening antecipado de colisão em candidatos promissores;
+- **560 candidatos construídos/normalizados**;
 - shortlist de 10;
 - finalistas: **Telechir, Clevren, Ferenis, Kheric e Tactren**;
 - nenhum nome construído superou Telechir em autenticidade + storytelling + fit de produto;
-- **Telechir retorna como primary candidate**, com `NAME_CONDITIONAL`.
+- Telechir retorna como primary candidate com `NAME_CONDITIONAL`.
 
 Fontes:
 - `artifacts/reports/naming/2026-10-01-constructed-names-discovery-report.md`;
@@ -52,9 +44,27 @@ Fontes:
 - `artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv`;
 - `artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json`.
 
-## Por que Telechir
+### Stage 3 — Clearance e decisão final de discovery — 2026-10-01
 
-A história de marca é intrínseca ao termo:
+A última etapa executou:
+- atualização do collision screening web;
+- busca nativa no GitHub para Telechir e namespaces relacionados;
+- busca indexada em npm, PyPI, crates.io e Docker Hub;
+- busca indexada de domínio;
+- busca indexada em torno de INPI/USPTO/EUIPO/WIPO;
+- análise de conotação e oralidade PT-BR/EN/ES.
+
+Conclusões:
+- nenhuma plataforma contemporânea de AI/dev tooling com colisão material direta foi localizada;
+- usos existentes de Telechir concentram-se em robótica/teleoperação histórica, música e usernames;
+- package/domain/trademark permaneceram sem consulta autoritativa direta no ambiente atual;
+- não há justificativa para outra rodada criativa enquanto Telechir não falhar no clearance autoritativo.
+
+Fontes:
+- `artifacts/reports/naming/2026-10-01-final-clearance-report.md`;
+- `artifacts/datasets/naming/2026-10-01-final-clearance.json`.
+
+## Por que Telechir
 
 > **A IA pensa; Telechir é a mão remota, autorizada e auditável que transforma intenção em ação sobre uma máquina.**
 
@@ -80,30 +90,29 @@ Descriptor de trabalho:
 
 > **Secure computer control for AI agents**
 
-## Clearance necessário para NAME_READY
+Tagline exploratória:
 
-Antes de tratar Telechir como marca aprovada:
+> **Give AI a secure hand on your machines.**
 
-1. consultar domínio em registrador/RDAP/WHOIS autoritativo;
-2. consultar diretamente npm, PyPI, crates.io e outros namespaces desejados;
-3. verificar handles sociais relevantes em tempo real;
-4. executar busca direta no INPI para marca exata e semelhantes nas classes aplicáveis;
-5. executar USPTO/EUIPO/WIPO se o escopo comercial for internacional;
-6. fazer um pequeno teste oral/soletração em PT-BR, inglês e espanhol.
+## Gate final do discovery
+
+### `NAME_CONDITIONAL`
+
+O **discovery de naming está concluído**. O gate permanece condicional por evidência operacional/jurídica externa, não por insuficiência criativa.
+
+Para virar `NAME_READY` ainda é necessário:
+1. consultar/reservar domínio em registrador/RDAP/WHOIS autoritativo;
+2. consultar diretamente e idealmente reservar npm/PyPI/crates;
+3. executar busca oficial INPI;
+4. executar USPTO/EUIPO/WIPO se o lançamento for internacional;
+5. reservar GitHub org/handles relevantes;
+6. eventual parecer jurídico antes de uso comercial relevante.
 
 Ausência em mecanismos de busca não prova disponibilidade.
 
 ## Working name rejeitado
 
-**MachinaPort** permanece rejeitado. Artefatos históricos podem conter esse nome, mas ele não representa decisão atual.
-
-## Objetivo da marca
-
-A marca deve ser memorável, pronunciável, internacionalmente utilizável, fácil de escrever e ampla o suficiente para continuar válida quando o produto ultrapassar o caso de remote desktop.
-
-A personalidade-alvo permanece:
-
-> **capacidade + confiança + inteligência + movimento**
+**MachinaPort** permanece rejeitado e somente histórico.
 
 ## Naming do repositório
 
