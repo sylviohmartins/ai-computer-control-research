@@ -1,14 +1,14 @@
-# Validation Strategy
+# Estratégia de Validação
 
-No production implementation exists yet. This directory records how architecture assumptions will be validated when implementation starts.
+Ainda não existe implementação de produção. Este diretório registra como as hipóteses de arquitetura serão validadas quando a implementação começar.
 
-Expected layers:
+Camadas esperadas:
 
-- unit/property tests for protocol, policy and paths;
-- integration tests for hosted control plane and simulated agents;
-- cross-platform agent tests on Windows/macOS/Linux;
-- security/adversarial tests;
+- unit/property tests para protocolo, policy e paths;
+- integration tests para control plane e agentes simulados;
+- testes cross-platform do agent em Windows/macOS/Linux;
+- testes de segurança/adversariais;
 - reconnect/chaos tests;
-- load tests for device presence and process output;
-- agent/tool evaluations for different AI clients;
-- a Java/Spring Boot golden workflow as a representative software-engineering canary.
+- load tests para presence e process output;
+- avaliações de tools/agentes em múltiplos clientes;
+- workflow Java/Spring Boot como canário representativo de software engineering.

@@ -1,15 +1,15 @@
-# Discovery-to-Implementation Roadmap
+# Roadmap do Discovery até a Implementação
 
-This roadmap is intentionally gated. It describes the order in which the project should mature, not authorization to implement every phase.
+Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do projeto, não uma autorização para implementar todas as fases.
 
-## Discovery gates
+## Gates de discovery
 
-1. **Naming discovery** — choose and preliminarily clear a durable brand.
-2. **ChatGPT Plus/plugin feasibility** — validate the public-plugin path, capabilities and quota behavior.
-3. **Blueprint v2** — incorporate the two findings above.
-4. **Definition of Ready** — explicitly approve implementation.
+1. **Naming discovery** — escolher e realizar clearance preliminar de uma marca durável.
+2. **Viabilidade ChatGPT Plus/plugin** — validar plugin público, capabilities e quota.
+3. **Blueprint v2** — incorporar os dois resultados acima.
+4. **Definition of Ready** — aprovar explicitamente o início da implementação.
 
-## Implementation phases after readiness
+## Fases após readiness
 
 0. Repository and protocol specifications
 1. Local agent core
@@ -30,4 +30,4 @@ This roadmap is intentionally gated. It describes the order in which the project
 16. Multi-AI compatibility certification
 17. Public release hardening
 
-Implementation must not advance across gates merely because a later phase is technically possible.
+A implementação não deve atravessar gates apenas porque uma fase posterior é tecnicamente possível.

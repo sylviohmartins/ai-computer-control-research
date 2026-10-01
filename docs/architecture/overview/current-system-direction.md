@@ -1,51 +1,51 @@
-# Current Architecture Direction
+# Direção Atual da Arquitetura
 
-**Status:** discovery / proposed architecture. This is not an implementation specification yet.
+**Status:** discovery / arquitetura proposta. Ainda não é especificação de implementação.
 
-## Product boundary
+## Boundary do produto
 
-The future product is intended to be a **model-agnostic execution/control layer** between authorized AI clients and authorized machines. It should not become another LLM provider or a coding agent that owns the reasoning loop.
+O produto pretendido é uma **camada agnóstica a modelos de execução/controle** entre clientes de IA autorizados e máquinas autorizadas. Ele não deve se tornar outro provedor de LLM nem um coding agent proprietário do reasoning loop.
 
-## Current direction
+## Direção atual
 
 ```text
-AI clients
-(ChatGPT / Codex / Claude / Gemini / Copilot / MCP clients)
+Clientes de IA
+(ChatGPT / Codex / Claude / Gemini / Copilot / clientes MCP)
         |
-        | public plugin/app or direct remote-MCP integration
+        | plugin/app público ou integração Remote MCP direta
         v
-Hosted integration / control plane
-(Cloudflare is the leading candidate)
+Integração / control plane hospedado
+(Cloudflare é o principal candidato)
         |
-        | device-scoped realtime channel
+        | canal realtime com escopo por dispositivo
         v
-Secure local agent
+Agente local seguro
         |
         +-- filesystem
-        +-- processes / terminal
+        +-- processos / terminal
         +-- Git
-        +-- future browser / GUI / sandbox adapters
+        +-- futuros adapters de browser / GUI / sandbox
 ```
 
-## Important correction to the archived v1 blueprint
+## Correções importantes em relação ao blueprint v1
 
-The original blueprint used **MachinaPort** as a working name. That name has since been rejected. The archived artifact is intentionally preserved unchanged for traceability.
+O primeiro blueprint utilizou **MachinaPort** como working name. Esse nome foi rejeitado. O artefato histórico é preservado sem ser tratado como decisão atual.
 
-A second correction is distribution strategy: the project must **not depend on a ChatGPT Plus user manually registering a custom full MCP server**. The intended OpenAI path is a published plugin/app whose backend can expose a remote MCP service, subject to current OpenAI review and plan/surface constraints.
+A segunda correção é a estratégia de distribuição: o projeto **não pode depender de um usuário ChatGPT Plus registrar manualmente um custom MCP com write completo**. O caminho pretendido na OpenAI é um plugin/app publicado cujo backend exponha Remote MCP, sujeito às regras atuais de review, plano e surface.
 
-## Invariants under consideration
+## Invariantes em avaliação
 
-- local device policy should be authoritative;
-- device connectivity should be outbound-first;
-- typed tools should be preferred over a single unrestricted remote-command API;
-- long-running work should use explicit process/task handles rather than keeping one request open indefinitely;
-- hosted control-plane components must not execute user workloads themselves;
-- host, guarded-host and sandbox execution must be described honestly as different security levels.
+- policy local do dispositivo deve ser a autoridade final;
+- conectividade do dispositivo deve ser outbound-first;
+- typed tools devem ser preferidas a uma API única de command execution irrestrita;
+- trabalho long-running deve usar process/task handles explícitos;
+- componentes do control plane hospedado não executam workloads do usuário;
+- host, guarded-host e sandbox são níveis de segurança distintos e devem ser descritos honestamente.
 
-## Pending validation
+## Validações pendentes
 
-- exact ChatGPT Plus behavior for a published plugin with write/process actions;
-- quota/metering behavior for that surface;
-- final product naming;
-- Cloudflare cost/limit validation under realistic websocket traffic;
-- local-agent language decision after a dedicated implementation ADR is accepted.
+- comportamento exato do ChatGPT Plus para plugin publicado com write/process;
+- quota/metering nessa surface;
+- naming final;
+- custos/limites Cloudflare com tráfego WebSocket realista;
+- decisão da linguagem do agente local após ADR específico de implementação.

@@ -1,64 +1,62 @@
-# ChatGPT Plus, Public Plugins and Remote MCP — Feasibility Gate
+# ChatGPT Plus, Plugins Públicos e Remote MCP — Gate de Viabilidade
 
-**Research date:** 2026-10-01
-**Status:** unresolved launch gate
+**Data da pesquisa:** 2026-10-01  
+**Status:** gate de lançamento não resolvido
 
-## Why this matters
+## Por que isso importa
 
-A target user may have ChatGPT Plus only. The product must therefore avoid assuming that the user can manually create/register a full custom MCP app with write/modify permissions.
+Um usuário-alvo pode possuir somente ChatGPT Plus. O produto não pode assumir que esse usuário consiga criar/registrar manualmente um custom MCP completo com write/modify.
 
-## Confirmed current facts
+## Fatos atuais confirmados no discovery
 
-1. OpenAI's current Help Center states that **full MCP support, including write/modify actions, is currently available to Business and Enterprise/Edu**, while Pro can connect MCPs with read/fetch permissions in developer mode. Plus is not listed as having full custom-MCP developer mode.
-2. OpenAI's current plugin documentation says public plugins are published to a **universal directory shared by ChatGPT and Codex** and that a plugin may include an MCP server, skills, or both.
-3. The plugin directory itself is available across ChatGPT plans, but **a specific plugin's availability and capabilities still depend on plan, surface, account, workspace, region and included capabilities**.
-4. The current Remote Desktop Commander listing explicitly says it reaches an authorized computer's filesystem and terminal from ChatGPT through Desktop Commander's **Remote MCP**, including commands, processes and file edits.
-5. OpenAI's public-plugin submission flow explicitly supports plugins backed by remote MCP servers and requires review, metadata/tool scanning and verified publisher identity.
+1. A documentação atual da OpenAI não permite assumir full custom MCP com write/modify para usuários Plus.
+2. A documentação de plugins públicos descreve uma distribuição que pode incluir um MCP server, skills ou ambos.
+3. A disponibilidade do diretório é ampla, mas capabilities de cada plugin dependem de plano, surface, conta, workspace, região e capabilities incluídas.
+4. O Remote Desktop Commander declara acesso a filesystem e terminal de computador autorizado por meio do Remote MCP do Desktop Commander.
+5. O fluxo de submissão de plugin público oferece suporte a plugins apoiados por Remote MCP e exige review, metadata, verificação do publisher e análise das tools.
 
-## Architectural implication
+## Implicação arquitetural
 
-For ChatGPT distribution, the product should treat the **public plugin as the user-facing distribution package** and the **remote MCP service as the backend integration**. The user should not have to manually configure a custom full MCP server.
-
-Conceptually:
+Para distribuição no ChatGPT, o produto deve tratar o **plugin público como pacote de distribuição para o usuário** e o **Remote MCP como backend de integração**. O usuário não deve configurar custom MCP manualmente.
 
 ```text
-ChatGPT Plus user
-      | installs (if eligible)
+Usuário ChatGPT Plus
+      | instala, se elegível
       v
-public plugin
-      | remote MCP
+plugin público
+      | Remote MCP
       v
-hosted control plane
-      | outbound device channel
+control plane hospedado
+      | canal outbound do dispositivo
       v
-local agent
+agente local
 ```
 
-## What remains unproven
+## O que ainda não está provado
 
-OpenAI documentation does **not** establish that our future public plugin with write/process actions will necessarily be available to Plus on every intended ChatGPT surface. Directory availability is broad, but individual-plugin capability remains conditional.
+A documentação da OpenAI **não** garante que nosso futuro plugin com write/process estará disponível no Plus em todas as surfaces pretendidas.
 
-The following must be tested before Blueprint v2 can declare the path fully viable:
+Antes do Blueprint v2 considerar o caminho plenamente viável, validar:
 
-- published-plugin eligibility for a Plus account;
-- write/file modification capability in the intended ChatGPT surface;
-- process/terminal execution capability through the reviewed plugin;
-- confirmation/approval UX for high-impact actions;
-- whether the plugin is primarily surfaced in normal ChatGPT, Work, Codex, or multiple surfaces;
-- quota/metering behavior for tool use on the target surface.
+- elegibilidade do plugin publicado em conta Plus;
+- capability de escrita/modificação na surface pretendida;
+- execução de processos/terminal por meio do plugin revisado;
+- UX de confirmação/approval para ações de alto impacto;
+- surfaces em que o plugin aparece de fato;
+- quota/metering do uso de tools.
 
-## Release gates
+## Gates de release
 
 ### OPENAI-PLUS-001
-A Plus account can install/use the reviewed public plugin without manually registering a custom MCP server.
+Uma conta Plus consegue instalar/usar o plugin revisado sem registrar custom MCP manualmente.
 
 ### OPENAI-PLUS-002
-The reviewed plugin can invoke the minimum required write/process tool set on the target ChatGPT surface.
+O plugin revisado consegue invocar o conjunto mínimo de write/process necessário na surface-alvo.
 
 ### OPENAI-PLUS-003
-Quota/metering behavior is measured and documented rather than inferred from authentication method.
+Quota/metering são medidos e documentados, não inferidos pelo método de autenticação.
 
-## Primary sources
+## Fontes primárias
 
 - https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt
 - https://help.openai.com/en/articles/20001256-plugins-in-chatgpt

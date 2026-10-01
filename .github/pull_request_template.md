@@ -1,19 +1,19 @@
-## Summary
+## Resumo
 
-Describe the focused change and why it belongs in the current project phase.
+Descreva a mudança focada e por que ela pertence à fase atual do projeto.
 
-## Evidence / sources
+## Evidências / fontes
 
-List primary sources for mutable platform, pricing, security or compatibility claims.
+Liste fontes primárias para afirmações mutáveis sobre plataforma, preço, segurança ou compatibilidade.
 
-## Project-state impact
+## Impacto no estado do projeto
 
-- [ ] No project gate changes
-- [ ] Updates a documented gate or phase (explain below)
+- [ ] Nenhum gate do projeto foi alterado
+- [ ] Atualiza um gate ou fase documentada (explique abaixo)
 
 ## Checklist
 
-- [ ] Change is focused and does not mix unrelated responsibilities
-- [ ] No secrets or private data are included
-- [ ] Archived artifacts were not rewritten
-- [ ] ADR added or superseded if this changes a durable architecture decision
+- [ ] A mudança é focada e não mistura responsabilidades sem relação
+- [ ] Nenhum secret ou dado privado foi incluído
+- [ ] Artefatos arquivados não foram reescritos
+- [ ] Um ADR foi criado ou substituído caso a mudança altere decisão arquitetural durável

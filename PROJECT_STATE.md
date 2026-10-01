@@ -1,49 +1,49 @@
-# Project State
+# Estado do Projeto
 
-**Updated:** 2026-10-01
+**Atualizado em:** 2026-10-01
 
-## Current phase
+## Fase atual
 
 **Product & Technical Discovery / Research Foundation**
 
-Implementation has **not started**. This repository is currently a versioned research, architecture and project-history knowledge base.
+A implementação **não começou**. O repositório funciona neste momento como base versionada de pesquisa, arquitetura e histórico do projeto.
 
-## Current gates
+## Gates atuais
 
-- [ ] Naming discovery reaches an approved brand state. The latest completed round is `NAME_NOT_READY`.
-- [ ] ChatGPT Plus + public plugin distribution path validated end-to-end.
-- [ ] Product/technical Blueprint v2 updated after those two discoveries.
-- [ ] Definition of Ready re-run and approved.
-- [ ] Open-source licensing strategy selected.
+- [ ] Naming discovery atingir um estado de marca aprovado. A rodada mais recente terminou em `NAME_NOT_READY`.
+- [ ] Caminho ChatGPT Plus + plugin público validado ponta a ponta.
+- [ ] Blueprint técnico/de produto v2 atualizado após essas duas descobertas.
+- [ ] Definition of Ready reexecutada e aprovada.
+- [ ] Estratégia de licenciamento open source definida.
 
-## Current decisions
+## Decisões atuais
 
-- Repository name is descriptive and temporary; it is not the product brand.
-- The product should remain model-agnostic and multi-AI by design.
-- Public ChatGPT distribution is expected to use a published plugin/app backed by a remote MCP service rather than requiring Plus users to manually register a custom MCP.
-- Cloudflare remains the leading control-plane candidate, subject to feasibility validation.
-- The local agent is expected to enforce the final device-side security policy.
-- GUI/browser/computer-use is post-MVP unless discovery proves otherwise.
-- Historical research artifacts remain immutable evidence; current conclusions live under `docs/`.
-- ChatGPT-generated source artifacts are tracked through `artifacts/provenance/source-manifest.json`.
+- O nome do repositório é descritivo e temporário; não é a marca do produto.
+- O produto deve permanecer agnóstico a modelos e multi-IA por design.
+- A distribuição pública no ChatGPT deve usar plugin/app publicado apoiado por um serviço Remote MCP, sem exigir que usuários Plus registrem manualmente um custom MCP.
+- Cloudflare continua sendo o principal candidato a control plane, sujeito à validação de viabilidade.
+- O agente local deve aplicar a política final de segurança do dispositivo.
+- GUI/browser/computer-use permanecem pós-MVP, salvo nova evidência.
+- Artefatos históricos permanecem como evidência imutável; conclusões atuais vivem em `docs/`.
+- Artefatos originados no ChatGPT são rastreados em `artifacts/provenance/source-manifest.json`.
 
-## Naming state
+## Estado do naming
 
-- 2026-09-29 round: **Telechir** reached `NAME_CONDITIONAL`.
-- 2026-10-01 broader round: creative finalists included Grapnel, Skeg, Nervo, Prehend and Hawse, but the final gate returned to **`NAME_NOT_READY`** because no candidate cleared the quality + collision/clearance threshold.
-- No product brand is currently approved.
+- Rodada de 2026-09-29: **Telechir** chegou a `NAME_CONDITIONAL`.
+- Rodada ampliada de 2026-10-01: Grapnel, Skeg, Nervo, Prehend e Hawse apareceram entre os finalistas criativos, mas o gate voltou a **`NAME_NOT_READY`** porque nenhum candidato passou pelo conjunto qualidade + clearance/colisão.
+- Nenhuma marca de produto está aprovada atualmente.
 
-## Explicitly rejected
+## Rejeições explícitas
 
-- **MachinaPort** as a product name. It remains visible only inside archived research snapshots for historical traceability.
+- **MachinaPort** como nome de produto. O nome permanece apenas em snapshots históricos.
 
-## Historical lineage
+## Histórico
 
-See `docs/history/research-lineage.md` for the progression from the original Remote Desktop Commander/Codex-limit observation through the ecosystem census, blueprint, Plus/plugin correction and naming rounds.
+Consulte `docs/history/research-lineage.md` para a evolução desde a observação inicial envolvendo Remote Desktop Commander e limite do Codex até o censo, blueprint, correção Plus/plugin e rodadas de naming.
 
-## Next recommended work
+## Próximos trabalhos recomendados
 
-1. Run another naming round or final-clearance workflow until a brand passes the naming gate.
-2. Validate the ChatGPT Plus public-plugin path, including write/process execution, surface availability and quota behavior.
-3. Produce Blueprint v2.
-4. Re-run Definition of Ready before implementation.
+1. Continuar o naming até uma marca ultrapassar o gate.
+2. Validar o caminho de plugin público no ChatGPT Plus, incluindo write/process execution, surface disponível e comportamento de quota.
+3. Produzir o Blueprint v2.
+4. Reexecutar a Definition of Ready antes da implementação.

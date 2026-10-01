@@ -1,112 +1,112 @@
-# Research Lineage — How the Project Was Born
+# Linhagem da Pesquisa — Como o Projeto Nasceu
 
-This document explains how the project evolved from a practical limitation into a product/architecture research program. It is a historical narrative, not a current product specification.
+Este documento explica como o projeto evoluiu de uma limitação prática para um programa de pesquisa de produto e arquitetura. É uma narrativa histórica, não a especificação atual do produto.
 
-## 1. Trigger: keep working when an agent quota is exhausted
+## 1. Gatilho: continuar trabalhando quando a quota de um agente acaba
 
-The initial practical trigger was a screenshot captured during work with ChatGPT showing the message **“Limite Semanal do Codex acabou, mas...”** while Remote Desktop Commander was being used to continue operating a development environment. The original image is tracked in the artifact provenance manifest by SHA-256.
+O gatilho inicial foi uma imagem capturada durante uso do ChatGPT mostrando a mensagem **“Limite Semanal do Codex acabou, mas...”** enquanto o Remote Desktop Commander era utilizado para continuar operando um ambiente de desenvolvimento. A evidência está registrada em `artifacts/evidence/` e no manifesto de proveniência.
 
-That observation reframed the problem: the useful capability was not “Codex” itself, but a reusable execution layer that gives an authorized AI controlled hands on a machine.
+A observação reformulou o problema: a capacidade útil não era “Codex” em si, mas uma camada reutilizável de execução que desse a uma IA autorizada “mãos” controladas sobre uma máquina.
 
-## 2. Ecosystem census
+## 2. Censo do ecossistema
 
-The first major research phase mapped the broader ecosystem instead of treating Remote Desktop Commander as an isolated product. The census normalized **181 materially relevant tools/projects** across:
+A primeira grande fase mapeou o ecossistema em vez de tratar Remote Desktop Commander como produto isolado. O censo normalizou **181 ferramentas/projetos materialmente relevantes** entre:
 
-- bridges and MCP servers;
+- bridges e MCP servers;
 - coding agents;
-- computer-use/browser tools;
+- ferramentas de computer-use/browser;
 - sandboxes;
-- remote execution;
-- CI/CD executors.
+- execução remota;
+- executores CI/CD.
 
-That research established the recurring capability set: filesystem, terminal/process lifecycle, Git, browser/GUI, remote connectivity, sandboxing, auditability and policy.
+A pesquisa consolidou o conjunto recorrente de capabilities: filesystem, terminal/process lifecycle, Git, browser/GUI, conectividade remota, sandboxing, auditabilidade e policy.
 
-Canonical source:
+Fontes canônicas:
 - `artifacts/reports/2026-09-29-ai-computer-control-ecosystem-census.md`
 - `artifacts/datasets/2026-09-29-ai-computer-control-ecosystem-census.{csv,json}`
 
-## 3. First full product/technical blueprint
+## 3. Primeiro blueprint completo
 
-A complete first blueprint was then produced under the temporary working name **MachinaPort**. It proposed a model-agnostic, policy-first control layer with:
+Depois foi produzido um primeiro blueprint técnico/de produto com o working name **MachinaPort**. Ele propôs uma camada de controle agnóstica a modelos e policy-first, com:
 
-- Cloudflare control plane;
-- outbound device connectivity;
-- local policy authority;
-- filesystem/process/Git tools first;
-- GUI/browser later;
-- multi-device and multi-AI compatibility;
-- auditability and progressive sandboxing.
+- control plane Cloudflare;
+- conectividade outbound do dispositivo;
+- autoridade de policy local;
+- filesystem/process/Git primeiro;
+- GUI/browser posteriormente;
+- compatibilidade multi-device e multi-IA;
+- auditabilidade e sandboxing progressivo.
 
-MachinaPort was later explicitly rejected as a product name. The blueprint remains important because it records the first coherent architecture before later corrections.
+MachinaPort foi explicitamente rejeitado como nome. O blueprint continua importante porque registra a primeira arquitetura coerente antes das correções seguintes.
 
-Historical snapshots:
+Snapshot histórico:
 - `artifacts/archive/2026-09-29-product-technical-blueprint-machinaport-draft.md`
-- `artifacts/source/chatgpt/2026-09-29/machinaport_product_technical_blueprint_2026-09-29.md`
 
-## 4. ChatGPT Plus/plugin feasibility correction
+## 4. Correção de viabilidade ChatGPT Plus/plugin
 
-A critical discovery followed: the target experience must not depend on a Plus user manually registering a custom full-write MCP.
+Uma descoberta crítica veio depois: a experiência-alvo não pode depender de usuário Plus registrar manualmente um custom MCP com full write.
 
-The architecture therefore distinguishes:
+A arquitetura passou a distinguir:
 
-- **distribution layer:** public ChatGPT plugin/app;
-- **AI integration layer:** remote MCP backend;
-- **control plane:** hosted routing/auth/policy metadata;
-- **device plane:** secure local agent.
+- **distribution layer:** plugin/app público do ChatGPT;
+- **AI integration layer:** backend Remote MCP;
+- **control plane:** routing/auth/policy metadata hospedados;
+- **device plane:** agente local seguro.
 
-This is recorded in:
+Registros:
 - `docs/discovery/feasibility/chatgpt-plus-public-plugin.md`
 - `docs/architecture/adr/0002-chatgpt-plugin-and-remote-mcp.md`
 
-The end-to-end Plus/public-plugin behavior remains a release gate that must be validated against current OpenAI product rules before implementation is considered final.
+O comportamento ponta a ponta no Plus permanece como release gate que deve ser revalidado antes da implementação final.
 
-## 5. Naming discovery — round 1 (2026-09-29)
+## 5. Naming discovery — rodada 1 (2026-09-29)
 
-The project deliberately stopped using pragmatic compound names and ran a structured naming process.
+O projeto abandonou nomes compostos excessivamente pragmáticos e executou processo estruturado de naming.
 
-The first round elevated **Telechir**, a historical teleoperation term for a hand-like remote manipulator, to `NAME_CONDITIONAL`. It had unusually strong semantic fit, but pronunciation, domain/package and trademark clearance remained unresolved.
+A primeira rodada elevou **Telechir**, termo histórico de teleoperação para um manipulador remoto semelhante a uma mão, a `NAME_CONDITIONAL`. O fit semântico era forte, mas pronúncia, domínio/packages e trademark clearance permaneceram incompletos.
 
-Artifacts:
+Artefatos:
 - `artifacts/reports/naming/2026-09-29-naming-discovery-report.md`
 - `artifacts/datasets/naming/2026-09-29-naming-discovery-candidates.json`
 
-## 6. Naming discovery — round 2 (2026-10-01)
+## 6. Naming discovery — rodada 2 (2026-10-01)
 
-A broader second round generated and screened additional semantic territories and candidates. Creative finalists included **Grapnel, Skeg, Nervo, Prehend and Hawse**, but the round concluded `NAME_NOT_READY` because the strongest creative names had material clearance/collision problems.
+Uma segunda rodada ampliou territórios semânticos e candidatos. Finalistas criativos incluíram **Grapnel, Skeg, Nervo, Prehend e Hawse**, mas o gate terminou em `NAME_NOT_READY` porque os nomes mais fortes apresentaram colisões materiais ou pendências relevantes de clearance.
 
-Artifacts:
+Artefatos:
 - `artifacts/reports/naming/2026-10-01-naming-discovery-report.md`
 - `artifacts/datasets/naming/2026-10-01-naming-discovery-catalog.json`
 - `artifacts/datasets/naming/2026-10-01-naming-discovery-top20.csv`
 - `artifacts/datasets/naming/2026-10-01-naming-discovery-raw-candidates.csv`
 
-The combined working exports from both rounds are deduplicated into:
+Exports de trabalho combinados ficam também consolidados em:
 - `artifacts/datasets/naming/canonical-naming-candidates.csv`
 
-## 7. Why the repository exists before the final brand
+## 7. Por que o repositório existe antes da marca final
 
-The descriptive repository name `ai-computer-control-research` is intentional. The repository is the versioned memory of the project while the brand is unresolved.
+O nome descritivo `ai-computer-control-research` é intencional. O repositório funciona como memória versionada enquanto o naming ainda não fechou.
 
-It preserves:
-- original research evidence;
-- superseded decisions;
-- live conclusions;
+Ele preserva:
+
+- evidência original;
+- decisões superadas;
+- conclusões vivas;
 - ADRs;
-- security thinking;
-- feasibility gates;
-- naming work;
-- future implementation plans.
+- raciocínio de segurança;
+- gates de viabilidade;
+- pesquisa de naming;
+- planos futuros de implementação.
 
-This prevents later coding agents or contributors from mistaking the latest document for the entire history of why the product exists.
+Isso evita que agentes ou colaboradores futuros confundam o documento mais recente com toda a história de por que o produto existe.
 
-## 8. Current state
+## 8. Estado atual
 
-The project remains in **Product & Technical Discovery / Research Foundation**.
+O projeto permanece em **Product & Technical Discovery / Research Foundation**.
 
-Current gates:
-1. naming must reach an acceptable final state;
-2. ChatGPT Plus + public plugin path must be validated end-to-end;
-3. Blueprint v2 must incorporate those results;
-4. Definition of Ready must be rerun before production implementation.
+Gates atuais:
+1. naming atingir estado final aceitável;
+2. caminho ChatGPT Plus + plugin público ser validado ponta a ponta;
+3. Blueprint v2 incorporar esses resultados;
+4. Definition of Ready ser reexecutada antes da implementação de produção.
 
-Historical artifacts should never be silently rewritten to match newer decisions. New conclusions supersede old ones through living docs and ADRs.
+Artefatos históricos nunca devem ser silenciosamente reescritos para refletir decisões novas. Conclusões novas substituem antigas por documentação viva e ADRs.

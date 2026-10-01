@@ -1,12 +1,12 @@
 # Architecture Decision Records
 
-ADRs capture durable decisions and their trade-offs.
+ADRs registram decisões duráveis e seus trade-offs.
 
-Statuses:
+Status:
 
-- **Proposed** — under active review.
-- **Accepted** — current decision.
-- **Superseded** — retained for history but replaced by another ADR.
-- **Rejected** — considered and explicitly not chosen.
+- **Proposed** — em revisão ativa;
+- **Accepted** — decisão atual;
+- **Superseded** — preservado historicamente, mas substituído;
+- **Rejected** — considerado e explicitamente não escolhido.
 
-Do not rewrite historical ADRs to make the past look cleaner. Add a superseding ADR when a decision changes.
+Não reescreva ADRs históricos para deixar o passado “mais limpo”. Quando uma decisão mudar, crie um ADR substituto.

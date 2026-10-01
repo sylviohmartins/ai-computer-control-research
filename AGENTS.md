@@ -1,44 +1,47 @@
-# Agent Instructions
+# Instruções para Agentes
 
-This repository may be used by ChatGPT, Codex, Claude Code, Gemini CLI and other AI agents. These rules are repository-wide unless a more specific `AGENTS.md` is introduced later.
+Este repositório pode ser utilizado por ChatGPT, Codex, Claude Code, Gemini CLI e outros agentes de IA. Estas regras valem para todo o repositório, salvo se um `AGENTS.md` mais específico for criado em um subdiretório.
 
-## Current phase guardrail
+## Guardrail da fase atual
 
-The project is in research/discovery. **Do not implement production code, deploy infrastructure, create paid resources or publish a plugin unless the current project state explicitly authorizes that phase.**
+O projeto está em pesquisa/discovery. **Não implemente código de produção, não faça deploy de infraestrutura, não crie recursos pagos e não publique plugin enquanto o estado atual do projeto não autorizar explicitamente essa fase.**
 
-## Source-of-truth order
+## Ordem de fonte de verdade
 
 1. `PROJECT_STATE.md`
-2. accepted ADRs under `docs/architecture/adr/`
-3. living documentation under `docs/`
-4. project lineage under `docs/history/`
-5. immutable snapshots and source provenance under `artifacts/`
+2. ADRs aceitos em `docs/architecture/adr/`
+3. documentação viva em `docs/`
+4. linhagem histórica em `docs/history/`
+5. snapshots imutáveis e proveniência em `artifacts/`
 
-If a living document conflicts with an archived artifact, prefer the living document and preserve the artifact unchanged. Before redesigning product scope, naming, distribution or core architecture, read `docs/history/research-lineage.md` and the relevant entries in `artifacts/provenance/` so earlier decisions are not accidentally rediscovered or erased.
+Se um documento vivo entrar em conflito com um artefato arquivado, prefira o documento vivo e preserve o artefato. Antes de redesenhar escopo, naming, distribuição ou arquitetura central, leia `docs/history/research-lineage.md` e a proveniência correspondente.
 
-## Research standards
+## Padrões de pesquisa
 
-- Date mutable claims.
-- Prefer primary sources for platform capabilities, pricing, limits and security behavior.
-- Separate verified facts from hypotheses and proposed design decisions.
-- Record meaningful source URLs in the relevant document.
-- Never claim a platform, domain, package or trademark is available without a current check.
+- Date afirmações mutáveis.
+- Prefira fontes primárias para capacidades, preços, limites e segurança.
+- Separe fatos verificados, hipóteses e decisões propostas.
+- Registre URLs relevantes no documento correspondente.
+- Nunca declare domínio, package, marca ou capability como disponível sem verificação atual.
 
-## Architecture standards
+## Padrões de arquitetura
 
-- Record durable architectural decisions as ADRs.
-- Do not rewrite historical ADRs to hide changed decisions; supersede them with a new ADR.
-- Keep the external AI integration protocol separate from the internal device transport unless an ADR explicitly changes that boundary.
-- Treat local policy enforcement as a security invariant until superseded by an accepted ADR.
+- Registre decisões duráveis como ADRs.
+- Não reescreva ADRs históricos para esconder mudança; crie um ADR que substitua o anterior.
+- Mantenha o protocolo externo de integração com IA separado do transporte interno de dispositivos, salvo decisão formal em ADR.
+- Trate enforcement local de policy como invariante de segurança até decisão contrária aceita.
 
-## Repository hygiene
+## Higiene do repositório
 
-- Use focused commits with Conventional Commit-style messages.
-- Do not mix unrelated research, architecture and implementation changes in one commit.
-- Do not commit secrets, tokens, credentials, private infrastructure identifiers or user data.
-- Do not edit files under `artifacts/` except to add a new immutable snapshot, add provenance metadata, or correct accidental corruption with an explicit explanation.
-- When importing ChatGPT/research outputs, preserve the original source under `artifacts/source/` when practical and map it in `artifacts/provenance/source-manifest.json`.
+- Use commits focados com mensagens no estilo Conventional Commits.
+- Não misture pesquisa, arquitetura e implementação sem relação em um único commit.
+- Não faça commit de secrets, tokens, credenciais, identificadores privados de infraestrutura ou dados do usuário.
+- Não altere arquivos em `artifacts/` salvo para adicionar novo snapshot imutável, melhorar metadados de proveniência ou corrigir corrupção acidental explicitamente documentada.
+- Ao importar saídas de ChatGPT/pesquisa, preserve a fonte em `artifacts/source/` quando útil e mapeie-a em `artifacts/provenance/source-manifest.json`.
 
-## Documentation language
+## Convenção de idioma
 
-Public-facing living documentation should prefer English for global accessibility. Historical research artifacts may remain in their original language.
+- nomes de arquivos, diretórios, branches e identificadores técnicos: inglês;
+- documentação e texto explicativo mantidos pelo projeto: português do Brasil;
+- nomes oficiais de produtos, APIs, comandos e schemas permanecem no idioma original quando necessário;
+- artefatos históricos podem preservar seu conteúdo original quando alterá-los destruiria valor de proveniência.
