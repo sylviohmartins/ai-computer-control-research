@@ -9,6 +9,10 @@ Evidência estruturada utilizada no naming discovery.
 - `2026-10-01-naming-discovery-top20.csv`
 - `2026-10-01-naming-discovery-raw-candidates.csv`
 
+- `2026-10-01-constructed-name-candidates.csv` — universo de 560 candidatos construídos/normalizados da Stage 2.
+- `2026-10-01-constructed-name-shortlist.csv` — shortlist comparativa da Stage 2.
+- `2026-10-01-constructed-name-catalog.json` — gate, finalistas, metodologia e pendências de clearance da Stage 2.
+
 ## Projeção canônica
 
 - `canonical-naming-candidates.csv` — projeção deduplicada dos exports de candidatos das duas rodadas. Mantém primeira/última ocorrência, melhor estágio/score observado e linhagem do arquivo de origem.

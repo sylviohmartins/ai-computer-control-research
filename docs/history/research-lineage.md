@@ -82,7 +82,28 @@ Artefatos:
 Exports de trabalho combinados ficam também consolidados em:
 - `artifacts/datasets/naming/canonical-naming-candidates.csv`
 
-## 7. Por que o repositório existe antes da marca final
+## 7. Naming discovery — Stage 2 de nomes construídos (2026-10-01)
+
+Após a saturação de palavras reais curtas, foi executada uma etapa específica de **Constructed Distinctive Names**.
+
+A etapa:
+- materializou 560 candidatos construídos/normalizados;
+- preservou os melhores territórios semânticos das rodadas anteriores;
+- fez collision screening antecipado;
+- produziu shortlist e catálogo estruturados;
+- comparou os finalistas sintéticos com Telechir.
+
+Resultado: nenhum nome construído superou Telechir em autenticidade, narrativa e fit de produto. Telechir voltou a ser a recomendação primária, em estado `NAME_CONDITIONAL`.
+
+Artefatos:
+- `artifacts/reports/naming/2026-10-01-constructed-names-discovery-report.md`
+- `artifacts/datasets/naming/2026-10-01-constructed-name-candidates.csv`
+- `artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv`
+- `artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json`
+
+O rename do repositório continua bloqueado até clearance autoritativo de domínio/packages/trademark/handles e teste oral.
+
+## 8. Por que o repositório existe antes da marca final
 
 O nome descritivo `ai-computer-control-research` é intencional. O repositório funciona como memória versionada enquanto o naming ainda não fechou.
 
@@ -99,12 +120,12 @@ Ele preserva:
 
 Isso evita que agentes ou colaboradores futuros confundam o documento mais recente com toda a história de por que o produto existe.
 
-## 8. Estado atual
+## 9. Estado atual
 
 O projeto permanece em **Product & Technical Discovery / Research Foundation**.
 
 Gates atuais:
-1. naming atingir estado final aceitável;
+1. concluir o clearance autoritativo de Telechir até `NAME_READY` ou rejeição;
 2. caminho ChatGPT Plus + plugin público ser validado ponta a ponta;
 3. Blueprint v2 incorporar esses resultados;
 4. Definition of Ready ser reexecutada antes da implementação de produção.

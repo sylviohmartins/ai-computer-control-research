@@ -42,6 +42,15 @@ Datasets:
 
 O dataset canônico de naming deduplica grandes exports intermediários, preservando a linhagem das fontes.
 
+### Stage 2 — Constructed Distinctive Names
+
+- `reports/naming/2026-10-01-constructed-names-discovery-report.md`
+- `datasets/naming/2026-10-01-constructed-name-candidates.csv`
+- `datasets/naming/2026-10-01-constructed-name-shortlist.csv`
+- `datasets/naming/2026-10-01-constructed-name-catalog.json`
+
+A etapa materializou 560 candidatos construídos para testar se uma marca sintética distintiva superaria os melhores achados autênticos. Nenhum candidato construído superou Telechir; o gate atual ficou em `NAME_CONDITIONAL` com Telechir como primary candidate.
+
 ## Proveniência
 
 Consulte:
