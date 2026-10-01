@@ -1,10 +1,11 @@
 # Naming Discovery
 
-**Status:** rodada de pesquisa concluída; nova rodada/clearance ainda necessária  
-**Gate:** `NAME_NOT_READY`  
+**Status:** etapa de nomes construídos concluída; clearance autoritativo ainda necessário  
+**Gate:** `NAME_CONDITIONAL`  
+**Primary candidate:** **Telechir**  
 **Atualizado em:** 2026-10-01
 
-O projeto intencionalmente **ainda não possui um nome de produto aprovado**.
+O projeto ainda não possui uma marca juridicamente/operacionalmente aprovada. A recomendação primária atual é **Telechir**, mas o repositório continua com nome descritivo até `NAME_READY`.
 
 ## Sequência histórica
 
@@ -13,75 +14,99 @@ O projeto intencionalmente **ainda não possui um nome de produto aprovado**.
 A primeira rodada estruturada elevou **Telechir** a `NAME_CONDITIONAL`.
 
 Por que sobreviveu:
-- termo histórico autêntico de teleoperação;
-- fit incomumente forte com o conceito de “mão remota/camada de ação”;
-- história de marca e potencial visual fortes;
-- baixa colisão preliminar com software.
+- termo técnico histórico e autêntico de teleoperação;
+- fontes terminológicas o definem como manipulador remoto semelhante a uma mão;
+- fit excepcional com o conceito de transformar intenção de uma IA em ação autorizada na máquina;
+- boa extensibilidade para Agent, CLI, MCP, Runtime e SDK.
 
-Por que não passou:
-- preocupação com pronúncia/spellability;
-- disponibilidade de domínio/packages não verificada de forma autoritativa;
+Pendências identificadas:
+- pronúncia/spellability;
+- domínio/packages sem verificação autoritativa;
 - trademark clearance incompleto.
 
 Fonte: `artifacts/reports/naming/2026-09-29-naming-discovery-report.md`.
 
-### Rodada 2 — 2026-10-01
+### Rodada ampliada de palavras reais — 2026-10-01
 
-Uma rodada criativa mais ampla explorou novos territórios semânticos e gerou universo maior de candidatos.
+Foram explorados 333 candidatos em 24 territórios. Grapnel, Skeg, Nervo, Prehend e Hawse foram os finalistas criativos, mas todos apresentaram colisões contemporâneas suficientes para bloquear a marca.
 
-Finalistas criativos incluíram:
-- Grapnel;
-- Skeg;
-- Nervo;
-- Prehend;
-- Hawse.
-
-O gate voltou a **`NAME_NOT_READY`** porque os nomes mais fortes apresentaram colisões relevantes em busca, software/packages ou pendências de clearance. O processo recusou intencionalmente escolher “o menos ruim” apenas para avançar.
+O gate voltou a `NAME_NOT_READY`.
 
 Fonte: `artifacts/reports/naming/2026-10-01-naming-discovery-report.md`.
 
+### Stage 2 — Constructed Distinctive Names — 2026-10-01
+
+A etapa seguinte testou a hipótese de que nomes construídos poderiam escapar da saturação observada entre palavras reais curtas.
+
+Resultados:
+- **560 candidatos construídos/normalizados** materializados;
+- screening antecipado de colisão em candidatos promissores;
+- shortlist de 10;
+- finalistas: **Telechir, Clevren, Ferenis, Kheric e Tactren**;
+- nenhum nome construído superou Telechir em autenticidade + storytelling + fit de produto;
+- **Telechir retorna como primary candidate**, com `NAME_CONDITIONAL`.
+
+Fontes:
+- `artifacts/reports/naming/2026-10-01-constructed-names-discovery-report.md`;
+- `artifacts/datasets/naming/2026-10-01-constructed-name-candidates.csv`;
+- `artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv`;
+- `artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json`.
+
+## Por que Telechir
+
+A história de marca é intrínseca ao termo:
+
+> **A IA pensa; Telechir é a mão remota, autorizada e auditável que transforma intenção em ação sobre uma máquina.**
+
+Essa metáfora continua válida se o produto evoluir de filesystem/terminal para browser, GUI, servidores, sandboxes e outros execution environments.
+
+## Sistema de naming candidato
+
+```text
+Telechir
+telechir
+telechir-agent
+telechir-cli
+telechir-mcp
+telechir-sdk
+@telechir/core
+@telechir/mcp
+Telechir Cloud
+Telechir Runtime
+Telechir Enterprise
+```
+
+Descriptor de trabalho:
+
+> **Secure computer control for AI agents**
+
+## Clearance necessário para NAME_READY
+
+Antes de tratar Telechir como marca aprovada:
+
+1. consultar domínio em registrador/RDAP/WHOIS autoritativo;
+2. consultar diretamente npm, PyPI, crates.io e outros namespaces desejados;
+3. verificar handles sociais relevantes em tempo real;
+4. executar busca direta no INPI para marca exata e semelhantes nas classes aplicáveis;
+5. executar USPTO/EUIPO/WIPO se o escopo comercial for internacional;
+6. fazer um pequeno teste oral/soletração em PT-BR, inglês e espanhol.
+
+Ausência em mecanismos de busca não prova disponibilidade.
+
 ## Working name rejeitado
 
-**MachinaPort** foi rejeitado após o primeiro blueprint por parecer excessivamente pragmático/descritivo e não atingir o padrão esperado de oralidade, autenticidade e potencial de marca. Artefatos históricos podem continuar contendo esse nome; essas ocorrências não representam decisão atual.
+**MachinaPort** permanece rejeitado. Artefatos históricos podem conter esse nome, mas ele não representa decisão atual.
 
 ## Objetivo da marca
 
-Encontrar um nome que consiga existir por conta própria como marcas fortes de tecnologia: memorável, fácil de pronunciar, fácil de escrever, utilizável internacionalmente e amplo o suficiente para continuar válido caso o produto ultrapasse o caso de remote desktop.
+A marca deve ser memorável, pronunciável, internacionalmente utilizável, fácil de escrever e ampla o suficiente para continuar válida quando o produto ultrapassar o caso de remote desktop.
 
-A marca deve sugerir alguma combinação de **capacidade, confiança, inteligência e movimento**, evitando concatenações mecânicas de palavras como `AI`, `Agent`, `Machine`, `Desktop`, `Remote`, `Bridge`, `Port` ou `Control`.
+A personalidade-alvo permanece:
 
-## Funil obrigatório
-
-1. Pesquisar linguagem da categoria e naming de concorrentes.
-2. Definir territórios semânticos independentes.
-3. Gerar centenas de candidatos diversos.
-4. Filtrar por semântica, fonética e memorabilidade.
-5. Executar search-collision screening.
-6. Executar testes de oralidade e conotação em PT-BR / EN / ES.
-7. Verificar packages, domínios e handles.
-8. Analisar profundamente os finalistas.
-9. Fazer preliminary trademark screening.
-10. Definir `NAME_READY`, `NAME_CONDITIONAL` ou `NAME_NOT_READY`.
-
-## Prioridades de avaliação
-
-Maior peso para:
-- memorabilidade e distintividade;
-- sonoridade e pronúncia em PT-BR / inglês / espanhol;
-- escrita natural / radio test;
-- história de marca convincente;
-- extensibilidade para Agent, CLI, Cloud, MCP, Runtime e SDK;
-- baixa colisão em busca.
-
-SEO deve vir principalmente do descriptor e da arquitetura de conteúdo do produto, não de keyword stuffing no nome.
-
-## Linhagem dos dados
-
-Os exports das duas rodadas estão representados em:
-- datasets datados em `artifacts/datasets/naming/`;
-- `artifacts/datasets/naming/canonical-naming-candidates.csv`, projeção deduplicada que preserva proveniência;
-- `artifacts/provenance/source-manifest.json`, que registra todo arquivo originário e seu SHA-256.
+> **capacidade + confiança + inteligência + movimento**
 
 ## Naming do repositório
 
-`ai-computer-control-research` é intencionalmente descritivo e seguro enquanto a marca estiver pendente. Não renomeie o repositório para uma marca de produto antes de o naming gate ser aprovado.
+`ai-computer-control-research` continua intencionalmente descritivo e temporário.
+
+**Não renomeie o repositório para Telechir enquanto o gate permanecer `NAME_CONDITIONAL`.**
