@@ -42,6 +42,9 @@ describe("D1 conceptual model migration", () => {
       "idx_devices_user_revoked",
       "idx_device_keys_device_revoked",
       "idx_pairings_code_expiry",
+      "idx_pairings_installation_state_created",
+      "idx_pairings_device_key_state",
+      "idx_pairings_activated_device",
       "idx_sessions_user_started",
       "idx_commands_device_requested",
       "idx_commands_session_requested",
@@ -53,5 +56,36 @@ describe("D1 conceptual model migration", () => {
     for (const index of expected) {
       expect(names.has(index), `missing index: ${index}`).toBe(true);
     }
+  });
+
+  it("materializes the Phase 3 pre-activation pairing fields", async () => {
+    const bindings = env as unknown as Env;
+    const columns = await bindings.DB.prepare(
+      "PRAGMA table_info(pairings)",
+    ).all<{ name: string }>();
+    const names = new Set(columns.results.map((row) => row.name));
+
+    for (const column of [
+      "public_key",
+      "algorithm",
+      "fingerprint",
+      "device_installation_id",
+      "display_name",
+      "os",
+      "arch",
+      "agent_version",
+      "challenge_used_at",
+      "verification_attempts",
+      "proof_attempts",
+      "proved_at",
+      "activated_device_id",
+    ]) {
+      expect(names.has(column), `missing pairing column: ${column}`).toBe(true);
+    }
+
+    const legacy = await bindings.DB.prepare(
+      "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'pairings_phase0'",
+    ).first<{ name: string }>();
+    expect(legacy).toBeNull();
   });
 });

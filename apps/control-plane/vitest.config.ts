@@ -17,6 +17,9 @@ export default defineConfig(async () => {
         miniflare: {
           bindings: {
             TEST_MIGRATIONS: migrations,
+            PAIRING_SERVER_SECRET:
+              "phase3-test-secret-0123456789-abcdefghijklmnopqrstuvwxyz",
+            PAIRING_VERIFICATION_URI: "https://telechir.test/pair",
           },
         },
       }),
