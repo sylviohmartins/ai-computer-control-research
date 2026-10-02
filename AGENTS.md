@@ -4,7 +4,7 @@ Este repositório pode ser utilizado por ChatGPT, Codex, Claude Code, Gemini CLI
 
 ## Guardrail da fase atual
 
-O projeto está em pesquisa/discovery. **Não implemente código de produção, não faça deploy de infraestrutura, não crie recursos pagos e não publique plugin enquanto o estado atual do projeto não autorizar explicitamente essa fase.**
+O projeto concluiu discovery e Phase 0. **Não inicie automaticamente a Phase 1 apenas porque `PROJECT_STATE.md` está `READY_FOR_PHASE_1`: runtime/código de produção deve começar somente em uma tarefa explicitamente dedicada a Build, Test & Iterate.** Nunca faça deploy de produção, crie recursos pagos ou publique plugin sem autorização específica da fase correspondente.
 
 ## Ordem de fonte de verdade
 
@@ -28,8 +28,10 @@ Se um documento vivo entrar em conflito com um artefato arquivado, prefira o doc
 
 - Registre decisões duráveis como ADRs.
 - Não reescreva ADRs históricos para esconder mudança; crie um ADR que substitua o anterior.
-- Mantenha o protocolo externo de integração com IA separado do transporte interno de dispositivos, salvo decisão formal em ADR.
-- Trate enforcement local de policy como invariante de segurança até decisão contrária aceita.
+- Mantenha o protocolo externo de integração com IA separado do transporte interno de dispositivos, conforme ADR-0006.
+- Trate enforcement local de policy como invariante de segurança, conforme ADR-0003.
+- Considere `specs/` fonte de verdade para contratos cross-language durante a implementação.
+- Mudança breaking em `specs/` exige versionamento e, quando arquitetural, ADR.
 
 ## Higiene do repositório
 

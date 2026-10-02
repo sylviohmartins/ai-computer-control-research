@@ -1,0 +1,565 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://telechir.dev/schemas/device-payloads-0.1.schema.json",
+  "title": "Telechir Device Payload Contracts 0.1",
+  "$defs": {
+    "agent_hello": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_public_id",
+        "device_key_id",
+        "agent_version",
+        "os",
+        "arch",
+        "supported_protocol_versions",
+        "capabilities",
+        "connection_nonce"
+      ],
+      "properties": {
+        "device_public_id": {
+          "type": "string"
+        },
+        "device_key_id": {
+          "type": "string"
+        },
+        "agent_version": {
+          "type": "string"
+        },
+        "os": {
+          "type": "string"
+        },
+        "arch": {
+          "type": "string"
+        },
+        "supported_protocol_versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "connection_nonce": {
+          "type": "string",
+          "minLength": 16
+        }
+      }
+    },
+    "agent_hello_ack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_id",
+        "selected_protocol_version",
+        "server_time",
+        "heartbeat_interval_seconds",
+        "limits"
+      ],
+      "properties": {
+        "connection_id": {
+          "type": "string"
+        },
+        "selected_protocol_version": {
+          "type": "string"
+        },
+        "server_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "heartbeat_interval_seconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 300
+        },
+        "limits": {
+          "$ref": "#/$defs/connection_limits"
+        },
+        "policy_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "command_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "operation",
+        "arguments",
+        "requested_permissions",
+        "risk"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 8,
+          "maxLength": 160
+        },
+        "operation": {
+          "$ref": "#/$defs/command_operation"
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "requested_permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/permission_domain"
+          },
+          "uniqueItems": true
+        },
+        "risk": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "workspace_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approval_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "enum": [
+                  "fs.write",
+                  "fs.patch",
+                  "shell.exec",
+                  "process.start",
+                  "process.write",
+                  "process.cancel"
+                ]
+              }
+            },
+            "required": [
+              "operation"
+            ]
+          },
+          "then": {
+            "required": [
+              "idempotency_key"
+            ],
+            "properties": {
+              "idempotency_key": {
+                "type": "string",
+                "minLength": 8,
+                "maxLength": 160
+              }
+            }
+          }
+        }
+      ]
+    },
+    "command_accepted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "accepted_at"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "accepted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "process_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "command_chunk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "stream",
+        "offset",
+        "truncated"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "stream": {
+          "type": "string",
+          "enum": [
+            "stdout",
+            "stderr",
+            "event"
+          ]
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "data": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "data"
+          ]
+        },
+        {
+          "required": [
+            "artifact_id"
+          ]
+        }
+      ]
+    },
+    "command_completed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "completed_at",
+        "result"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result": {
+          "type": "object"
+        }
+      }
+    },
+    "command_failed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "failed_at",
+        "error"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "failed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "error.schema.json"
+        }
+      }
+    },
+    "command_cancel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "force": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "command_cancelled": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "cancelled_at",
+        "state"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "cancelled_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "cancelled",
+            "already_finished"
+          ]
+        }
+      }
+    },
+    "approval_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_id",
+        "command_id",
+        "permission",
+        "risk",
+        "argument_digest",
+        "expires_at"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "command_id": {
+          "type": "string"
+        },
+        "permission": {
+          "$ref": "#/$defs/permission_domain"
+        },
+        "risk": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "argument_digest": {
+          "type": "string"
+        },
+        "human_summary": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "approval_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_id",
+        "decision",
+        "decided_at"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "APPROVE",
+            "DENY"
+          ]
+        },
+        "decided_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "once",
+            "session"
+          ],
+          "default": "once"
+        }
+      }
+    },
+    "permission_domain": {
+      "type": "string",
+      "enum": [
+        "FS_READ",
+        "FS_WRITE",
+        "FS_DELETE",
+        "SHELL_SAFE",
+        "SHELL_FULL",
+        "PROCESS_CONTROL",
+        "NETWORK",
+        "GIT_WRITE",
+        "GIT_REMOTE_WRITE",
+        "SCREEN_READ",
+        "INPUT_CONTROL",
+        "BROWSER",
+        "SECRET_USE",
+        "ELEVATION",
+        "ADMIN"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "command_operation": {
+      "type": "string",
+      "enum": [
+        "fs.list",
+        "fs.stat",
+        "fs.read",
+        "fs.write",
+        "fs.patch",
+        "fs.search",
+        "shell.exec",
+        "process.start",
+        "process.read",
+        "process.write",
+        "process.cancel",
+        "process.list",
+        "git.status",
+        "git.diff",
+        "system.metrics"
+      ]
+    },
+    "connection_limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_frame_bytes",
+        "max_output_chunk_bytes",
+        "process_ring_buffer_bytes",
+        "max_inline_result_bytes"
+      ],
+      "properties": {
+        "max_frame_bytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 1048576
+        },
+        "max_output_chunk_bytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 262144
+        },
+        "process_ring_buffer_bytes": {
+          "type": "integer",
+          "minimum": 65536,
+          "maximum": 67108864
+        },
+        "max_inline_result_bytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 1048576
+        }
+      }
+    },
+    "heartbeat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_time",
+        "last_received_sequence"
+      ],
+      "properties": {
+        "agent_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_received_sequence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "heartbeat_ack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "server_time",
+        "last_received_sequence"
+      ],
+      "properties": {
+        "server_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_received_sequence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "capabilities_changed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capabilities"
+      ],
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "agent_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 500
+        }
+      }
+    },
+    "protocol_error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "error.schema.json"
+        }
+      }
+    }
+  }
+}

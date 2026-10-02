@@ -15,4 +15,4 @@ O primeiro blueprint simulou a arquitetura no papel antes da implementação. Ce
 - update assinado do agent e rollback;
 - indisponibilidade do control plane hospedado.
 
-Cada cenário deve virar integration/chaos test executável quando o subsistema correspondente existir.
+Os resultados formais da Phase 0 estão em `phase0-tabletop-results.md`. Cada cenário deve virar integration/chaos test executável quando o subsistema correspondente existir.

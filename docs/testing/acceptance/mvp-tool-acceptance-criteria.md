@@ -4,6 +4,10 @@
 **Status:** Accepted para especificação da Phase 0  
 **Escopo:** contratos do primeiro vertical slice; não constitui implementação.
 
+## Convenção de nomes
+
+Os nomes pontuados usados neste documento (`device.list`, `fs.read`, `shell.exec`, `process.start` etc.) são identificadores canônicos de domínio/operação interna. Os nomes públicos MCP em `snake_case` e o mapping exato entre as duas superfícies estão congelados em `specs/tools/tool-catalog.json` e documentados em `specs/tools/README.md`.
+
 ## Invariantes comuns
 
 Toda tool call deve:
@@ -18,7 +22,7 @@ Toda tool call deve:
 - rejeitar device revogado, session expirada e payload acima do limite;
 - nunca elevar privilégios implicitamente.
 
-Erros base: UNAUTHENTICATED, UNAUTHORIZED, POLICY_DENIED, APPROVAL_REQUIRED, DEVICE_OFFLINE, DEVICE_REVOKED, INVALID_ARGUMENT, NOT_FOUND, CONFLICT, TIMEOUT, OUTPUT_TRUNCATED e INTERNAL_ERROR.
+Error codes do baseline 0.1: UNAUTHENTICATED, UNAUTHORIZED, POLICY_DENIED, APPROVAL_REQUIRED, DEVICE_OFFLINE, DEVICE_REVOKED, INVALID_ARGUMENT, NOT_FOUND, CONFLICT, TIMEOUT, DEADLINE_EXCEEDED, OUTPUT_TRUNCATED, IDEMPOTENCY_CONFLICT, UNSUPPORTED_PROTOCOL, UNSUPPORTED_CAPABILITY, RATE_LIMITED e INTERNAL_ERROR. A enum machine-readable em `specs/protocol/error.schema.json` é a fonte de verdade.
 
 ## device.list
 - retorna apenas devices visíveis ao usuário;

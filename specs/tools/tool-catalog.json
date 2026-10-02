@@ -1,0 +1,440 @@
+{
+  "catalog_version": "0.1",
+  "external_protocol": "MCP 2026-07-28",
+  "tools": [
+    {
+      "name": "list_devices",
+      "title": "List devices",
+      "description": "Lista os dispositivos Telechir que a conta autenticada pode acessar.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#list-devices",
+      "internal_operation": "device.list",
+      "execution_plane": "control-plane",
+      "input_schema_ref": "public-tools.schema.json#/$defs/list_devices_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/list_devices_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:devices:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_device",
+      "title": "Get device",
+      "description": "Retorna status, plataforma e capacidades de um dispositivo Telechir autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-device",
+      "internal_operation": "device.info",
+      "execution_plane": "control-plane",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_device_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_device_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:devices:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list_files",
+      "title": "List files",
+      "description": "Lista arquivos e diretórios dentro de um caminho autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#list-files",
+      "internal_operation": "fs.list",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/list_files_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/list_files_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_file_metadata",
+      "title": "Get file metadata",
+      "description": "Retorna metadados e hash opcional de um arquivo autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-file-metadata",
+      "internal_operation": "fs.stat",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_file_metadata_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_file_metadata_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "read_file",
+      "title": "Read file",
+      "description": "Lê conteúdo de um arquivo autorizado, inteiro ou por faixa.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#read-file",
+      "internal_operation": "fs.read",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/read_file_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/read_file_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "write_file",
+      "title": "Write file",
+      "description": "Cria ou substitui conteúdo de um arquivo autorizado, sujeito a policy e approval.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#write-file",
+      "internal_operation": "fs.write",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/write_file_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/write_file_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:write"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "patch_file",
+      "title": "Patch file",
+      "description": "Aplica patch textual a um arquivo autorizado com precondition de hash.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#patch-file",
+      "internal_operation": "fs.patch",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/patch_file_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/patch_file_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:write"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search_files",
+      "title": "Search files",
+      "description": "Pesquisa nomes ou conteúdo dentro de roots autorizados.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#search-files",
+      "internal_operation": "fs.search",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/search_files_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/search_files_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run_command",
+      "title": "Run command",
+      "description": "Executa um comando curto no dispositivo sob policy local e timeout.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#run-command",
+      "internal_operation": "shell.exec",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/run_command_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/run_command_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "start_process",
+      "title": "Start process",
+      "description": "Inicia um processo autorizado de longa duração e retorna handle para acompanhamento.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#start-process",
+      "internal_operation": "process.start",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/start_process_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/start_process_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "read_process_output",
+      "title": "Read process output",
+      "description": "Lê output e estado de um processo gerenciado pelo Telechir.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#read-process-output",
+      "internal_operation": "process.read",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/read_process_output_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/read_process_output_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "write_process_input",
+      "title": "Write process input",
+      "description": "Envia entrada para um processo interativo gerenciado.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#write-process-input",
+      "internal_operation": "process.write",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/write_process_input_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/write_process_input_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cancel_process",
+      "title": "Cancel process",
+      "description": "Solicita cancelamento de um processo gerenciado.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#cancel-process",
+      "internal_operation": "process.cancel",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/cancel_process_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/cancel_process_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list_managed_processes",
+      "title": "List managed processes",
+      "description": "Lista processos iniciados ou gerenciados pelo Telechir.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#list-managed-processes",
+      "internal_operation": "process.list",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/list_managed_processes_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/list_managed_processes_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_git_status",
+      "title": "Get Git status",
+      "description": "Lê o estado Git de um repositório autorizado sem modificá-lo.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-git-status",
+      "internal_operation": "git.status",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_git_status_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_git_status_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:git:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_git_diff",
+      "title": "Get Git diff",
+      "description": "Lê diff Git de um repositório autorizado sem modificar o working tree.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-git-diff",
+      "internal_operation": "git.diff",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_git_diff_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_git_diff_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:git:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_system_metrics",
+      "title": "Get system metrics",
+      "description": "Retorna métricas gerais de saúde do dispositivo.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-system-metrics",
+      "internal_operation": "system.metrics",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_system_metrics_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_system_metrics_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:metrics:read"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_artifact",
+      "title": "Get artifact",
+      "description": "Retorna metadados e acesso temporário a um artifact autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-artifact",
+      "internal_operation": "artifact.get",
+      "execution_plane": "control-plane",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_artifact_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_artifact_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:artifacts:read"
+          ]
+        }
+      ]
+    }
+  ],
+  "tool_schema_version": "0.1",
+  "external_contracts_verified_on": "2026-10-02"
+}

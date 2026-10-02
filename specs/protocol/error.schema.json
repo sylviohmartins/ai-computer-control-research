@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://telechir.dev/schemas/error-0.1.schema.json",
+  "title": "Telechir Error 0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "code",
+    "message",
+    "retryable"
+  ],
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "UNAUTHENTICATED",
+        "UNAUTHORIZED",
+        "POLICY_DENIED",
+        "APPROVAL_REQUIRED",
+        "DEVICE_OFFLINE",
+        "DEVICE_REVOKED",
+        "INVALID_ARGUMENT",
+        "NOT_FOUND",
+        "CONFLICT",
+        "TIMEOUT",
+        "DEADLINE_EXCEEDED",
+        "OUTPUT_TRUNCATED",
+        "IDEMPOTENCY_CONFLICT",
+        "UNSUPPORTED_PROTOCOL",
+        "UNSUPPORTED_CAPABILITY",
+        "RATE_LIMITED",
+        "INTERNAL_ERROR"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "retryable": {
+      "type": "boolean"
+    },
+    "retry_after_ms": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "details": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    }
+  }
+}

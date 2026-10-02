@@ -12,3 +12,9 @@ Camadas esperadas:
 - load tests para presence e process output;
 - avaliações de tools/agentes em múltiplos clientes;
 - workflow Java/Spring Boot como canário representativo de software engineering.
+
+## Phase 0
+
+- `acceptance/phase0-exit-review-2026-10-02.md` — exit gate da Phase 0;
+- `acceptance/phase0-contract-audit-2026-10-02.md` — auditoria independente e revalidação dos contratos;
+- `tabletop/phase0-tabletop-results.md` — cenários arquiteturais exercitados em papel.

@@ -1,6 +1,6 @@
 # Threat Model — Conjunto de Trabalho
 
-**Status:** discovery, não especificação final de segurança.
+**Status:** baseline formalizado na Phase 0.
 
 Famílias de ameaça já identificadas:
 
@@ -25,4 +25,4 @@ Famílias de ameaça já identificadas:
 19. auto-update malicioso;
 20. vazamento de secrets em logs/artefatos.
 
-Antes da implementação, converter isso em modelo formal no estilo STRIDE com ativos, trust boundaries, ameaças, mitigations e test cases.
+A conversão formal foi concluída em `stride-baseline-2026-10-02.md`, com ativos, trust boundaries, STRIDE, controles e 40 abuse cases. O modelo deve ser reaberto à medida que novas capacidades forem implementadas.

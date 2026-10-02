@@ -1,0 +1,16 @@
+{
+  "protocol_version": "0.1",
+  "message_type": "heartbeat",
+  "message_id": "msg_01HEARTBEAT",
+  "correlation_id": null,
+  "device_id": "dev_demo",
+  "session_id": null,
+  "connection_id": "conn_demo",
+  "sequence": 13,
+  "sent_at": "2026-10-02T08:40:00Z",
+  "deadline_at": null,
+  "payload": {
+    "agent_time": "2026-10-02T08:40:00Z",
+    "last_received_sequence": 12
+  }
+}

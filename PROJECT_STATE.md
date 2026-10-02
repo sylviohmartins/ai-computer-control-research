@@ -4,7 +4,7 @@
 
 ## Fase atual
 
-**Discovery concluído / READY para Phase 0 — Repository & Protocol Specifications**
+**Discovery concluído / Phase 0 concluída / READY para Phase 1 — Local Agent Core**
 
 A implementação de runtime/produção **não começou**. O repositório é a base versionada de pesquisa, arquitetura, histórico e especificações do produto **Telechir**.
 
@@ -16,9 +16,10 @@ A implementação de runtime/produção **não começou**. O repositório é a b
 - [x] Blueprint técnico/de produto v2 consolidado.
 - [x] Estratégia de licenciamento/open source definida em ADR-0005.
 - [x] Acceptance criteria formais do vertical slice MVP.
-- [x] Definition of Ready: **`READY_FOR_PHASE_0`**.
-- [ ] Phase 0 iniciada/concluída.
-- [ ] Phase 1/runtime autorizada.
+- [x] Definition of Ready para Phase 0: **`READY_FOR_PHASE_0`**.
+- [x] Phase 0 — Repository & Protocol Specifications: **`PHASE_0_COMPLETE`**.
+- [x] Exit review: **`READY_FOR_PHASE_1`**.
+- [ ] Phase 1/runtime iniciada.
 
 ## Decisões atuais
 
@@ -27,10 +28,10 @@ A implementação de runtime/produção **não começou**. O repositório é a b
 - Naming criativo está encerrado; nova rodada só ocorre se surgir impedimento material/jurídico.
 - O produto é agnóstico a modelos e multi-IA por design.
 - Distribuição no ChatGPT: plugin/app público + Remote MCP; usuários Plus não devem precisar registrar manualmente um custom MCP.
-- Cloudflare permanece candidato principal a control plane.
+- Cloudflare foi aceito como primeiro control plane hospedado em ADR-0004, mantendo protocolo e agent independentes do provedor.
 - O agent local aplica a autoridade final de policy.
 - GUI/browser/computer-use permanecem pós-MVP.
-- O core público previsto usa **Apache License 2.0**, com trademark Telechir separado.
+- O core público usa **Apache License 2.0**, com trademark Telechir separado; `LICENSE` já está na raiz.
 - Artefatos históricos permanecem imutáveis; conclusões atuais vivem em `docs/`.
 - Artefatos originados no ChatGPT são rastreados em `artifacts/provenance/source-manifest.json`.
 
@@ -55,21 +56,25 @@ A implementação de runtime/produção **não começou**. O repositório é a b
 
 ## Readiness
 
-A nova avaliação está em:
+As avaliações relevantes estão em:
 
 - `docs/testing/acceptance/definition-of-ready-2026-10-02.md`
+- `docs/testing/acceptance/phase0-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase0-contract-audit-2026-10-02.md`
 
-Resultado:
+Resultado atual:
 
-> **READY_FOR_PHASE_0**
+> **READY_FOR_PHASE_1**
 
-Isso autoriza somente trabalho documental/especificativo de Phase 0. Não autoriza runtime, deploy, agente funcional, Cloudflare real ou publicação de plugin.
+O gate foi revalidado por auditoria de contratos: payload binding, fixtures, tool mappings, OAuth/security schemes, schema refs e error codes passaram nas checagens cruzadas documentadas.
+
+Isso significa que arquitetura e contratos estão maduros para iniciar a implementação do Local Agent Core em uma execução futura dedicada. Nenhum runtime/deploy foi iniciado nesta fase.
 
 ## Próximos trabalhos
 
-1. Executar **Phase 0 — Repository & Protocol Specifications**.
+1. Em uma próxima execução de build/test, iniciar **Phase 1 — Local Agent Core**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
-3. Reavaliar readiness antes de Phase 1/runtime.
+3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 
 ## Histórico
 

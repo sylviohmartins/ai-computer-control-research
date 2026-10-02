@@ -8,13 +8,15 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 2. **Commercial clearance da marca** — pendente antes de lançamento público/comercial; não bloqueia Phase 0.
 3. **Viabilidade ChatGPT Plus/plugin** — caminho de referência validado; plugin próprio, availability e quota continuam como release gates.
 4. **Blueprint v2** — consolidado com as decisões atuais.
-5. **Licensing/open-source strategy** — pendente.
-6. **Definition of Ready** — reexecutar antes da implementação de runtime/produção.
+5. **Licensing/open-source strategy** — concluída: core Apache-2.0 / ADR-0005.
+6. **Definition of Ready** — concluída para Phase 0.
+7. **Phase 0** — concluída em 2026-10-02; contratos congelados em `specs/`.
+8. **Phase 1 readiness** — `READY_FOR_PHASE_1`, mas implementação só deve começar em execução explicitamente dedicada a build/test.
 
 ## Fases após readiness
 
-0. Repository and protocol specifications
-1. Local agent core
+0. Repository and protocol specifications — **concluída**
+1. Local agent core — **próxima fase**
 2. Hosted control-plane skeleton
 3. Pairing and device identity
 4. Device realtime channel
