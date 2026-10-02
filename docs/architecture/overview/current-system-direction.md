@@ -1,6 +1,6 @@
 # Direção Atual da Arquitetura
 
-**Status:** discovery / arquitetura proposta. Ainda não é especificação de implementação.
+**Status:** arquitetura aceita e contratos da Phase 0 congelados; runtime ainda não iniciado.
 
 ## Boundary do produto
 
@@ -15,7 +15,7 @@ Clientes de IA
         | plugin/app público ou integração Remote MCP direta
         v
 Integração / control plane hospedado
-(Cloudflare é o principal candidato)
+(Cloudflare — decisão aceita no ADR-0004)
         |
         | canal realtime com escopo por dispositivo
         v
@@ -33,9 +33,9 @@ O primeiro blueprint utilizou **MachinaPort** como working name. Esse nome foi r
 
 A segunda correção é a estratégia de distribuição: o projeto **não pode depender de um usuário ChatGPT Plus registrar manualmente um custom MCP com write completo**. O caminho pretendido na OpenAI é um plugin/app publicado cujo backend exponha Remote MCP, sujeito às regras atuais de review, plano e surface.
 
-## Invariantes em avaliação
+## Invariantes aceitos
 
-- policy local do dispositivo deve ser a autoridade final;
+- policy local do dispositivo é a autoridade final (ADR-0003);
 - conectividade do dispositivo deve ser outbound-first;
 - typed tools devem ser preferidas a uma API única de command execution irrestrita;
 - trabalho long-running deve usar process/task handles explícitos;
@@ -52,9 +52,16 @@ Isso reduz o risco arquitetural, mas não garante aprovação/disponibilidade do
 
 - aprovação e disponibilidade do plugin próprio no Plus;
 - quota/metering do plugin próprio;
-- commercial clearance de Telechir (domínio, packages, handles e trademark) antes de lançamento; o naming em si está `NAME_READY`;
-- custos/limites Cloudflare com tráfego WebSocket realista;
-- estratégia de licenciamento/open source;
-- ADR final da linguagem do agente local antes de Phase 1.
+- commercial clearance de Telechir antes de lançamento;
+- custos/limites Cloudflare com tráfego WebSocket realista antes de beta;
+- code signing/update path antes de distribuição pública.
+
+Decisões já encerradas:
+- licenciamento do core: Apache-2.0 (ADR-0005);
+- linguagem do agent: Rust (ADR-0007);
+- device transport: WebSocket outbound (ADR-0006);
+- state ownership: ADR-0008.
 
 Blueprint vivo: `docs/architecture/overview/product-technical-blueprint-v2.md`.
+
+Contratos implementáveis: `specs/`.
