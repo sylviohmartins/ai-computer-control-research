@@ -4,9 +4,9 @@
 
 ## Fase atual
 
-**Discovery concluído / Phases 0–4 concluídas / Phase 4 — Device Realtime Channel concluída**
+**Discovery concluído / Phases 0–5 concluídas / Phase 5 — Remote MCP Integration and OAuth concluída**
 
-A implementação possui o Local Agent Core, control plane, identidade/pairing Ed25519 e canal realtime outbound com credential curta, Durable Objects/WebSocket Hibernation, presence, reconnect e revogação fail-closed. O projeto **não possui deploy de produção** e ainda não iniciou Remote MCP/OAuth ou integrações de filesystem/process/Git.
+A implementação possui Local Agent Core, control plane, identidade/pairing Ed25519, canal realtime outbound e um Remote MCP autenticado como OAuth resource server. A superfície MCP atual expõe somente `list_devices` e `get_device`; o projeto **não possui deploy de produção** e ainda não iniciou integrações de filesystem/process/Git.
 
 ## Gates atuais
 
@@ -23,7 +23,8 @@ A implementação possui o Local Agent Core, control plane, identidade/pairing E
 - [x] Phase 2 — Hosted Control-Plane Skeleton: **`PHASE_2_COMPLETE`**.
 - [x] Phase 3 — Pairing and Device Identity: **`PHASE_3_COMPLETE`**.
 - [x] Phase 4 — Device Realtime Channel: **`PHASE_4_COMPLETE`**.
-- [ ] Phase 5 — Remote MCP Integration and OAuth iniciada.
+- [x] Phase 5 — Remote MCP Integration and OAuth: **`PHASE_5_COMPLETE`**.
+- [ ] Phase 6 — Filesystem Tools iniciada.
 
 ## Decisões atuais
 
@@ -69,20 +70,22 @@ As avaliações relevantes estão em:
 - `docs/testing/acceptance/phase2-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase3-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase4-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase5-exit-review-2026-10-02.md`
 - `docs/research/cloudflare/phase2-revalidation-2026-10-02.md`
 - `docs/research/cloudflare/phase4-revalidation-2026-10-02.md`
+- `docs/research/mcp/phase5-revalidation-2026-10-02.md`
 
 Resultado atual:
 
-> **PHASE_4_COMPLETE**
+> **PHASE_5_COMPLETE**
 
-A Phase 4 implementa credential curta de conexão, prova Ed25519 cross-language, WebSocket outbound, Durable Objects com Hibernation API, handshake `0.1`, heartbeat/presence, reconnect replacement, replay defense, command correlation sem execução e revogação que encerra conexão ativa. O agent passou em `fmt`, `clippy -D warnings`, 29 testes e compile checks Windows/macOS; o control plane passou em format/typecheck, 33 testes, migrations `0001 + 0002`, Wrangler dry-run e `npm audit` sem vulnerabilidades.
+A Phase 5 implementa o Remote MCP via Streamable HTTP, `server/discover`, `tools/list` e `tools/call`, materializando schemas e `securitySchemes` do catálogo congelado. O resource server OAuth publica Protected Resource Metadata, valida JWT por assinatura, issuer, audience/resource, `exp`/`nbf`, `kid` e scopes, vincula o principal externo ao `user_id` do Telechir e aplica ownership antes de retornar devices. A superfície ativa nesta fase é deliberadamente limitada a `list_devices` e `get_device`.
 
-A Phase 4 preserva os boundaries do roadmap: não há Remote MCP/OAuth, filesystem, shell/processos, Git, dashboard ou deploy de produção implementados.
+O control plane passou em format/typecheck, 53 testes, migrations `0001 + 0002 + 0003`, Wrangler dry-run e `npm audit` sem vulnerabilidades. A Phase 5 preserva os boundaries do roadmap: não há authorization server próprio, filesystem, shell/processos, Git, dashboard ou deploy de produção implementados.
 
 ## Próximos trabalhos
 
-1. Em uma execução dedicada de build/test, iniciar **Phase 5 — Remote MCP Integration and OAuth**.
+1. Em uma execução dedicada de build/test, iniciar **Phase 6 — Filesystem Tools**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
 3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 

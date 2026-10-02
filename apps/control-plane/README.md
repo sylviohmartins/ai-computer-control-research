@@ -43,9 +43,19 @@ Control plane do Telechir em TypeScript para Cloudflare Workers.
 - frame limit de 256 KiB;
 - contrato em `../../specs/auth/connection-credential-v1.md`.
 
+### Phase 5 — Remote MCP and Client Access
+
+- endpoint `/mcp` por Streamable HTTP;
+- discovery e catálogo de tools derivados de `../../specs/tools/`;
+- superfície atual limitada a `list_devices` e `get_device`;
+- Protected Resource Metadata e validação de access token;
+- ownership de devices aplicado no D1;
+- migration `0003_oauth_identity_uniqueness.sql`;
+- tools de fases futuras permanecem indisponíveis.
+
 ## Boundaries de autenticação
 
-As Phases 3–4 não implementam OAuth/browser login.
+A Phase 5 implementa o resource-server boundary, mas não um authorization server próprio nem browser login.
 
 `PairingService.verifyUser(...)` recebe um `user_id` já autenticado. O futuro adapter browser/OAuth deverá chamar esse domínio sem alterar suas invariantes.
 
@@ -53,11 +63,13 @@ Revogação também existe como operação de domínio, mas ainda não como dash
 
 ## Configuração sensível
 
-O serviço requer, quando pairing/realtime estão habilitados:
+O serviço requer, quando pairing, realtime e integração pública estão habilitados:
 
 - `PAIRING_SERVER_SECRET` — pelo menos 32 bytes;
 - `PAIRING_VERIFICATION_URI` — HTTPS;
-- `REALTIME_SERVER_SECRET` — pelo menos 32 bytes para connection credentials.
+- `REALTIME_SERVER_SECRET` — pelo menos 32 bytes para connection credentials;
+- `MCP_RESOURCE_URI` — URI HTTPS canônica da integração;
+- `OAUTH_ISSUER` — issuer HTTPS do provedor externo.
 
 Nenhum valor operacional é commitado em `wrangler.jsonc`.
 
@@ -67,11 +79,10 @@ Sem essas configurações, `/ready` falha fechado com `503`.
 
 Ainda não implementados:
 
-- Remote MCP/OAuth;
 - filesystem/process/Git;
 - dashboard.
 
-Rotas como `/devices`, `/ws` e `/mcp` continuam fechadas.
+Rotas administrativas como `/devices` e `/ws` continuam fechadas; `/mcp` é a superfície pública da Phase 5.
 
 ## Desenvolvimento local
 

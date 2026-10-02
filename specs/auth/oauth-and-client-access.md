@@ -1,6 +1,6 @@
 # OAuth and Client Access
 
-**Status:** Phase 0  
+**Status:** baseline congelado na Phase 0; resource-server boundary implementado na Phase 5
 **Target:** Remote MCP público autenticado  
 **Verificado em:** 2026-10-02
 

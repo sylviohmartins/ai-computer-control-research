@@ -39,6 +39,7 @@ describe("D1 conceptual model migration", () => {
 
     const names = new Set(result.results.map((row) => row.name));
     const expected = [
+      "idx_users_identity_subject",
       "idx_devices_user_revoked",
       "idx_device_keys_device_revoked",
       "idx_pairings_code_expiry",

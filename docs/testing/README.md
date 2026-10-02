@@ -34,3 +34,7 @@ Camadas esperadas:
 ## Phase 4
 
 - `acceptance/phase4-exit-review-2026-10-02.md` — exit gate do Device Realtime Channel, incluindo credential curta, Hibernation WebSocket, heartbeat/presence, replay/reconnect/revogação, contratos cross-language e gates cross-target.
+
+## Phase 5
+
+- `acceptance/phase5-exit-review-2026-10-02.md` — exit gate da integração MCP e autenticação da Phase 5.

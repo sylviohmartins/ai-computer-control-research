@@ -23,7 +23,7 @@ describe("control-plane worker", () => {
     expect(body.data).toMatchObject({
       service: "telechir-control-plane",
       status: "ok",
-      phase: "phase4-device-realtime-channel",
+      phase: "phase5-remote-mcp-oauth",
       version: "0.1.0",
     });
   });
@@ -45,6 +45,8 @@ describe("control-plane worker", () => {
       pairingServerSecret: true,
       pairingVerificationUri: true,
       realtimeServerSecret: true,
+      mcpResourceUri: true,
+      oauthIssuer: true,
       r2: false,
       analyticsEngine: false,
       queues: false,
@@ -61,15 +63,36 @@ describe("control-plane worker", () => {
     expect(body.data).toEqual({
       service: "telechir-control-plane",
       version: "0.1.0",
-      phase: "phase4-device-realtime-channel",
+      phase: "phase5-remote-mcp-oauth",
     });
   });
 
-  it("keeps later-phase public product routes closed in Phase 4", async () => {
-    for (const route of ["/devices", "/pairing", "/ws", "/mcp"]) {
+  it("keeps later-phase public product routes closed in Phase 5", async () => {
+    for (const route of ["/devices", "/pairing", "/ws"]) {
       const response = await fetch(route);
       expect(response.status).toBe(404);
     }
+  });
+
+  it("publishes OAuth protected-resource metadata", async () => {
+    const response = await fetch("/.well-known/oauth-protected-resource");
+    const body = (await response.json()) as Record<string, unknown>;
+
+    expect(response.status).toBe(200);
+    expect(body).toEqual({
+      resource: "https://telechir.test/mcp",
+      authorization_servers: ["https://auth.telechir.test"],
+      scopes_supported: ["telechir:devices:read"],
+    });
+  });
+
+  it("protects the MCP endpoint with OAuth", async () => {
+    const response = await fetch("/mcp");
+
+    expect(response.status).toBe(401);
+    expect(response.headers.get("www-authenticate")).toContain(
+      "resource_metadata=",
+    );
   });
 
   it("fails readiness closed when pairing secrets are unavailable", async () => {
@@ -108,5 +131,24 @@ describe("control-plane worker", () => {
     expect(response.status).toBe(503);
     expect(body.data.status).toBe("not_ready");
     expect(body.data.bindings.realtimeServerSecret).toBe(false);
+  });
+
+  it("fails readiness closed when MCP OAuth configuration is unavailable", async () => {
+    const incomplete = {
+      ...bindings,
+      OAUTH_ISSUER: undefined,
+    } as unknown as Env;
+
+    const response = await worker.fetch(
+      new Request("https://telechir.test/ready"),
+      incomplete,
+    );
+    const body = (await response.json()) as {
+      data: { status: string; bindings: Record<string, boolean> };
+    };
+
+    expect(response.status).toBe(503);
+    expect(body.data.status).toBe("not_ready");
+    expect(body.data.bindings.oauthIssuer).toBe(false);
   });
 });

@@ -1,7 +1,9 @@
 import type { Env } from "./env";
 import { bindingStatus, coreBindingsReady } from "./env";
 import { failure, success } from "./http";
+import { mcpHttpRoute } from "./mcp-http";
 import { PROJECT_PHASE, SERVICE_NAME, SERVICE_VERSION } from "./meta";
+import { protectedResourceMetadataResponse } from "./oauth";
 import { pairingHttpRoute } from "./pairing-http";
 import { realtimeHttpRoute } from "./realtime-http";
 
@@ -39,6 +41,15 @@ async function route(request: Request, env: Env): Promise<Response> {
       version: SERVICE_VERSION,
       phase: PROJECT_PHASE,
     });
+  }
+
+  if (url.pathname === "/.well-known/oauth-protected-resource") {
+    return protectedResourceMetadataResponse(env, request);
+  }
+
+  const mcpResponse = await mcpHttpRoute(request, env, url);
+  if (mcpResponse) {
+    return mcpResponse;
   }
 
   const pairingResponse = await pairingHttpRoute(request, env, url);

@@ -1,7 +1,7 @@
 # Product & Technical Blueprint v2
 
 **Data:** 2026-10-01  
-**Status:** arquitetura consolidada; Phases 0–4 concluídas; runtime foundations, pairing/device identity e canal realtime implementados sem deploy de produção
+**Status:** arquitetura consolidada; Phases 0–5 concluídas; foundations, identidade, canal realtime e integração MCP implementados sem deploy de produção
 **Marca:** **Telechir** (`NAME_READY`); commercial/legal clearance permanece pendente antes de lançamento  
 **Objetivo:** consolidar a direção técnica após naming discovery e validação empírica do caminho ChatGPT Plus + plugin público + Remote MCP.
 
@@ -456,8 +456,8 @@ Decidida em ADR-0005:
 3. Phase 2 — Hosted control-plane skeleton — **concluída em 2026-10-02**
 4. Phase 3 — Pairing and device identity — **concluída em 2026-10-02**
 5. Phase 4 — Device realtime channel — **concluída em 2026-10-02**
-6. Phase 5 — Remote MCP + OAuth — **próxima fase**
-7. Phase 6 — Filesystem tools
+6. Phase 5 — Remote MCP + OAuth — **concluída em 2026-10-02**
+7. Phase 6 — Filesystem tools — **próxima fase**
 8. Phase 7 — Shell/process lifecycle
 9. Phase 8 — Basic Git
 10. Phase 9 — Policies, approvals and audit
@@ -527,4 +527,4 @@ Sem commit/push automático.
 
 A Phase 0 materializou os contratos em `specs/`, formalizou threat model/tabletops e aceitou os ADRs centrais. A Phase 1 implementou o Local Agent Core em Rust; a Phase 2 implementou o skeleton TypeScript/Cloudflare do control plane; e a Phase 3 materializou identidade Ed25519, pairing one-time, prova criptográfica cross-language, ativação D1 transacional e revogação.
 
-O projeto está em **`PHASE_3_COMPLETE`**. O próximo gate de implementação é **Phase 4 — Device Realtime Channel**, em execução dedicada de Build, Test & Iterate. Não há deploy de produção e os release gates pendentes continuam válidos.
+O projeto está em **`PHASE_5_COMPLETE`**. O próximo gate de implementação é **Phase 6 — Filesystem Tools**, em execução dedicada de Build, Test & Iterate. Não há deploy de produção e os release gates pendentes continuam válidos.

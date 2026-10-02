@@ -1,0 +1,455 @@
+import { env } from "cloudflare:workers";
+import {
+  OAuthError,
+  OAuthErrorCode,
+  type AuthInfo,
+  type OAuthTokenVerifier,
+} from "@modelcontextprotocol/server";
+import {
+  Client,
+  StreamableHTTPClientTransport,
+} from "@modelcontextprotocol/client";
+import { beforeEach, describe, expect, it } from "vitest";
+
+import type { Env } from "../src/env";
+import { PHASE5_TOOLS, publicSchema } from "../src/mcp-catalog";
+import { MCP_MAX_REQUEST_BYTES, mcpHttpRoute } from "../src/mcp-http";
+
+const bindings = env as unknown as Env;
+const resource = "https://telechir.test/mcp";
+
+interface CapturedExchange {
+  method: string | null;
+  status: number;
+  wwwAuthenticate: string | null;
+  responseBody: unknown;
+}
+
+function wireTools(value: unknown): Array<Record<string, unknown>> {
+  if (!value || typeof value !== "object") {
+    return [];
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const found = wireTools(item);
+      if (found.length > 0) {
+        return found;
+      }
+    }
+    return [];
+  }
+
+  const object = value as Record<string, unknown>;
+  if (
+    Array.isArray(object.tools) &&
+    object.tools.every(
+      (tool) => tool && typeof tool === "object" && !Array.isArray(tool),
+    )
+  ) {
+    return object.tools as Array<Record<string, unknown>>;
+  }
+  for (const child of Object.values(object)) {
+    const found = wireTools(child);
+    if (found.length > 0) {
+      return found;
+    }
+  }
+  return [];
+}
+
+function authInfo(
+  userId: string,
+  scopes = ["telechir:devices:read"],
+): AuthInfo {
+  return {
+    token: "phase5-test-token",
+    clientId: "phase5-test-client",
+    scopes,
+    expiresAt: Math.floor(Date.now() / 1000) + 300,
+    resource: new URL(resource),
+    resourceMetadataUrl:
+      "https://telechir.test/.well-known/oauth-protected-resource",
+    extra: { telechir_user_id: userId },
+  };
+}
+
+function verifierFor(users: Record<string, AuthInfo>): OAuthTokenVerifier {
+  return {
+    async verifyAccessToken(token: string): Promise<AuthInfo> {
+      const info = users[token];
+      if (!info) {
+        throw new Error("invalid test token");
+      }
+      return info;
+    },
+  };
+}
+
+async function seedUser(name: string): Promise<string> {
+  const id = crypto.randomUUID();
+  await bindings.DB.prepare(
+    `INSERT INTO users (
+      id, identity_provider, provider_subject_hash, display_name,
+      created_at, disabled_at
+    ) VALUES (?, 'phase5-wire-test', ?, ?, ?, NULL)`,
+  )
+    .bind(id, `subject-${id}`, name, new Date().toISOString())
+    .run();
+  return id;
+}
+
+async function seedDevice(
+  userId: string,
+  name: string,
+  revoked = false,
+): Promise<string> {
+  const id = crypto.randomUUID();
+  await bindings.DB.prepare(
+    `INSERT INTO devices (
+      id, user_id, display_name, os, arch, agent_version,
+      status_hint, last_seen_at, created_at, revoked_at
+    ) VALUES (?, ?, ?, 'linux', 'x86_64', '0.1.0',
+              'offline', NULL, ?, ?)`,
+  )
+    .bind(
+      id,
+      userId,
+      name,
+      new Date().toISOString(),
+      revoked ? new Date().toISOString() : null,
+    )
+    .run();
+  return id;
+}
+
+function testFetch(verifier: OAuthTokenVerifier, captured: CapturedExchange[]) {
+  return async (
+    input: RequestInfo | URL,
+    init?: RequestInit,
+  ): Promise<Response> => {
+    const request =
+      input instanceof Request
+        ? new Request(input, init)
+        : new Request(input, init);
+
+    let method: string | null = null;
+    if (request.method === "POST") {
+      try {
+        const body = (await request.clone().json()) as {
+          method?: unknown;
+        };
+        method = typeof body.method === "string" ? body.method : null;
+      } catch {
+        method = null;
+      }
+    }
+
+    const response = await mcpHttpRoute(
+      request,
+      bindings,
+      new URL(request.url),
+      verifier,
+    );
+    if (!response) {
+      return new Response("not found", { status: 404 });
+    }
+
+    let responseBody: unknown = null;
+    if (response.headers.get("content-type")?.includes("application/json")) {
+      responseBody = await response.clone().json();
+    }
+    captured.push({
+      method,
+      status: response.status,
+      wwwAuthenticate: response.headers.get("www-authenticate"),
+      responseBody,
+    });
+    return response;
+  };
+}
+
+async function connectedClient(
+  token: string,
+  verifier: OAuthTokenVerifier,
+  captured: CapturedExchange[],
+): Promise<{
+  client: Client;
+  transport: StreamableHTTPClientTransport;
+}> {
+  const transport = new StreamableHTTPClientTransport(new URL(resource), {
+    requestInit: {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
+    fetch: testFetch(verifier, captured),
+    onInsufficientScope: "throw",
+  });
+  const client = new Client(
+    { name: "telechir-phase5-test", version: "1.0.0" },
+    {
+      versionNegotiation: { mode: "auto" },
+    },
+  );
+  await client.connect(transport);
+  return { client, transport };
+}
+
+beforeEach(async () => {
+  await bindings.DB.prepare(
+    "DELETE FROM devices WHERE user_id IN (SELECT id FROM users WHERE identity_provider = 'phase5-wire-test')",
+  ).run();
+  await bindings.DB.prepare(
+    "DELETE FROM users WHERE identity_provider = 'phase5-wire-test'",
+  ).run();
+});
+
+describe("Remote MCP 2026-07-28", () => {
+  it("negotiates server/discover and advertises only Phase 5 tools", async () => {
+    const userId = await seedUser("MCP User");
+    await seedDevice(userId, "Device A");
+    const captured: CapturedExchange[] = [];
+    const verifier = verifierFor({
+      "phase5-test-token": authInfo(userId),
+    });
+    const { client } = await connectedClient(
+      "phase5-test-token",
+      verifier,
+      captured,
+    );
+
+    expect(client.getDiscoverResult()).toBeDefined();
+    const listed = await client.listTools();
+    expect(listed.tools.map((tool) => tool.name).sort()).toEqual([
+      "get_device",
+      "list_devices",
+    ]);
+    expect(
+      captured.some((exchange) => exchange.method === "server/discover"),
+    ).toBe(true);
+    expect(PHASE5_TOOLS.map((tool) => tool.name).sort()).toEqual([
+      "get_device",
+      "list_devices",
+    ]);
+
+    await client.close();
+  });
+
+  it("materializes schemas and OpenAI security schemes from the frozen catalog", async () => {
+    const userId = await seedUser("Descriptor User");
+    const captured: CapturedExchange[] = [];
+    const verifier = verifierFor({
+      "phase5-test-token": authInfo(userId),
+    });
+    const { client } = await connectedClient(
+      "phase5-test-token",
+      verifier,
+      captured,
+    );
+
+    await client.listTools();
+    const toolExchange = captured.find(
+      (exchange) => exchange.method === "tools/list",
+    );
+    expect(toolExchange).toBeDefined();
+
+    const descriptors = wireTools(toolExchange?.responseBody);
+    expect(descriptors).toHaveLength(2);
+
+    for (const tool of PHASE5_TOOLS) {
+      const descriptor = descriptors.find(
+        (candidate) => candidate.name === tool.name,
+      );
+      expect(descriptor).toBeDefined();
+      expect(descriptor?.securitySchemes).toEqual(tool.securitySchemes);
+      expect(
+        (descriptor?._meta as Record<string, unknown> | undefined)
+          ?.securitySchemes,
+      ).toEqual(tool.securitySchemes);
+      expect(descriptor?.inputSchema).toMatchObject(
+        publicSchema(tool.input_schema_ref),
+      );
+      expect(descriptor?.outputSchema).toMatchObject(
+        publicSchema(tool.output_schema_ref),
+      );
+    }
+
+    await client.close();
+  });
+
+  it("lists and reads only devices owned by the authenticated user", async () => {
+    const userA = await seedUser("User A");
+    const userB = await seedUser("User B");
+    const deviceA = await seedDevice(userA, "Device A");
+    const deviceB = await seedDevice(userB, "Device B");
+    await seedDevice(userA, "Revoked A", true);
+
+    const captured: CapturedExchange[] = [];
+    const verifier = verifierFor({
+      "phase5-test-token": authInfo(userA),
+    });
+    const { client } = await connectedClient(
+      "phase5-test-token",
+      verifier,
+      captured,
+    );
+
+    const list = await client.callTool({
+      name: "list_devices",
+      arguments: { status: "all" },
+    });
+    expect(list.isError).not.toBe(true);
+    const structured = list.structuredContent as {
+      devices: Array<{ device_id: string; name: string }>;
+    };
+    expect(structured.devices).toEqual([
+      expect.objectContaining({
+        device_id: deviceA,
+        name: "Device A",
+      }),
+    ]);
+
+    const own = await client.callTool({
+      name: "get_device",
+      arguments: { device_id: deviceA },
+    });
+    expect(own.isError).not.toBe(true);
+    expect(own.structuredContent).toMatchObject({
+      device_id: deviceA,
+      name: "Device A",
+      status: "offline",
+      capabilities: [],
+      policy_summary: null,
+    });
+
+    const foreign = await client.callTool({
+      name: "get_device",
+      arguments: { device_id: deviceB },
+    });
+    expect(foreign.isError).toBe(true);
+    expect(JSON.stringify(foreign.content)).not.toContain(deviceB);
+
+    await client.close();
+  });
+
+  it("never advertises or executes future-phase host tools", async () => {
+    const userId = await seedUser("Boundary User");
+    const captured: CapturedExchange[] = [];
+    const verifier = verifierFor({
+      "phase5-test-token": authInfo(userId),
+    });
+    const { client } = await connectedClient(
+      "phase5-test-token",
+      verifier,
+      captured,
+    );
+
+    const tools = await client.listTools();
+    expect(tools.tools.some((tool) => tool.name === "read_file")).toBe(false);
+
+    await expect(
+      client.callTool({
+        name: "read_file",
+        arguments: {
+          device_id: "device",
+          path: "/tmp/example",
+        },
+      }),
+    ).rejects.toThrow();
+
+    await client.close();
+  });
+
+  it("rejects oversized MCP request bodies before protocol dispatch", async () => {
+    const userId = await seedUser("Body Limit User");
+    const verifier = verifierFor({
+      "phase5-test-token": authInfo(userId),
+    });
+    const request = new Request(resource, {
+      method: "POST",
+      headers: {
+        authorization: "Bearer phase5-test-token",
+        "content-type": "application/json",
+      },
+      body: "x".repeat(MCP_MAX_REQUEST_BYTES + 1),
+    });
+
+    const response = await mcpHttpRoute(
+      request,
+      bindings,
+      new URL(request.url),
+      verifier,
+    );
+
+    expect(response?.status).toBe(413);
+    await expect(response?.json()).resolves.toMatchObject({
+      error: "request_too_large",
+    });
+  });
+
+  it("translates invalid bearer tokens into an OAuth 401 challenge", async () => {
+    const invalidVerifier: OAuthTokenVerifier = {
+      async verifyAccessToken(): Promise<AuthInfo> {
+        throw new OAuthError(
+          OAuthErrorCode.InvalidToken,
+          "Access token is invalid",
+        );
+      },
+    };
+    const request = new Request(resource, {
+      method: "POST",
+      headers: {
+        authorization: "Bearer invalid-token",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        id: 1,
+        method: "server/discover",
+        params: {},
+      }),
+    });
+
+    const response = await mcpHttpRoute(
+      request,
+      bindings,
+      new URL(request.url),
+      invalidVerifier,
+    );
+
+    expect(response?.status).toBe(401);
+    expect(response?.headers.get("www-authenticate")).toContain(
+      'error="invalid_token"',
+    );
+    expect(response?.headers.get("www-authenticate")).toContain(
+      "resource_metadata=",
+    );
+  });
+
+  it("enforces OAuth scope challenge at tool-call time", async () => {
+    const userId = await seedUser("Scope User");
+    const captured: CapturedExchange[] = [];
+    const verifier = verifierFor({
+      "phase5-no-scope": authInfo(userId, []),
+    });
+    const { client } = await connectedClient(
+      "phase5-no-scope",
+      verifier,
+      captured,
+    );
+
+    await expect(
+      client.callTool({
+        name: "list_devices",
+        arguments: {},
+      }),
+    ).rejects.toThrow();
+
+    const call = captured.find((exchange) => exchange.method === "tools/call");
+    expect(call?.status).toBe(403);
+    expect(JSON.stringify(call?.responseBody)).toContain("insufficient_scope");
+    expect(call?.wwwAuthenticate).toContain('scope="telechir:devices:read"');
+
+    await client.close();
+  });
+});
