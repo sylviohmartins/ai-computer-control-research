@@ -1,11 +1,14 @@
 # Naming Discovery
 
-**Status:** discovery criativo concluído; clearance autoritativo externo ainda necessário  
-**Gate:** `NAME_CONDITIONAL`  
-**Primary candidate:** **Telechir**  
-**Atualizado em:** 2026-10-01
+**Status:** concluído  
+**Gate:** `NAME_READY`  
+**Nome oficial do produto:** **Telechir**  
+**Clearance jurídico/comercial:** `COMMERCIAL_CLEARANCE_PENDING`  
+**Atualizado em:** 2026-10-02
 
-O projeto ainda não possui uma marca juridicamente/operacionalmente aprovada. A recomendação primária é **Telechir**, mas o repositório continua com nome descritivo até `NAME_READY`.
+O Naming Discovery está encerrado. **Telechir** é a marca selecionada para o produto.
+
+A decisão de marca passa a ser separada da reserva jurídica/operacional de ativos: domínio, packages, handles e trademark continuam como gates de lançamento, mas não mantêm mais o produto sem nome.
 
 ## Sequência histórica
 
@@ -13,19 +16,17 @@ O projeto ainda não possui uma marca juridicamente/operacionalmente aprovada. A
 
 A primeira rodada estruturada elevou **Telechir** a `NAME_CONDITIONAL`.
 
-Por que sobreviveu:
-- termo técnico histórico e autêntico de teleoperação;
+Telechir sobreviveu porque:
+- é um termo técnico histórico e autêntico de teleoperação;
 - fontes terminológicas o definem como manipulador remoto semelhante a uma mão;
-- fit excepcional com o conceito de transformar intenção de uma IA em ação autorizada na máquina;
-- boa extensibilidade para Agent, CLI, MCP, Runtime e SDK.
+- possui fit direto com o conceito de transformar intenção de uma IA em ação autorizada na máquina;
+- continua válido para Agent, CLI, MCP, Runtime, SDK, GUI, browser, servidores e sandboxes.
 
 Fonte: `artifacts/reports/naming/2026-09-29-naming-discovery-report.md`.
 
 ### Rodada ampliada de palavras reais — 2026-10-01
 
-Foram explorados 333 candidatos em 24 territórios. Grapnel, Skeg, Nervo, Prehend e Hawse foram os finalistas criativos, mas todos apresentaram colisões contemporâneas suficientes para bloquear a marca.
-
-O gate voltou a `NAME_NOT_READY`.
+Foram explorados 333 candidatos em 24 territórios. Grapnel, Skeg, Nervo, Prehend e Hawse foram finalistas criativos, mas apresentaram colisões suficientes para bloqueio.
 
 Fonte: `artifacts/reports/naming/2026-10-01-naming-discovery-report.md`.
 
@@ -35,8 +36,7 @@ Resultados:
 - **560 candidatos construídos/normalizados**;
 - shortlist de 10;
 - finalistas: **Telechir, Clevren, Ferenis, Kheric e Tactren**;
-- nenhum nome construído superou Telechir em autenticidade + storytelling + fit de produto;
-- Telechir retorna como primary candidate com `NAME_CONDITIONAL`.
+- nenhum nome construído superou Telechir em autenticidade + storytelling + fit de produto.
 
 Fontes:
 - `artifacts/reports/naming/2026-10-01-constructed-names-discovery-report.md`;
@@ -44,33 +44,48 @@ Fontes:
 - `artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv`;
 - `artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json`.
 
-### Stage 3 — Clearance e decisão final de discovery — 2026-10-01
+### Stage 3 — Clearance preliminar — 2026-10-01
 
-A última etapa executou:
-- atualização do collision screening web;
-- busca nativa no GitHub para Telechir e namespaces relacionados;
-- busca indexada em npm, PyPI, crates.io e Docker Hub;
-- busca indexada de domínio;
-- busca indexada em torno de INPI/USPTO/EUIPO/WIPO;
-- análise de conotação e oralidade PT-BR/EN/ES.
+A etapa consolidou:
+- collision screening web;
+- GitHub;
+- packages indexados;
+- domínio por footprint indexado;
+- buscas indexadas de trademark;
+- oralidade/conotação PT-BR/EN/ES.
 
-Conclusões:
-- nenhuma plataforma contemporânea de AI/dev tooling com colisão material direta foi localizada;
-- usos existentes de Telechir concentram-se em robótica/teleoperação histórica, música e usernames;
-- package/domain/trademark permaneceram sem consulta autoritativa direta no ambiente atual;
-- não há justificativa para outra rodada criativa enquanto Telechir não falhar no clearance autoritativo.
+Telechir permaneceu em `NAME_CONDITIONAL` porque o processo anterior misturava seleção criativa com reserva jurídica/operacional.
 
-Fontes:
-- `artifacts/reports/naming/2026-10-01-final-clearance-report.md`;
-- `artifacts/datasets/naming/2026-10-01-final-clearance.json`.
+Fonte:
+- `artifacts/reports/naming/2026-10-01-final-clearance-report.md`.
+
+### Stage 4 — Seleção definitiva — 2026-10-02
+
+A pesquisa foi atualizada e a decisão foi separada em dois gates:
+
+1. **Naming:** `NAME_READY`.
+2. **Lançamento jurídico/comercial:** `COMMERCIAL_CLEARANCE_PENDING`.
+
+Nenhuma plataforma contemporânea material de AI/dev tooling chamada Telechir foi localizada. A busca nativa do GitHub retornou apenas usos não concorrentes/irrelevantes. O significado técnico continua confirmado por TERMIUM Plus e Collins.
+
+Fonte:
+- `artifacts/reports/naming/2026-10-02-final-name-selection-report.md`;
+- `artifacts/datasets/naming/2026-10-02-final-name-selection.json`.
 
 ## Por que Telechir
 
 > **A IA pensa; Telechir é a mão remota, autorizada e auditável que transforma intenção em ação sobre uma máquina.**
 
-Essa metáfora continua válida se o produto evoluir de filesystem/terminal para browser, GUI, servidores, sandboxes e outros execution environments.
+Essa não é uma metáfora retrofitted: `telechir` já é um termo histórico de teleoperação/manipulação remota.
 
-## Sistema de naming candidato
+## Pronúncia
+
+- PT-BR: **te-le-KIR**
+- EN: **TEL-eh-keer**
+
+A marca deve padronizar a pronúncia em materiais oficiais.
+
+## Sistema de naming
 
 ```text
 Telechir
@@ -86,29 +101,38 @@ Telechir Runtime
 Telechir Enterprise
 ```
 
-Descriptor de trabalho:
+Descriptor:
 
 > **Secure computer control for AI agents**
 
-Tagline exploratória:
+Tagline:
 
 > **Give AI a secure hand on your machines.**
 
-## Gate final do discovery
+## Gate atual
 
-### `NAME_CONDITIONAL`
+### `NAME_READY`
 
-O **discovery de naming está concluído**. O gate permanece condicional por evidência operacional/jurídica externa, não por insuficiência criativa.
+Telechir está aprovado para:
+- documentação;
+- arquitetura;
+- naming do projeto;
+- futura estrutura de packages;
+- futura CLI;
+- Phase 0;
+- futuro rename do repositório.
 
-Para virar `NAME_READY` ainda é necessário:
-1. consultar/reservar domínio em registrador/RDAP/WHOIS autoritativo;
-2. consultar diretamente e idealmente reservar npm/PyPI/crates;
-3. executar busca oficial INPI;
-4. executar USPTO/EUIPO/WIPO se o lançamento for internacional;
-5. reservar GitHub org/handles relevantes;
-6. eventual parecer jurídico antes de uso comercial relevante.
+### `COMMERCIAL_CLEARANCE_PENDING`
 
-Ausência em mecanismos de busca não prova disponibilidade.
+Antes de lançamento público/comercial:
+1. consultar/reservar domínio em fonte autoritativa;
+2. reservar namespaces npm/PyPI/crates e outros relevantes;
+3. reservar GitHub organization/handles;
+4. executar busca oficial INPI;
+5. executar USPTO/EUIPO/WIPO conforme mercado;
+6. buscar parecer jurídico quando houver investimento comercial relevante.
+
+Ausência em buscas indexadas não equivale a registro ou disponibilidade jurídica.
 
 ## Working name rejeitado
 
@@ -116,6 +140,8 @@ Ausência em mecanismos de busca não prova disponibilidade.
 
 ## Naming do repositório
 
-`ai-computer-control-research` continua intencionalmente descritivo e temporário.
+O nome atual `ai-computer-control-research` tornou-se apenas um nome físico temporário do repositório.
 
-**Não renomeie o repositório para Telechir enquanto o gate permanecer `NAME_CONDITIONAL`.**
+**Marca oficial do produto: Telechir.**
+
+O target de rename é `telechir` assim que a operação administrativa e a reserva do namespace forem realizadas.

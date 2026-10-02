@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-10-02",
+  "stage": "naming-stage-4-final-selection",
+  "product_name": "Telechir",
+  "naming_gate": "NAME_READY",
+  "commercial_clearance_gate": "COMMERCIAL_CLEARANCE_PENDING",
+  "pronunciation": {
+    "pt_BR": "te-le-KIR",
+    "en": "TEL-eh-keer",
+    "es": "legível; pronúncia local pode variar"
+  },
+  "descriptor": "Secure computer control for AI agents",
+  "tagline": "Give AI a secure hand on your machines.",
+  "semantic_basis": {
+    "status": "confirmed",
+    "summary": "Termo técnico histórico para manipulador remoto semelhante a uma mão / braço robótico controlado a distância.",
+    "sources": [
+      "https://www.btb.termiumplus.gc.ca/",
+      "https://www.collinsdictionary.com/dictionary/english/telechir"
+    ]
+  },
+  "collision_screening": {
+    "contemporary_ai_dev_tool": "no material exact competitor found",
+    "github": {
+      "status": "favorable",
+      "exact_name_relevant_competitor": false,
+      "observed": [
+        "TeleChirkut (archived, unrelated)",
+        "FInalYear_Project (academic, unrelated)"
+      ]
+    },
+    "packages": {
+      "status": "favorable_indexed_only",
+      "authoritative_reservation": false
+    },
+    "domains": {
+      "status": "no material indexed footprint found",
+      "checked": [
+        "telechir.com",
+        "telechir.dev",
+        "telechir.ai",
+        "telechir.io"
+      ],
+      "authoritative_availability": false
+    },
+    "trademarks": {
+      "status": "no indexed exact red flag found",
+      "authoritative_clearance": false,
+      "databases_targeted": [
+        "INPI",
+        "USPTO",
+        "EUIPO",
+        "WIPO"
+      ]
+    }
+  },
+  "naming_system": [
+    "telechir",
+    "telechir-agent",
+    "telechir-cli",
+    "telechir-mcp",
+    "telechir-sdk",
+    "@telechir/core",
+    "@telechir/mcp",
+    "Telechir Cloud",
+    "Telechir Runtime",
+    "Telechir Enterprise"
+  ],
+  "rejected_working_name": "MachinaPort",
+  "previous_finalists": [
+    "Clevren",
+    "Ferenis",
+    "Kheric",
+    "Tactren",
+    "Grapnel",
+    "Skeg",
+    "Nervo",
+    "Prehend",
+    "Hawse"
+  ],
+  "repo_rename_recommended": true,
+  "repo_rename_target": "telechir",
+  "repo_rename_executed": false,
+  "notes": [
+    "NAME_READY representa decisão de marca e readiness documental, não registro jurídico.",
+    "Domínios, packages, handles e trademarks ainda devem ser consultados/reservados em fontes autoritativas antes de lançamento comercial."
+  ]
+}

@@ -4,10 +4,12 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 
 ## Gates de discovery
 
-1. **Naming discovery** — escolher e realizar clearance preliminar de uma marca durável.
-2. **Viabilidade ChatGPT Plus/plugin** — validar plugin público, capabilities e quota.
-3. **Blueprint v2** — incorporar os dois resultados acima.
-4. **Definition of Ready** — aprovar explicitamente o início da implementação.
+1. **Naming discovery** — **concluído**: Telechir / `NAME_READY`.
+2. **Commercial clearance da marca** — pendente antes de lançamento público/comercial; não bloqueia Phase 0.
+3. **Viabilidade ChatGPT Plus/plugin** — caminho de referência validado; plugin próprio, availability e quota continuam como release gates.
+4. **Blueprint v2** — consolidado com as decisões atuais.
+5. **Licensing/open-source strategy** — pendente.
+6. **Definition of Ready** — reexecutar antes da implementação de runtime/produção.
 
 ## Fases após readiness
 

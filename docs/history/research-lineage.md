@@ -103,7 +103,26 @@ Artefatos:
 
 O rename do repositório continua bloqueado até clearance autoritativo de domínio/packages/trademark/handles e teste oral.
 
-## 8. Por que o repositório existe antes da marca final
+## 8. Naming discovery — seleção definitiva (2026-10-02)
+
+A etapa final separou **decisão de marca** de **clearance jurídico/comercial**.
+
+Após mais de mil candidatos entre rodadas de palavras reais e nomes construídos, nenhum candidato superou Telechir na combinação de autenticidade, semântica, storytelling, extensibilidade e baixa colisão contemporânea preliminar.
+
+A marca foi formalmente selecionada:
+
+- **Nome:** Telechir
+- **Naming gate:** `NAME_READY`
+- **Commercial/legal gate:** `COMMERCIAL_CLEARANCE_PENDING`
+
+Essa distinção permite ao projeto adotar identidade estável sem alegar, incorretamente, que domínio, packages ou trademark já foram reservados.
+
+Artefatos:
+- `artifacts/reports/naming/2026-10-02-final-name-selection-report.md`
+- `artifacts/datasets/naming/2026-10-02-final-name-selection.json`
+- `docs/brand/README.md`
+
+## 9. Por que o repositório existe antes e depois da marca final
 
 O nome descritivo `ai-computer-control-research` é intencional. O repositório funciona como memória versionada enquanto o naming ainda não fechou.
 
@@ -120,14 +139,15 @@ Ele preserva:
 
 Isso evita que agentes ou colaboradores futuros confundam o documento mais recente com toda a história de por que o produto existe.
 
-## 9. Estado atual
+## 10. Estado atual
 
 O projeto permanece em **Product & Technical Discovery / Research Foundation**.
 
 Gates atuais:
-1. concluir o clearance autoritativo de Telechir até `NAME_READY` ou rejeição;
-2. caminho ChatGPT Plus + plugin público ser validado ponta a ponta;
-3. Blueprint v2 incorporar esses resultados;
-4. Definition of Ready ser reexecutada antes da implementação de produção.
+1. naming concluído: **Telechir / `NAME_READY`**;
+2. completar `COMMERCIAL_CLEARANCE_PENDING` antes de lançamento comercial;
+3. caminho ChatGPT Plus + plugin público continua como release gate do plugin próprio;
+4. fechar estratégia de licenciamento;
+5. reexecutar Definition of Ready antes da implementação de runtime/produção.
 
 Artefatos históricos nunca devem ser silenciosamente reescritos para refletir decisões novas. Conclusões novas substituem antigas por documentação viva e ADRs.
