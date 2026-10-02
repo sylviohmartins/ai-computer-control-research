@@ -2,7 +2,7 @@
   "protocol_version": "0.1",
   "message_type": "command.request",
   "message_id": "msg_01NOIDEMPOTENCY",
-  "correlation_id": "corr_02",
+  "correlation_id": "corr_0002",
   "device_id": "dev_demo",
   "session_id": "ses_demo",
   "connection_id": "conn_demo",
@@ -22,6 +22,5 @@
     "risk": "MEDIUM",
     "workspace_id": "ws_demo",
     "approval_id": null
-  },
-  "expected_validation": "invalid: side-effect operation requires non-null idempotency_key"
+  }
 }
