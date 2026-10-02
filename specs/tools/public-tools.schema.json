@@ -1,0 +1,1190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://telechir.dev/schemas/public-tools-0.1.schema.json",
+  "title": "Telechir Public Tool Contracts 0.1",
+  "$defs": {
+    "list_devices_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "online",
+            "offline",
+            "all"
+          ],
+          "default": "all"
+        }
+      }
+    },
+    "list_devices_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "devices"
+      ],
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "device_id",
+              "name",
+              "status"
+            ],
+            "properties": {
+              "device_id": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 160
+              },
+              "name": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "online",
+                  "offline"
+                ]
+              },
+              "os": {
+                "type": "string"
+              },
+              "arch": {
+                "type": "string"
+              },
+              "agent_version": {
+                "type": "string"
+              },
+              "last_seen": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
+    },
+    "get_device_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        }
+      }
+    },
+    "get_device_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "name",
+        "status",
+        "capabilities"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "online",
+            "offline"
+          ]
+        },
+        "os": {
+          "type": "string"
+        },
+        "arch": {
+          "type": "string"
+        },
+        "agent_version": {
+          "type": "string"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "last_seen": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "policy_summary": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "list_files_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "path"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500,
+          "default": 100
+        }
+      }
+    },
+    "list_files_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "entries"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "path",
+              "kind"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "file",
+                  "directory",
+                  "link",
+                  "other"
+                ]
+              },
+              "size": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "modified_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "get_file_metadata_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "path"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "include_hash": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "get_file_metadata_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "kind",
+        "size"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "modified_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "read_file_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "path"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "max_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 262144,
+          "default": 131072
+        },
+        "encoding": {
+          "type": "string",
+          "enum": [
+            "utf-8",
+            "base64"
+          ],
+          "default": "utf-8"
+        }
+      }
+    },
+    "read_file_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "content",
+        "encoding",
+        "offset",
+        "truncated"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "encoding": {
+          "type": "string",
+          "enum": [
+            "utf-8",
+            "base64"
+          ]
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "next_offset": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "write_file_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "path",
+        "content"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content": {
+          "type": "string"
+        },
+        "encoding": {
+          "type": "string",
+          "enum": [
+            "utf-8",
+            "base64"
+          ],
+          "default": "utf-8"
+        },
+        "expected_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "create_if_missing": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "write_file_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes_written",
+        "sha256",
+        "created"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "bytes_written": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "created": {
+          "type": "boolean"
+        }
+      }
+    },
+    "patch_file_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "path",
+        "patch",
+        "expected_hash"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "patch": {
+          "type": "string"
+        },
+        "expected_hash": {
+          "type": "string",
+          "minLength": 16
+        },
+        "format": {
+          "const": "unified_diff"
+        }
+      }
+    },
+    "patch_file_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "changed",
+        "summary"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "changed": {
+          "type": "boolean"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "search_files_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "root",
+        "query"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "query": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "text",
+            "regex",
+            "glob"
+          ],
+          "default": "text"
+        },
+        "max_results": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 100
+        }
+      }
+    },
+    "search_files_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "matches",
+        "truncated"
+      ],
+      "properties": {
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "line": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "snippet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "run_command_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "command"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32768
+        },
+        "cwd": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120,
+          "default": 30
+        },
+        "env_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "default": []
+        }
+      }
+    },
+    "run_command_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exit_code",
+        "stdout",
+        "stderr",
+        "truncated"
+      ],
+      "properties": {
+        "exit_code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "stdout": {
+          "type": "string"
+        },
+        "stderr": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "start_process_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "command",
+        "idempotency_key"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32768
+        },
+        "cwd": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 160
+        },
+        "env_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "default": []
+        }
+      }
+    },
+    "start_process_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "process_id",
+        "state",
+        "started_at"
+      ],
+      "properties": {
+        "process_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "starting",
+            "running"
+          ]
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "read_process_output_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "process_id"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "process_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 262144,
+          "default": 65536
+        }
+      }
+    },
+    "read_process_output_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "process_id",
+        "state",
+        "stdout",
+        "stderr",
+        "truncated"
+      ],
+      "properties": {
+        "process_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "starting",
+            "running",
+            "exited",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "stdout": {
+          "type": "string"
+        },
+        "stderr": {
+          "type": "string"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exit_code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "write_process_input_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "process_id",
+        "input"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "process_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "input": {
+          "type": "string",
+          "maxLength": 65536
+        },
+        "append_newline": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "write_process_input_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted"
+      ],
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "cancel_process_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "process_id"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "process_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "force": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "cancel_process_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "process_id",
+        "state"
+      ],
+      "properties": {
+        "process_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "cancelling",
+            "cancelled",
+            "already_finished"
+          ]
+        }
+      }
+    },
+    "list_managed_processes_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "starting",
+            "running",
+            "exited",
+            "failed",
+            "cancelled",
+            null
+          ]
+        }
+      }
+    },
+    "list_managed_processes_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "processes"
+      ],
+      "properties": {
+        "processes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "process_id",
+              "state",
+              "started_at"
+            ],
+            "properties": {
+              "process_id": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 160
+              },
+              "state": {
+                "type": "string"
+              },
+              "started_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "cwd": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "get_git_status_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "repository_path"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "repository_path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "get_git_status_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ahead",
+        "behind",
+        "files"
+      ],
+      "properties": {
+        "branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ahead": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "behind": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "status"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "get_git_diff_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id",
+        "repository_path"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "repository_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "staged": {
+          "type": "boolean",
+          "default": false
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 262144,
+          "default": 131072
+        }
+      }
+    },
+    "get_git_diff_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "diff",
+        "truncated"
+      ],
+      "properties": {
+        "diff": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "get_system_metrics_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_id"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        }
+      }
+    },
+    "get_system_metrics_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cpu_percent",
+        "memory",
+        "disks",
+        "agent_uptime_seconds"
+      ],
+      "properties": {
+        "cpu_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "memory": {
+          "type": "object"
+        },
+        "disks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "agent_uptime_seconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "get_artifact_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        }
+      }
+    },
+    "get_artifact_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "size",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "file_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
