@@ -20,6 +20,8 @@ export default defineConfig(async () => {
             PAIRING_SERVER_SECRET:
               "phase3-test-secret-0123456789-abcdefghijklmnopqrstuvwxyz",
             PAIRING_VERIFICATION_URI: "https://telechir.test/pair",
+            REALTIME_SERVER_SECRET:
+              "phase4-test-secret-0123456789-abcdefghijklmnopqrstuvwxyz",
           },
         },
       }),

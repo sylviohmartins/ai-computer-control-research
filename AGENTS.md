@@ -4,7 +4,7 @@ Este repositório pode ser utilizado por ChatGPT, Codex, Claude Code, Gemini CLI
 
 ## Guardrail da fase atual
 
-O projeto concluiu discovery e as Phases 0–3. **Não inicie automaticamente a Phase 4 apenas porque `PROJECT_STATE.md` registra `PHASE_3_COMPLETE`: o Device Realtime Channel deve começar somente em uma tarefa explicitamente dedicada a Build, Test & Iterate.** Não atravesse para MCP/OAuth ou fases posteriores sem o gate correspondente. Nunca faça deploy de produção, crie recursos pagos ou publique plugin sem autorização específica da fase correspondente.
+O projeto concluiu discovery e as Phases 0–4. **Não inicie automaticamente a Phase 5 apenas porque `PROJECT_STATE.md` registra `PHASE_4_COMPLETE`: Remote MCP/OAuth deve começar somente em uma tarefa explicitamente dedicada a Build, Test & Iterate.** Não atravesse para filesystem/process/Git ou fases posteriores sem o gate correspondente. Nunca faça deploy de produção, crie recursos pagos ou publique plugin sem autorização específica da fase correspondente.
 
 ## Ordem de fonte de verdade
 

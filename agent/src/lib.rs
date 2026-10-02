@@ -5,13 +5,19 @@ pub mod identity;
 pub mod lifecycle;
 pub mod ports;
 pub mod protocol;
+pub mod realtime;
 
 pub use config::AgentConfig;
 pub use identity::{
+    CONNECTION_PROOF_AUDIENCE, CONNECTION_PROOF_VERSION, ConnectionCredentialProof,
     DEVICE_KEY_ALGORITHM, DeviceIdentity, DeviceIdentityManager, DeviceIdentityStore,
     DevicePairingMetadata, DevicePublicIdentity, IdentityError, MemoryIdentityStore,
     NativeKeyringIdentityStore, PAIRING_PROOF_AUDIENCE, PairingProof, PairingRegistration,
-    pairing_proof_message,
+    connection_credential_proof_message, pairing_proof_message,
 };
 pub use lifecycle::{CommandLifecycle, CommandState, TransitionError};
 pub use protocol::{DeviceMessage, MessageType, ProtocolValidationError, decode_and_validate};
+pub use realtime::{
+    DEFAULT_HANDSHAKE_TIMEOUT, RealtimeClientConfig, RealtimeConnection, RealtimeError,
+    RealtimeState, ReconnectController, connect_realtime, new_connection_nonce,
+};

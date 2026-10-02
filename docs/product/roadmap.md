@@ -15,6 +15,7 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 9. **Phase 1** — Local Agent Core concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase1-exit-review-2026-10-02.md`.
 10. **Phase 2** — Hosted Control-Plane Skeleton concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase2-exit-review-2026-10-02.md`.
 11. **Phase 3** — Pairing and Device Identity concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase3-exit-review-2026-10-02.md`.
+12. **Phase 4** — Device Realtime Channel concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase4-exit-review-2026-10-02.md`.
 
 ## Fases após readiness
 
@@ -22,8 +23,8 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 1. Local agent core — **concluída**
 2. Hosted control-plane skeleton — **concluída**
 3. Pairing and device identity — **concluída**
-4. Device realtime channel — **próxima fase**
-5. Remote MCP integration and OAuth
+4. Device realtime channel — **concluída**
+5. Remote MCP integration and OAuth — **próxima fase**
 6. Filesystem tools
 7. Shell/process lifecycle
 8. Basic Git

@@ -3,8 +3,8 @@ import { describe, expect, it } from "vitest";
 
 import type { Env } from "../src/env";
 
-describe("DeviceCoordinator skeleton", () => {
-  it("exists as a local coordination boundary without realtime", async () => {
+describe("DeviceCoordinator realtime boundary", () => {
+  it("reports realtime coordination readiness", async () => {
     const bindings = env as unknown as Env;
     const id = bindings.DEVICE_COORDINATOR.idFromName("phase2-test-device");
     const coordinator = bindings.DEVICE_COORDINATOR.get(id);
@@ -17,12 +17,12 @@ describe("DeviceCoordinator skeleton", () => {
     expect(response.status).toBe(200);
     expect(body.data).toMatchObject({
       component: "device-coordinator",
-      status: "skeleton",
-      realtime: false,
+      status: "ready",
+      realtime: true,
     });
   });
 
-  it("does not expose WebSocket behavior yet", async () => {
+  it("does not expose an arbitrary WebSocket path", async () => {
     const bindings = env as unknown as Env;
     const id = bindings.DEVICE_COORDINATOR.idFromName("phase2-no-ws");
     const coordinator = bindings.DEVICE_COORDINATOR.get(id);

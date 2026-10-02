@@ -3,6 +3,7 @@ import { bindingStatus, coreBindingsReady } from "./env";
 import { failure, success } from "./http";
 import { PROJECT_PHASE, SERVICE_NAME, SERVICE_VERSION } from "./meta";
 import { pairingHttpRoute } from "./pairing-http";
+import { realtimeHttpRoute } from "./realtime-http";
 
 export { DeviceCoordinator } from "./device-coordinator";
 
@@ -43,6 +44,11 @@ async function route(request: Request, env: Env): Promise<Response> {
   const pairingResponse = await pairingHttpRoute(request, env, url);
   if (pairingResponse) {
     return pairingResponse;
+  }
+
+  const realtimeResponse = await realtimeHttpRoute(request, env, url);
+  if (realtimeResponse) {
+    return realtimeResponse;
   }
 
   return failure("ROUTE_NOT_FOUND", "Route not found", 404);

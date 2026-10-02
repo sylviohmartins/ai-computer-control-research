@@ -1,6 +1,6 @@
 # Direção Atual da Arquitetura
 
-**Status:** arquitetura aceita; contratos da Phase 0 congelados; Local Agent Core (Phase 1), control-plane skeleton (Phase 2) e Pairing/Device Identity (Phase 3) implementados; nenhum deploy de produção realizado.
+**Status:** arquitetura aceita; contratos da Phase 0 congelados; Local Agent Core (Phase 1), control plane (Phase 2), Pairing/Device Identity (Phase 3) e Device Realtime Channel (Phase 4) implementados; nenhum deploy de produção realizado.
 
 ## Boundary do produto
 

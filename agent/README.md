@@ -26,6 +26,18 @@ Core local do Telechir implementado em Rust.
 - assinatura do contrato `../specs/auth/pairing-proof-v1.md`;
 - fixture Ed25519 compartilhado com o control plane.
 
+### Phase 4 — Device Realtime Channel
+
+- assinatura Ed25519 do pedido de connection credential curta;
+- cliente WebSocket outbound com TLS/rustls;
+- `agent.hello -> agent.hello_ack` no protocolo `0.1`;
+- validação de `connection_id`, sequence e `message_id`;
+- heartbeat;
+- frame limit de 256 KiB;
+- reconnect backoff exponencial com jitter e teto de 30 s;
+- reconnect não reproduz comandos automaticamente;
+- contrato compartilhado em `../specs/auth/connection-credential-v1.md`.
+
 A private key não faz parte de nenhum DTO serializável do agent.
 
 ## Native keyring
@@ -40,12 +52,11 @@ O `MemoryIdentityStore` existe somente para testes e adapters controlados.
 
 ## Limites atuais
 
-O binário ainda **não abre conexão de rede e não executa operações do host**.
+O agent já possui o adapter realtime outbound, mas **não executa operações do host** e não existe deploy de produção.
 
 Ficam para fases posteriores:
 
-- WebSocket/reconnect/presence;
-- MCP/OAuth;
+- Remote MCP/OAuth;
 - filesystem;
 - shell/processos;
 - Git;
@@ -62,7 +73,7 @@ cargo test --all-features
 cargo run
 ```
 
-A Phase 3 também exige compile checks para:
+As Phases 3–4 também exigem compile checks para:
 
 ```text
 x86_64-pc-windows-msvc
@@ -78,4 +89,5 @@ Não é necessário desativar proteção nem criar exclusão ampla para o reposi
 Evidências:
 
 - `../docs/testing/acceptance/phase1-exit-review-2026-10-02.md`;
-- `../docs/testing/acceptance/phase3-exit-review-2026-10-02.md`.
+- `../docs/testing/acceptance/phase3-exit-review-2026-10-02.md`;
+- `../docs/testing/acceptance/phase4-exit-review-2026-10-02.md`.

@@ -1,7 +1,7 @@
 # Product & Technical Blueprint v2
 
 **Data:** 2026-10-01  
-**Status:** arquitetura consolidada; Phases 0–3 concluídas; runtime foundations e pairing/device identity implementados sem deploy de produção
+**Status:** arquitetura consolidada; Phases 0–4 concluídas; runtime foundations, pairing/device identity e canal realtime implementados sem deploy de produção
 **Marca:** **Telechir** (`NAME_READY`); commercial/legal clearance permanece pendente antes de lançamento  
 **Objetivo:** consolidar a direção técnica após naming discovery e validação empírica do caminho ChatGPT Plus + plugin público + Remote MCP.
 
@@ -455,8 +455,8 @@ Decidida em ADR-0005:
 2. Phase 1 — Local agent core — **concluída em 2026-10-02**
 3. Phase 2 — Hosted control-plane skeleton — **concluída em 2026-10-02**
 4. Phase 3 — Pairing and device identity — **concluída em 2026-10-02**
-5. Phase 4 — Device realtime channel — **próxima fase**
-6. Phase 5 — Remote MCP + OAuth
+5. Phase 4 — Device realtime channel — **concluída em 2026-10-02**
+6. Phase 5 — Remote MCP + OAuth — **próxima fase**
 7. Phase 6 — Filesystem tools
 8. Phase 7 — Shell/process lifecycle
 9. Phase 8 — Basic Git

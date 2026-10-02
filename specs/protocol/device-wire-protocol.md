@@ -1,7 +1,7 @@
 # Device Wire Protocol
 
 **Baseline:** `telechir-device/0.1`  
-**Status:** Phase 0 — contract draft congelado para Phase 1
+**Status:** baseline 0.1 congelado na Phase 0 e implementado até o canal realtime da Phase 4
 
 ## 1. Objetivo
 
@@ -60,7 +60,7 @@ Payload mínimo:
 }
 ```
 
-A mensagem deve ser autenticada por credential/challenge associado à identidade registrada do device.
+A mensagem deve ser autenticada por credential/challenge associado à identidade registrada do device. Na Phase 4, o contrato de emissão e consumo da credential curta está congelado em `../auth/connection-credential-v1.md`.
 
 ### `agent.hello_ack`
 
