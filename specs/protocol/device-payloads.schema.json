@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://telechir.dev/schemas/device-payloads-0.1.schema.json",
+  "title": "Telechir Device Payload Contracts 0.1",
+  "$defs": {
+    "agent_hello": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_public_id",
+        "device_key_id",
+        "agent_version",
+        "os",
+        "arch",
+        "supported_protocol_versions",
+        "capabilities",
+        "connection_nonce"
+      ],
+      "properties": {
+        "device_public_id": {
+          "type": "string"
+        },
+        "device_key_id": {
+          "type": "string"
+        },
+        "agent_version": {
+          "type": "string"
+        },
+        "os": {
+          "type": "string"
+        },
+        "arch": {
+          "type": "string"
+        },
+        "supported_protocol_versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "connection_nonce": {
+          "type": "string",
+          "minLength": 16
+        }
+      }
+    },
+    "agent_hello_ack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_id",
+        "selected_protocol_version",
+        "server_time",
+        "heartbeat_interval_seconds",
+        "limits"
+      ],
+      "properties": {
+        "connection_id": {
+          "type": "string"
+        },
+        "selected_protocol_version": {
+          "type": "string"
+        },
+        "server_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "heartbeat_interval_seconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 300
+        },
+        "limits": {
+          "type": "object"
+        },
+        "policy_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "command_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "operation",
+        "arguments",
+        "requested_permissions",
+        "risk"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "idempotency_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operation": {
+          "type": "string"
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "requested_permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risk": {
+          "type": "string",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "CRITICAL"
+          ]
+        },
+        "workspace_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approval_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "command_accepted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "accepted_at"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "accepted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "process_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "command_chunk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "stream",
+        "offset",
+        "truncated"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "stream": {
+          "type": "string",
+          "enum": [
+            "stdout",
+            "stderr",
+            "event"
+          ]
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "data": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "data"
+          ]
+        },
+        {
+          "required": [
+            "artifact_id"
+          ]
+        }
+      ]
+    },
+    "command_completed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "completed_at",
+        "result"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result": {
+          "type": "object"
+        }
+      }
+    },
+    "command_failed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "failed_at",
+        "error"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "failed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "error.schema.json"
+        }
+      }
+    },
+    "command_cancel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "force": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "command_cancelled": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command_id",
+        "cancelled_at",
+        "state"
+      ],
+      "properties": {
+        "command_id": {
+          "type": "string"
+        },
+        "cancelled_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "cancelled",
+            "already_finished"
+          ]
+        }
+      }
+    },
+    "approval_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_id",
+        "command_id",
+        "permission",
+        "risk",
+        "argument_digest",
+        "expires_at"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "command_id": {
+          "type": "string"
+        },
+        "permission": {
+          "type": "string"
+        },
+        "risk": {
+          "type": "string",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "CRITICAL"
+          ]
+        },
+        "argument_digest": {
+          "type": "string"
+        },
+        "human_summary": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "approval_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_id",
+        "decision",
+        "decided_at"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "APPROVE",
+            "DENY"
+          ]
+        },
+        "decided_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "once",
+            "session"
+          ],
+          "default": "once"
+        }
+      }
+    }
+  }
+}
