@@ -52,7 +52,7 @@ Isso reduz o risco arquitetural, mas não garante aprovação/disponibilidade do
 
 - aprovação e disponibilidade do plugin próprio no Plus;
 - quota/metering do plugin próprio;
-- naming final (`Telechir` permanece `NAME_CONDITIONAL`);
+- commercial clearance de Telechir (domínio, packages, handles e trademark) antes de lançamento; o naming em si está `NAME_READY`;
 - custos/limites Cloudflare com tráfego WebSocket realista;
 - estratégia de licenciamento/open source;
 - ADR final da linguagem do agente local antes de Phase 1.
