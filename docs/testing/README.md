@@ -1,6 +1,6 @@
 # Estratégia de Validação
 
-Ainda não existe implementação de produção. Este diretório registra como as hipóteses de arquitetura serão validadas quando a implementação começar.
+A implementação começou pela fundação Rust do Local Agent na Phase 1. Ainda não existe deploy de produção. Este diretório registra evidências, gates e estratégias de validação por fase.
 
 Camadas esperadas:
 
@@ -18,3 +18,7 @@ Camadas esperadas:
 - `acceptance/phase0-exit-review-2026-10-02.md` — exit gate da Phase 0;
 - `acceptance/phase0-contract-audit-2026-10-02.md` — auditoria independente e revalidação dos contratos;
 - `tabletop/phase0-tabletop-results.md` — cenários arquiteturais exercitados em papel.
+
+## Phase 1
+
+- `acceptance/phase1-exit-review-2026-10-02.md` — exit gate do Local Agent Core, incluindo testes, lint, bootstrap e compile checks cross-target.

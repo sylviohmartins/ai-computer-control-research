@@ -4,9 +4,9 @@
 
 ## Fase atual
 
-**Discovery concluído / Phase 0 concluída / READY para Phase 1 — Local Agent Core**
+**Discovery concluído / Phase 0 concluída / Phase 1 — Local Agent Core concluída**
 
-A implementação de runtime/produção **não começou**. O repositório é a base versionada de pesquisa, arquitetura, histórico e especificações do produto **Telechir**.
+A implementação do runtime começou pela fundação Rust do agent. O projeto **não possui deploy de produção** e ainda não iniciou control plane hospedado, pairing, canal realtime ou integrações de filesystem/process/Git.
 
 ## Gates atuais
 
@@ -18,8 +18,9 @@ A implementação de runtime/produção **não começou**. O repositório é a b
 - [x] Acceptance criteria formais do vertical slice MVP.
 - [x] Definition of Ready para Phase 0: **`READY_FOR_PHASE_0`**.
 - [x] Phase 0 — Repository & Protocol Specifications: **`PHASE_0_COMPLETE`**.
-- [x] Exit review: **`READY_FOR_PHASE_1`**.
-- [ ] Phase 1/runtime iniciada.
+- [x] Exit review da Phase 0: **`READY_FOR_PHASE_1`**.
+- [x] Phase 1 — Local Agent Core: **`PHASE_1_COMPLETE`**.
+- [ ] Phase 2 — Hosted Control-Plane Skeleton iniciada.
 
 ## Decisões atuais
 
@@ -61,18 +62,19 @@ As avaliações relevantes estão em:
 - `docs/testing/acceptance/definition-of-ready-2026-10-02.md`
 - `docs/testing/acceptance/phase0-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase0-contract-audit-2026-10-02.md`
+- `docs/testing/acceptance/phase1-exit-review-2026-10-02.md`
 
 Resultado atual:
 
-> **READY_FOR_PHASE_1**
+> **PHASE_1_COMPLETE**
 
-O gate foi revalidado por auditoria de contratos: payload binding, fixtures, tool mappings, OAuth/security schemes, schema refs e error codes passaram nas checagens cruzadas documentadas.
+A fundação Rust do Local Agent passou em `fmt`, `clippy -D warnings`, 15 testes unitários/contratuais e execução do bootstrap em runner Linux isolado. Compile checks também passaram para Windows MSVC e macOS ARM64.
 
-Isso significa que arquitetura e contratos estão maduros para iniciar a implementação do Local Agent Core em uma execução futura dedicada. Nenhum runtime/deploy foi iniciado nesta fase.
+A Phase 1 preserva os boundaries do roadmap: não há control plane hospedado, pairing real, WebSocket, MCP/OAuth, filesystem, shell/processos, Git ou deploy implementados.
 
 ## Próximos trabalhos
 
-1. Em uma próxima execução de build/test, iniciar **Phase 1 — Local Agent Core**.
+1. Em uma execução dedicada de build/test, iniciar **Phase 2 — Hosted Control-Plane Skeleton**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
 3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 
