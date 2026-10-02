@@ -60,10 +60,13 @@ As avaliações relevantes estão em:
 
 - `docs/testing/acceptance/definition-of-ready-2026-10-02.md`
 - `docs/testing/acceptance/phase0-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase0-contract-audit-2026-10-02.md`
 
 Resultado atual:
 
 > **READY_FOR_PHASE_1**
+
+O gate foi revalidado por auditoria de contratos: payload binding, fixtures, tool mappings, OAuth/security schemes, schema refs e error codes passaram nas checagens cruzadas documentadas.
 
 Isso significa que arquitetura e contratos estão maduros para iniciar a implementação do Local Agent Core em uma execução futura dedicada. Nenhum runtime/deploy foi iniciado nesta fase.
 
