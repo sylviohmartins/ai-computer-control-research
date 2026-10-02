@@ -4,9 +4,9 @@
 
 ## Fase atual
 
-**Discovery concluído / Phases 0–3 concluídas / Phase 3 — Pairing and Device Identity concluída**
+**Discovery concluído / Phases 0–4 concluídas / Phase 4 — Device Realtime Channel concluída**
 
-A implementação possui o Local Agent Core, o skeleton do control plane e identidade/pairing Ed25519 com persistência segura de chave local, D1 e revogação. O projeto **não possui deploy de produção** e ainda não iniciou canal realtime, MCP/OAuth ou integrações de filesystem/process/Git.
+A implementação possui o Local Agent Core, control plane, identidade/pairing Ed25519 e canal realtime outbound com credential curta, Durable Objects/WebSocket Hibernation, presence, reconnect e revogação fail-closed. O projeto **não possui deploy de produção** e ainda não iniciou Remote MCP/OAuth ou integrações de filesystem/process/Git.
 
 ## Gates atuais
 
@@ -22,7 +22,8 @@ A implementação possui o Local Agent Core, o skeleton do control plane e ident
 - [x] Phase 1 — Local Agent Core: **`PHASE_1_COMPLETE`**.
 - [x] Phase 2 — Hosted Control-Plane Skeleton: **`PHASE_2_COMPLETE`**.
 - [x] Phase 3 — Pairing and Device Identity: **`PHASE_3_COMPLETE`**.
-- [ ] Phase 4 — Device Realtime Channel iniciada.
+- [x] Phase 4 — Device Realtime Channel: **`PHASE_4_COMPLETE`**.
+- [ ] Phase 5 — Remote MCP Integration and OAuth iniciada.
 
 ## Decisões atuais
 
@@ -67,19 +68,21 @@ As avaliações relevantes estão em:
 - `docs/testing/acceptance/phase1-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase2-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase3-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase4-exit-review-2026-10-02.md`
 - `docs/research/cloudflare/phase2-revalidation-2026-10-02.md`
+- `docs/research/cloudflare/phase4-revalidation-2026-10-02.md`
 
 Resultado atual:
 
-> **PHASE_3_COMPLETE**
+> **PHASE_4_COMPLETE**
 
-A Phase 3 implementa identidade persistente Ed25519 no agent, keyring nativo, pairing one-time, prova criptográfica cross-language, ativação D1 transacional e revogação. O agent passou em `fmt`, `clippy -D warnings`, 23 testes e compile checks Windows/macOS; o control plane passou em typecheck, 24 testes, migrations `0001 + 0002`, Wrangler dry-run e `npm audit` sem vulnerabilidades.
+A Phase 4 implementa credential curta de conexão, prova Ed25519 cross-language, WebSocket outbound, Durable Objects com Hibernation API, handshake `0.1`, heartbeat/presence, reconnect replacement, replay defense, command correlation sem execução e revogação que encerra conexão ativa. O agent passou em `fmt`, `clippy -D warnings`, 29 testes e compile checks Windows/macOS; o control plane passou em format/typecheck, 33 testes, migrations `0001 + 0002`, Wrangler dry-run e `npm audit` sem vulnerabilidades.
 
-A Phase 3 preserva os boundaries do roadmap: não há WebSocket/presence/reconnect real, credential de conexão curta, MCP/OAuth/browser adapter, filesystem, shell/processos, Git ou dashboard implementados.
+A Phase 4 preserva os boundaries do roadmap: não há Remote MCP/OAuth, filesystem, shell/processos, Git, dashboard ou deploy de produção implementados.
 
 ## Próximos trabalhos
 
-1. Em uma execução dedicada de build/test, iniciar **Phase 4 — Device Realtime Channel**.
+1. Em uma execução dedicada de build/test, iniciar **Phase 5 — Remote MCP Integration and OAuth**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
 3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 

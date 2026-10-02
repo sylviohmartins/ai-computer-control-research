@@ -30,3 +30,7 @@ Camadas esperadas:
 ## Phase 3
 
 - `acceptance/phase3-exit-review-2026-10-02.md` — exit gate de Pairing and Device Identity, incluindo identidade Ed25519, fixture cross-language, replay/TTL/revogação, migrations D1, cross-target Rust e dry-run do Worker.
+
+## Phase 4
+
+- `acceptance/phase4-exit-review-2026-10-02.md` — exit gate do Device Realtime Channel, incluindo credential curta, Hibernation WebSocket, heartbeat/presence, replay/reconnect/revogação, contratos cross-language e gates cross-target.

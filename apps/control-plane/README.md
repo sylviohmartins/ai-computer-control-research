@@ -28,9 +28,24 @@ Control plane do Telechir em TypeScript para Cloudflare Workers.
 - contrato device-side em `../../specs/auth/pairing-api-v1.md`;
 - pairing proof em `../../specs/auth/pairing-proof-v1.md`.
 
+### Phase 4 — Device Realtime Channel
+
+- connection credential curta com TTL de 60 s;
+- proof Ed25519 vinculada a device/key/nonce/timestamp/audience;
+- WebSocket upgrade autenticado;
+- `DeviceCoordinator` por device com Hibernation WebSocket API;
+- uma conexão lógica ativa por device;
+- JTI single-use e replay defense;
+- `agent.hello -> agent.hello_ack`;
+- heartbeat/presence e capabilities efêmeras;
+- command correlation mínima sem executar tools;
+- revogação fecha socket ativo e bloqueia credential futura;
+- frame limit de 256 KiB;
+- contrato em `../../specs/auth/connection-credential-v1.md`.
+
 ## Boundaries de autenticação
 
-A Phase 3 não implementa OAuth/browser login.
+As Phases 3–4 não implementam OAuth/browser login.
 
 `PairingService.verifyUser(...)` recebe um `user_id` já autenticado. O futuro adapter browser/OAuth deverá chamar esse domínio sem alterar suas invariantes.
 
@@ -38,10 +53,11 @@ Revogação também existe como operação de domínio, mas ainda não como dash
 
 ## Configuração sensível
 
-O serviço requer, quando pairing está habilitado:
+O serviço requer, quando pairing/realtime estão habilitados:
 
 - `PAIRING_SERVER_SECRET` — pelo menos 32 bytes;
-- `PAIRING_VERIFICATION_URI` — HTTPS.
+- `PAIRING_VERIFICATION_URI` — HTTPS;
+- `REALTIME_SERVER_SECRET` — pelo menos 32 bytes para connection credentials.
 
 Nenhum valor operacional é commitado em `wrangler.jsonc`.
 
@@ -51,7 +67,6 @@ Sem essas configurações, `/ready` falha fechado com `503`.
 
 Ainda não implementados:
 
-- WebSocket/presence/reconnect/command correlation reais;
 - Remote MCP/OAuth;
 - filesystem/process/Git;
 - dashboard.
@@ -79,5 +94,6 @@ npm audit --audit-level=high
 - D1 é source of truth durável para pairing/device registration;
 - material público pendente vive em `pairings` antes de `ACTIVE`;
 - private key nunca sai do agent;
-- Durable Object continua apenas skeleton até a Phase 4;
+- Durable Object coordena presence/conexão efêmera por device e usa attachment/storage para sobreviver à hibernação;
+- D1 continua a autoridade durável para identidade/revogação;
 - cloud nunca amplia a policy local do agent.
