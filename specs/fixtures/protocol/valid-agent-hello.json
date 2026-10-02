@@ -1,0 +1,28 @@
+{
+  "protocol_version": "0.1",
+  "message_type": "agent.hello",
+  "message_id": "msg_01TESTHELLO",
+  "correlation_id": null,
+  "device_id": "dev_demo",
+  "session_id": null,
+  "connection_id": null,
+  "sequence": 0,
+  "sent_at": "2026-10-02T05:30:00Z",
+  "deadline_at": null,
+  "payload": {
+    "device_public_id": "dev_demo",
+    "device_key_id": "key_demo",
+    "agent_version": "0.1.0",
+    "os": "windows",
+    "arch": "x86_64",
+    "supported_protocol_versions": [
+      "0.1"
+    ],
+    "capabilities": [
+      "filesystem.v1",
+      "process.v1",
+      "git.read.v1"
+    ],
+    "connection_nonce": "0123456789abcdef0123456789abcdef"
+  }
+}
