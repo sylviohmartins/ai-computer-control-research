@@ -1,4 +1,10 @@
-# Visão do Produto
+# Telechir — Visão do Produto
+
+## Identidade
+
+**Telechir** — *Secure computer control for AI agents.*
+
+> *Give AI a secure hand on your machines.*
 
 ## Conceito em uma linha
 
