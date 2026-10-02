@@ -42,7 +42,7 @@ Esses itens continuam pertencendo às fases 2–10 do roadmap.
 
 ## Evidências de validação
 
-Runner reproduzível: container `rust:1.99-bookworm`, checkout montado read-only e `CARGO_TARGET_DIR` isolado em `/tmp`.
+Runner reproduzível: container `rust:1.99-bookworm`, checkout montado read-only e `CARGO_TARGET_DIR=/target` em volume Docker nomeado (`telechir-cargo-target`).
 
 Gates executados com sucesso:
 
@@ -56,9 +56,9 @@ cargo run --quiet
 Resultado dos testes:
 
 - 9 unit tests: **PASS**;
-- 6 contract tests: **PASS**;
+- 7 contract tests: **PASS**;
 - doc tests: **PASS**;
-- total: **15 testes, 0 falhas**;
+- total: **16 testes, 0 falhas**;
 - bootstrap: `telechir-agent 0.1.0 core ready (protocol 0.1)`.
 
 Cross-target compile checks também passaram:
@@ -72,16 +72,16 @@ O próprio runner Linux cobre o target Linux usado para execução dos testes.
 
 ## Observação sobre o runner Windows nativo
 
-O primeiro runner Windows recebeu Rust/Cargo 1.99.0 user-level e conseguiu compilar vários crates, mas execuções de `build-script-build.exe` ficaram presas repetidamente sem erro de código. Uma tentativa interrompida deixou processos filhos mantendo arquivos em `target`, causando `os error 5` no `cargo clean`.
+O primeiro runner Windows recebeu Rust/Cargo 1.99.0 user-level, mas o Avast passou a interceptar repetidamente executáveis temporários `build-script-build.exe` gerados pelo Cargo para dependências como `serde_core` e `zmij`. O build nativo foi interrompido e o diretório descartável `agent/target` foi removido; em seguida foi confirmado que não restavam processos nem arquivos `build-script-build.exe` do Telechir no host.
 
 Após isolar a validação em Docker Linux:
 
-- os mesmos crates que travavam no host Windows compilaram normalmente;
-- o `telechir-agent` compilou;
+- o `telechir-agent` compilou normalmente;
 - todos os gates de qualidade passaram;
-- o cross-check para `x86_64-pc-windows-msvc` passou.
+- `cargo check` cross-target passou para `x86_64-pc-windows-msvc` e `aarch64-apple-darwin`;
+- nenhum artefato de build Rust voltou a ser gerado no filesystem do projeto no Windows.
 
-Portanto, a anomalia é registrada como problema do ambiente de execução Windows utilizado nesta sessão, não como falha conhecida do código da Phase 1. Ela deve ser reavaliada antes de testes nativos de integração Windows em fases que adicionarem adapters de OS.
+Portanto, o incidente é registrado como interferência do ambiente/antivírus no build nativo Windows desta sessão, não como falha conhecida do código da Phase 1. O check Windows realizado aqui é de compilação cross-target, não substitui testes nativos futuros quando forem adicionados adapters de OS.
 
 ## Definition of Done
 
@@ -89,6 +89,7 @@ Portanto, a anomalia é registrada como problema do ambiente de execução Windo
 - [x] library/core separado do binary bootstrap;
 - [x] 15 message types modelados/validados;
 - [x] enums Rust de protocol/error/permission/risk/operation sincronizados com os JSON Schemas;
+- [x] classificação de operações com side effect sincronizada com a regra de idempotência do schema;
 - [x] fixtures válidas aceitas;
 - [x] fixture de side effect sem idempotency rejeitada;
 - [x] lifecycle impede transições inválidas;

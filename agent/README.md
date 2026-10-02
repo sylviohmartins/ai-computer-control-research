@@ -12,7 +12,8 @@ Esta fase cria somente a fundação executável do agent:
 - configuração local mínima;
 - state machine de command lifecycle;
 - ports/interfaces para policy, transport, clock e execution;
-- testes unitários e contract tests contra `../specs/fixtures/protocol`.
+- testes unitários e contract tests contra `../specs/fixtures/protocol`;
+- contract-drift checks que mantêm enums e a regra de idempotência sincronizados com os JSON Schemas em `../specs/protocol`.
 
 O binário atual **não conecta à rede e não executa operações do host**.
 ## Limites intencionais
@@ -42,3 +43,9 @@ cargo run
 ```
 
 O `cargo run` apenas valida a configuração default e informa que o core está pronto.
+
+### Windows e antivírus
+
+Se o antivírus do host interceptar repetidamente os executáveis temporários `build-script-build.exe` criados pelo Cargo, prefira executar os gates em container Linux com o checkout montado como read-only e `CARGO_TARGET_DIR` em um volume Docker. Não é necessário desativar a proteção nem criar uma exclusão ampla para o repositório.
+
+A evidência reproduzível usada no exit review está documentada em `../docs/testing/acceptance/phase1-exit-review-2026-10-02.md`.

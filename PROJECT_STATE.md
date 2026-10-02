@@ -68,7 +68,7 @@ Resultado atual:
 
 > **PHASE_1_COMPLETE**
 
-A fundação Rust do Local Agent passou em `fmt`, `clippy -D warnings`, 15 testes unitários/contratuais e execução do bootstrap em runner Linux isolado. Compile checks também passaram para Windows MSVC e macOS ARM64.
+A fundação Rust do Local Agent passou em `fmt`, `clippy -D warnings`, 16 testes unitários/contratuais e execução do bootstrap em runner Linux isolado. `cargo check` cross-target também passou para Windows MSVC e macOS ARM64.
 
 A Phase 1 preserva os boundaries do roadmap: não há control plane hospedado, pairing real, WebSocket, MCP/OAuth, filesystem, shell/processos, Git ou deploy implementados.
 
