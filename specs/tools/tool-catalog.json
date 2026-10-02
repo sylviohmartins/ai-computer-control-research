@@ -1,0 +1,222 @@
+{
+  "catalog_version": "0.1",
+  "external_protocol": "MCP 2026-07-28",
+  "tools": [
+    {
+      "name": "list_devices",
+      "title": "List devices",
+      "description": "Lista os dispositivos Telechir que a conta autenticada pode acessar.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#list-devices"
+    },
+    {
+      "name": "get_device",
+      "title": "Get device",
+      "description": "Retorna status, plataforma e capacidades de um dispositivo Telechir autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-device"
+    },
+    {
+      "name": "list_files",
+      "title": "List files",
+      "description": "Lista arquivos e diretórios dentro de um caminho autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#list-files"
+    },
+    {
+      "name": "get_file_metadata",
+      "title": "Get file metadata",
+      "description": "Retorna metadados e hash opcional de um arquivo autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-file-metadata"
+    },
+    {
+      "name": "read_file",
+      "title": "Read file",
+      "description": "Lê conteúdo de um arquivo autorizado, inteiro ou por faixa.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#read-file"
+    },
+    {
+      "name": "write_file",
+      "title": "Write file",
+      "description": "Cria ou substitui conteúdo de um arquivo autorizado, sujeito a policy e approval.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#write-file"
+    },
+    {
+      "name": "patch_file",
+      "title": "Patch file",
+      "description": "Aplica patch textual a um arquivo autorizado com precondition de hash.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#patch-file"
+    },
+    {
+      "name": "search_files",
+      "title": "Search files",
+      "description": "Pesquisa nomes ou conteúdo dentro de roots autorizados.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#search-files"
+    },
+    {
+      "name": "run_command",
+      "title": "Run command",
+      "description": "Executa um comando curto no dispositivo sob policy local e timeout.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#run-command"
+    },
+    {
+      "name": "start_process",
+      "title": "Start process",
+      "description": "Inicia um processo autorizado de longa duração e retorna handle para acompanhamento.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#start-process"
+    },
+    {
+      "name": "read_process_output",
+      "title": "Read process output",
+      "description": "Lê output e estado de um processo gerenciado pelo Telechir.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#read-process-output"
+    },
+    {
+      "name": "write_process_input",
+      "title": "Write process input",
+      "description": "Envia entrada para um processo interativo gerenciado.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "idempotentHint": false
+      },
+      "contract": "contracts.md#write-process-input"
+    },
+    {
+      "name": "cancel_process",
+      "title": "Cancel process",
+      "description": "Solicita cancelamento de um processo gerenciado.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#cancel-process"
+    },
+    {
+      "name": "list_managed_processes",
+      "title": "List managed processes",
+      "description": "Lista processos iniciados ou gerenciados pelo Telechir.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#list-managed-processes"
+    },
+    {
+      "name": "get_git_status",
+      "title": "Get Git status",
+      "description": "Lê o estado Git de um repositório autorizado sem modificá-lo.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-git-status"
+    },
+    {
+      "name": "get_git_diff",
+      "title": "Get Git diff",
+      "description": "Lê diff Git de um repositório autorizado sem modificar o working tree.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-git-diff"
+    },
+    {
+      "name": "get_system_metrics",
+      "title": "Get system metrics",
+      "description": "Retorna métricas gerais de saúde do dispositivo.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-system-metrics"
+    },
+    {
+      "name": "get_artifact",
+      "title": "Get artifact",
+      "description": "Retorna metadados e acesso temporário a um artifact autorizado.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "idempotentHint": true
+      },
+      "contract": "contracts.md#get-artifact"
+    }
+  ]
+}
