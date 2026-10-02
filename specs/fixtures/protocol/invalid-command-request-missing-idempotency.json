@@ -1,0 +1,27 @@
+{
+  "protocol_version": "0.1",
+  "message_type": "command.request",
+  "message_id": "msg_01NOIDEMPOTENCY",
+  "correlation_id": "corr_02",
+  "device_id": "dev_demo",
+  "session_id": "ses_demo",
+  "connection_id": "conn_demo",
+  "sequence": 15,
+  "sent_at": "2026-10-02T08:40:10Z",
+  "deadline_at": "2026-10-02T08:41:10Z",
+  "payload": {
+    "command_id": "cmd_missing_idem",
+    "operation": "process.start",
+    "arguments": {
+      "command": "mvn test",
+      "cwd": "C:\\\\workspace\\\\demo"
+    },
+    "requested_permissions": [
+      "SHELL_SAFE"
+    ],
+    "risk": "MEDIUM",
+    "workspace_id": "ws_demo",
+    "approval_id": null
+  },
+  "expected_validation": "invalid: side-effect operation requires non-null idempotency_key"
+}

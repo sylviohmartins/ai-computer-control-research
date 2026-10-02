@@ -28,7 +28,7 @@ Este diretório contém os contratos congelados para iniciar a Phase 1. Nenhum a
 
 ## Compatibilidade externa
 
-A superfície MCP mira a revisão `2026-07-28`, com core stateless. Tasks podem ser usadas quando o cliente anunciar a extensão, mas os process handles do Telechir continuam sendo o fallback interoperável.
+A superfície MCP baseline mira a revisão `2026-07-28`. Na era moderna dessa revisão, o transporte HTTP não depende de sessão de protocolo persistente; estado de negócio continua explícito em handles do Telechir. Compatibilidade futura com a era 2025 deve ser tratada como extensão separada. Tasks podem ser usadas quando o cliente anunciar suporte compatível, mas os process handles do Telechir continuam sendo o fallback interoperável.
 
 ## Regra de mudança
 

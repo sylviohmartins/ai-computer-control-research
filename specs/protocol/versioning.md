@@ -12,12 +12,12 @@ Uma mudança de dashboard não força bump do protocolo.
 
 ## 2. Device protocol
 
-Baseline: \`0.1\`.
+Baseline: `0.1`.
 
-Durante \`agent.hello\`, o agent anuncia \`supported_protocol_versions\`. O servidor escolhe uma versão comum.
+Durante `agent.hello`, o agent anuncia `supported_protocol_versions`. O servidor escolhe uma versão comum.
 
 Sem interseção:
-- conexão é encerrada com \`UNSUPPORTED_PROTOCOL\`;
+- conexão é encerrada com `UNSUPPORTED_PROTOCOL`;
 - nenhuma execução é permitida.
 
 ## 3. Compatibilidade
@@ -37,7 +37,7 @@ Breaking change:
 
 Features variáveis são negociadas separadamente da versão:
 
-\`\`\`text
+```text
 filesystem.v1
 process.v1
 git.read.v1
@@ -45,21 +45,23 @@ artifact.v1
 ui.v1
 browser.v1
 sandbox.v1
-\`\`\`
+```
 
-Capability ausente retorna \`UNSUPPORTED_CAPABILITY\`.
+Capability ausente retorna `UNSUPPORTED_CAPABILITY`.
 
 ## 5. MCP
 
-O Remote MCP mira a revisão \`2026-07-28\`.
+O Remote MCP baseline mira a revisão `2026-07-28`, revalidada em 2026-10-02.
 
-O core MCP é stateless; estado de negócio deve ser explícito por handles como \`process_id\` e \`artifact_id\`.
+Na era moderna iniciada por essa revisão, a camada HTTP do MCP não depende de uma sessão de protocolo persistente: estado de negócio do Telechir permanece explícito por handles como `process_id` e `artifact_id`.
 
-Quando um cliente anuncia a extensão MCP Tasks, Telechir poderá mapear processos longos para Tasks. Sem essa extensão, os handles Telechir permanecem o caminho padrão.
+Compatibilidade futura com clientes da era 2025 é opcional e não faz parte do baseline da Phase 0; se adicionada, deve respeitar a negociação da SDK e pode exigir tratamento de sessão/afinidade próprio da era legada.
+
+Quando um cliente anunciar MCP Tasks compatível, Telechir poderá mapear processos longos para Tasks. Sem essa extensão, os handles Telechir permanecem o caminho interoperável.
 
 ## 6. Tool schema version
 
-Cada catálogo publicado possui \`tool_schema_version\`, inicialmente \`0.1\`.
+Cada catálogo publicado possui `tool_schema_version`, inicialmente `0.1`.
 
 Mudanças incompatíveis em argumento/resultado devem:
 - criar nova versão da tool ou catálogo;

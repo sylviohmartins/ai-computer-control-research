@@ -1,0 +1,21 @@
+{
+  "protocol_version": "0.1",
+  "message_type": "capabilities.changed",
+  "message_id": "msg_01CAPSCHANGE",
+  "correlation_id": null,
+  "device_id": "dev_demo",
+  "session_id": null,
+  "connection_id": "conn_demo",
+  "sequence": 14,
+  "sent_at": "2026-10-02T08:40:05Z",
+  "deadline_at": null,
+  "payload": {
+    "capabilities": [
+      "filesystem.v1",
+      "process.v1",
+      "git.read.v1"
+    ],
+    "agent_version": "0.1.1",
+    "reason": "agent-upgrade"
+  }
+}
