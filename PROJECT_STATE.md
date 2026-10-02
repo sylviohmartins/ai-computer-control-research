@@ -4,9 +4,9 @@
 
 ## Fase atual
 
-**Discovery concluído / Phase 0 concluída / Phase 1 concluída / Phase 2 — Hosted Control-Plane Skeleton concluída**
+**Discovery concluído / Phases 0–3 concluídas / Phase 3 — Pairing and Device Identity concluída**
 
-A implementação possui a fundação Rust do agent e o skeleton TypeScript/Cloudflare do control plane. O projeto **não possui deploy de produção** e ainda não iniciou pairing/device identity real, canal realtime, MCP/OAuth ou integrações de filesystem/process/Git.
+A implementação possui o Local Agent Core, o skeleton do control plane e identidade/pairing Ed25519 com persistência segura de chave local, D1 e revogação. O projeto **não possui deploy de produção** e ainda não iniciou canal realtime, MCP/OAuth ou integrações de filesystem/process/Git.
 
 ## Gates atuais
 
@@ -21,7 +21,8 @@ A implementação possui a fundação Rust do agent e o skeleton TypeScript/Clou
 - [x] Exit review da Phase 0: **`READY_FOR_PHASE_1`**.
 - [x] Phase 1 — Local Agent Core: **`PHASE_1_COMPLETE`**.
 - [x] Phase 2 — Hosted Control-Plane Skeleton: **`PHASE_2_COMPLETE`**.
-- [ ] Phase 3 — Pairing and Device Identity iniciada.
+- [x] Phase 3 — Pairing and Device Identity: **`PHASE_3_COMPLETE`**.
+- [ ] Phase 4 — Device Realtime Channel iniciada.
 
 ## Decisões atuais
 
@@ -65,19 +66,20 @@ As avaliações relevantes estão em:
 - `docs/testing/acceptance/phase0-contract-audit-2026-10-02.md`
 - `docs/testing/acceptance/phase1-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase2-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase3-exit-review-2026-10-02.md`
 - `docs/research/cloudflare/phase2-revalidation-2026-10-02.md`
 
 Resultado atual:
 
-> **PHASE_2_COMPLETE**
+> **PHASE_3_COMPLETE**
 
-O control-plane skeleton passou em format check, TypeScript strict typecheck, 8 testes no Workers runtime, aplicação local da migration D1 e `wrangler deploy --dry-run`. A migration materializa 12 entidades e 9 índices previstos no modelo conceitual. Nenhum deploy remoto ou recurso Cloudflare real foi criado.
+A Phase 3 implementa identidade persistente Ed25519 no agent, keyring nativo, pairing one-time, prova criptográfica cross-language, ativação D1 transacional e revogação. O agent passou em `fmt`, `clippy -D warnings`, 23 testes e compile checks Windows/macOS; o control plane passou em typecheck, 24 testes, migrations `0001 + 0002`, Wrangler dry-run e `npm audit` sem vulnerabilidades.
 
-A Phase 2 preserva os boundaries do roadmap: não há pairing/device identity real, WebSocket/presence/reconnect, MCP/OAuth, filesystem, shell/processos, Git ou dashboard implementados.
+A Phase 3 preserva os boundaries do roadmap: não há WebSocket/presence/reconnect real, credential de conexão curta, MCP/OAuth/browser adapter, filesystem, shell/processos, Git ou dashboard implementados.
 
 ## Próximos trabalhos
 
-1. Em uma execução dedicada de build/test, iniciar **Phase 3 — Pairing and Device Identity**.
+1. Em uma execução dedicada de build/test, iniciar **Phase 4 — Device Realtime Channel**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
 3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 

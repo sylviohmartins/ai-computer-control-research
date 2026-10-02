@@ -2,7 +2,7 @@
 
 Repositório de pesquisa, discovery de produto e arquitetura para uma futura plataforma que permita que clientes de IA autorizados operem computadores e ambientes executáveis por meio de uma camada de controle segura e auditável.
 
-> **Estado do projeto:** discovery, **Phase 0 — Repository & Protocol Specifications**, **Phase 1 — Local Agent Core** e **Phase 2 — Hosted Control-Plane Skeleton** concluídos. Não existe deploy de produção; **Phase 3 — Pairing and Device Identity** é a próxima fase. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
+> **Estado do projeto:** discovery e **Phases 0–3 concluídas**, incluindo Local Agent Core, control-plane skeleton e Pairing/Device Identity. Não existe deploy de produção; **Phase 4 — Device Realtime Channel** é a próxima fase. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
 
 ## Por que este repositório existe
 
@@ -35,8 +35,8 @@ Este repositório é a fonte de verdade para:
 
 - `PROJECT_STATE.md` — fase atual, gates e estado da implementação.
 - `AGENTS.md` — regras para agentes de IA que trabalhem neste repositório.
-- `agent/` — core Rust do Local Agent, implementado na Phase 1.
-- `apps/control-plane/` — skeleton TypeScript/Cloudflare do control plane, implementado na Phase 2.
+- `agent/` — core Rust do Local Agent e identidade Ed25519, implementados nas Phases 1 e 3.
+- `apps/control-plane/` — control plane TypeScript/Cloudflare com skeleton, D1 e pairing, implementado nas Phases 2 e 3.
 - `docs/` — documentação viva de produto, discovery, arquitetura, segurança, testes e histórico.
 - `docs/history/research-lineage.md` — narrativa de como o projeto nasceu e por que decisões importantes mudaram.
 - `artifacts/` — snapshots datados, relatórios e datasets estruturados.
@@ -73,7 +73,7 @@ A estratégia de licenciamento do core foi definida em `docs/architecture/adr/00
 
 ## Contribuição
 
-O projeto concluiu discovery e as Phases 0–2. Consulte `CONTRIBUTING.md` e `PROJECT_STATE.md` antes de propor implementação ou avançar para uma nova fase.
+O projeto concluiu discovery e as Phases 0–3. Consulte `CONTRIBUTING.md` e `PROJECT_STATE.md` antes de propor implementação ou avançar para uma nova fase.
 
 ## Segurança
 

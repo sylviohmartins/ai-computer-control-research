@@ -1,7 +1,7 @@
 # Product & Technical Blueprint v2
 
 **Data:** 2026-10-01  
-**Status:** arquitetura consolidada; Phases 0–2 concluídas; runtime foundations implementadas sem deploy de produção
+**Status:** arquitetura consolidada; Phases 0–3 concluídas; runtime foundations e pairing/device identity implementados sem deploy de produção
 **Marca:** **Telechir** (`NAME_READY`); commercial/legal clearance permanece pendente antes de lançamento  
 **Objetivo:** consolidar a direção técnica após naming discovery e validação empírica do caminho ChatGPT Plus + plugin público + Remote MCP.
 
@@ -454,8 +454,8 @@ Decidida em ADR-0005:
 1. Phase 0 — Repository and protocol specifications — **concluída em 2026-10-02**
 2. Phase 1 — Local agent core — **concluída em 2026-10-02**
 3. Phase 2 — Hosted control-plane skeleton — **concluída em 2026-10-02**
-4. Phase 3 — Pairing and device identity — **próxima fase**
-5. Phase 4 — Device realtime channel
+4. Phase 3 — Pairing and device identity — **concluída em 2026-10-02**
+5. Phase 4 — Device realtime channel — **próxima fase**
 6. Phase 5 — Remote MCP + OAuth
 7. Phase 6 — Filesystem tools
 8. Phase 7 — Shell/process lifecycle
@@ -525,6 +525,6 @@ Sem commit/push automático.
 
 ## 26. Resultado
 
-A Phase 0 materializou os contratos em `specs/`, formalizou threat model/tabletops e aceitou os ADRs centrais. A Phase 1 implementou o Local Agent Core em Rust, e a Phase 2 implementou o skeleton TypeScript/Cloudflare do control plane com Worker HTTP, Durable Object boundary e modelo D1 materializado localmente.
+A Phase 0 materializou os contratos em `specs/`, formalizou threat model/tabletops e aceitou os ADRs centrais. A Phase 1 implementou o Local Agent Core em Rust; a Phase 2 implementou o skeleton TypeScript/Cloudflare do control plane; e a Phase 3 materializou identidade Ed25519, pairing one-time, prova criptográfica cross-language, ativação D1 transacional e revogação.
 
-O projeto está em **`PHASE_2_COMPLETE`**. O próximo gate de implementação é **Phase 3 — Pairing and Device Identity**, em execução dedicada de Build, Test & Iterate. Não há deploy de produção e os release gates pendentes continuam válidos.
+O projeto está em **`PHASE_3_COMPLETE`**. O próximo gate de implementação é **Phase 4 — Device Realtime Channel**, em execução dedicada de Build, Test & Iterate. Não há deploy de produção e os release gates pendentes continuam válidos.

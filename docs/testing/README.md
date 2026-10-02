@@ -26,3 +26,7 @@ Camadas esperadas:
 ## Phase 2
 
 - `acceptance/phase2-exit-review-2026-10-02.md` — exit gate do Hosted Control-Plane Skeleton, incluindo typecheck, testes no Workers runtime, migration D1 local e dry-run do Wrangler.
+
+## Phase 3
+
+- `acceptance/phase3-exit-review-2026-10-02.md` — exit gate de Pairing and Device Identity, incluindo identidade Ed25519, fixture cross-language, replay/TTL/revogação, migrations D1, cross-target Rust e dry-run do Worker.
