@@ -72,7 +72,7 @@ Evitar transformar a marca em uma descrição genérica de qualquer remote deskt
 
 ## Situação jurídica e de ativos
 
-A seleção da marca está concluída, mas o lançamento comercial continua condicionado a:
+A seleção da marca está concluída e o repositório já usa o namespace `telechir`, mas o lançamento comercial continua condicionado a:
 - domínio;
 - package namespaces;
 - GitHub organization/handles;

@@ -120,7 +120,7 @@ Telechir está aprovado para:
 - futura estrutura de packages;
 - futura CLI;
 - Phase 0;
-- futuro rename do repositório.
+- repositório oficial `sylviohmartins/telechir`.
 
 ### `COMMERCIAL_CLEARANCE_PENDING`
 
@@ -140,8 +140,8 @@ Ausência em buscas indexadas não equivale a registro ou disponibilidade juríd
 
 ## Naming do repositório
 
-O nome atual `ai-computer-control-research` tornou-se apenas um nome físico temporário do repositório.
+O repositório foi renomeado de `ai-computer-control-research` para **`telechir`** em 2026-10-02.
 
-**Marca oficial do produto: Telechir.**
+**Marca oficial do produto e namespace atual do repositório: Telechir / `telechir`.**
 
-O target de rename é `telechir` assim que a operação administrativa e a reserva do namespace forem realizadas.
+Esse rename não equivale a clearance jurídico/comercial de domínio, package registries ou trademark.
