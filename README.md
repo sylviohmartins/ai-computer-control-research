@@ -2,7 +2,7 @@
 
 Repositório de pesquisa, discovery de produto e arquitetura para uma futura plataforma que permita que clientes de IA autorizados operem computadores e ambientes executáveis por meio de uma camada de controle segura e auditável.
 
-> **Estado do projeto:** discovery e **Phase 0 — Repository & Protocol Specifications concluídos**; estado atual `READY_FOR_PHASE_1`. Nenhuma implementação de runtime/produção foi iniciada. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
+> **Estado do projeto:** discovery, **Phase 0 — Repository & Protocol Specifications**, **Phase 1 — Local Agent Core** e **Phase 2 — Hosted Control-Plane Skeleton** concluídos. Não existe deploy de produção; **Phase 3 — Pairing and Device Identity** é a próxima fase. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
 
 ## Por que este repositório existe
 
@@ -35,6 +35,8 @@ Este repositório é a fonte de verdade para:
 
 - `PROJECT_STATE.md` — fase atual, gates e estado da implementação.
 - `AGENTS.md` — regras para agentes de IA que trabalhem neste repositório.
+- `agent/` — core Rust do Local Agent, implementado na Phase 1.
+- `apps/control-plane/` — skeleton TypeScript/Cloudflare do control plane, implementado na Phase 2.
 - `docs/` — documentação viva de produto, discovery, arquitetura, segurança, testes e histórico.
 - `docs/history/research-lineage.md` — narrativa de como o projeto nasceu e por que decisões importantes mudaram.
 - `artifacts/` — snapshots datados, relatórios e datasets estruturados.
@@ -71,7 +73,7 @@ A estratégia de licenciamento do core foi definida em `docs/architecture/adr/00
 
 ## Contribuição
 
-O projeto concluiu discovery e especificação da Phase 0. Consulte `CONTRIBUTING.md` e `PROJECT_STATE.md` antes de propor implementação.
+O projeto concluiu discovery e as Phases 0–2. Consulte `CONTRIBUTING.md` e `PROJECT_STATE.md` antes de propor implementação ou avançar para uma nova fase.
 
 ## Segurança
 

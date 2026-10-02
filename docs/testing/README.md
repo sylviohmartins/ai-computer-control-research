@@ -22,3 +22,7 @@ Camadas esperadas:
 ## Phase 1
 
 - `acceptance/phase1-exit-review-2026-10-02.md` — exit gate do Local Agent Core, incluindo testes, lint, bootstrap e compile checks cross-target.
+
+## Phase 2
+
+- `acceptance/phase2-exit-review-2026-10-02.md` — exit gate do Hosted Control-Plane Skeleton, incluindo typecheck, testes no Workers runtime, migration D1 local e dry-run do Wrangler.

@@ -1,6 +1,6 @@
 # Direção Atual da Arquitetura
 
-**Status:** arquitetura aceita e contratos da Phase 0 congelados; runtime ainda não iniciado.
+**Status:** arquitetura aceita; contratos da Phase 0 congelados; Local Agent Core (Phase 1) e control-plane skeleton (Phase 2) implementados; nenhum deploy de produção realizado.
 
 ## Boundary do produto
 

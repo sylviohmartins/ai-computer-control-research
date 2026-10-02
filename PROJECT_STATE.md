@@ -4,9 +4,9 @@
 
 ## Fase atual
 
-**Discovery concluído / Phase 0 concluída / Phase 1 — Local Agent Core concluída**
+**Discovery concluído / Phase 0 concluída / Phase 1 concluída / Phase 2 — Hosted Control-Plane Skeleton concluída**
 
-A implementação do runtime começou pela fundação Rust do agent. O projeto **não possui deploy de produção** e ainda não iniciou control plane hospedado, pairing, canal realtime ou integrações de filesystem/process/Git.
+A implementação possui a fundação Rust do agent e o skeleton TypeScript/Cloudflare do control plane. O projeto **não possui deploy de produção** e ainda não iniciou pairing/device identity real, canal realtime, MCP/OAuth ou integrações de filesystem/process/Git.
 
 ## Gates atuais
 
@@ -20,7 +20,8 @@ A implementação do runtime começou pela fundação Rust do agent. O projeto *
 - [x] Phase 0 — Repository & Protocol Specifications: **`PHASE_0_COMPLETE`**.
 - [x] Exit review da Phase 0: **`READY_FOR_PHASE_1`**.
 - [x] Phase 1 — Local Agent Core: **`PHASE_1_COMPLETE`**.
-- [ ] Phase 2 — Hosted Control-Plane Skeleton iniciada.
+- [x] Phase 2 — Hosted Control-Plane Skeleton: **`PHASE_2_COMPLETE`**.
+- [ ] Phase 3 — Pairing and Device Identity iniciada.
 
 ## Decisões atuais
 
@@ -63,18 +64,20 @@ As avaliações relevantes estão em:
 - `docs/testing/acceptance/phase0-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase0-contract-audit-2026-10-02.md`
 - `docs/testing/acceptance/phase1-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase2-exit-review-2026-10-02.md`
+- `docs/research/cloudflare/phase2-revalidation-2026-10-02.md`
 
 Resultado atual:
 
-> **PHASE_1_COMPLETE**
+> **PHASE_2_COMPLETE**
 
-A fundação Rust do Local Agent passou em `fmt`, `clippy -D warnings`, 16 testes unitários/contratuais e execução do bootstrap em runner Linux isolado. `cargo check` cross-target também passou para Windows MSVC e macOS ARM64.
+O control-plane skeleton passou em format check, TypeScript strict typecheck, 8 testes no Workers runtime, aplicação local da migration D1 e `wrangler deploy --dry-run`. A migration materializa 12 entidades e 9 índices previstos no modelo conceitual. Nenhum deploy remoto ou recurso Cloudflare real foi criado.
 
-A Phase 1 preserva os boundaries do roadmap: não há control plane hospedado, pairing real, WebSocket, MCP/OAuth, filesystem, shell/processos, Git ou deploy implementados.
+A Phase 2 preserva os boundaries do roadmap: não há pairing/device identity real, WebSocket/presence/reconnect, MCP/OAuth, filesystem, shell/processos, Git ou dashboard implementados.
 
 ## Próximos trabalhos
 
-1. Em uma execução dedicada de build/test, iniciar **Phase 2 — Hosted Control-Plane Skeleton**.
+1. Em uma execução dedicada de build/test, iniciar **Phase 3 — Pairing and Device Identity**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
 3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 

@@ -1,7 +1,7 @@
 # Product & Technical Blueprint v2
 
 **Data:** 2026-10-01  
-**Status:** arquitetura consolidada; Phase 0 de especificações concluída; runtime ainda não iniciado  
+**Status:** arquitetura consolidada; Phases 0–2 concluídas; runtime foundations implementadas sem deploy de produção
 **Marca:** **Telechir** (`NAME_READY`); commercial/legal clearance permanece pendente antes de lançamento  
 **Objetivo:** consolidar a direção técnica após naming discovery e validação empírica do caminho ChatGPT Plus + plugin público + Remote MCP.
 
@@ -452,9 +452,9 @@ Decidida em ADR-0005:
 ## 22. Roadmap
 
 1. Phase 0 — Repository and protocol specifications — **concluída em 2026-10-02**
-2. Phase 1 — Local agent core — **próxima fase**
-3. Phase 2 — Hosted control-plane skeleton
-4. Phase 3 — Pairing and device identity
+2. Phase 1 — Local agent core — **concluída em 2026-10-02**
+3. Phase 2 — Hosted control-plane skeleton — **concluída em 2026-10-02**
+4. Phase 3 — Pairing and device identity — **próxima fase**
 5. Phase 4 — Device realtime channel
 6. Phase 5 — Remote MCP + OAuth
 7. Phase 6 — Filesystem tools
@@ -525,6 +525,6 @@ Sem commit/push automático.
 
 ## 26. Resultado
 
-A Phase 0 materializou os contratos em `specs/`, formalizou threat model/tabletops e aceitou os ADRs centrais.
+A Phase 0 materializou os contratos em `specs/`, formalizou threat model/tabletops e aceitou os ADRs centrais. A Phase 1 implementou o Local Agent Core em Rust, e a Phase 2 implementou o skeleton TypeScript/Cloudflare do control plane com Worker HTTP, Durable Object boundary e modelo D1 materializado localmente.
 
-O projeto está **READY_FOR_PHASE_1** do ponto de vista de design. A implementação do runtime deve ocorrer em execução separada de Build, Test & Iterate, respeitando os release gates ainda pendentes.
+O projeto está em **`PHASE_2_COMPLETE`**. O próximo gate de implementação é **Phase 3 — Pairing and Device Identity**, em execução dedicada de Build, Test & Iterate. Não há deploy de produção e os release gates pendentes continuam válidos.
