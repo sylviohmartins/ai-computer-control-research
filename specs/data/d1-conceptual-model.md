@@ -44,18 +44,35 @@ Nunca armazenar private key.
 
 ### pairings
 
+Materialização refinada na Phase 3 (ADR-0010). Antes de `ACTIVE`, esta tabela é a source of truth do material **público** pendente necessário para impedir troca de chave.
+
 - \`id\`;
 - \`user_id?\`;
-- \`device_key_id\`;
+- \`device_key_id\` — ID lógico da chave; ainda não referencia uma linha ativa em `device_keys`;
 - \`state\`;
-- \`user_code_digest\`;
+- \`public_key\` — somente material público;
+- \`algorithm\` — `Ed25519` no baseline;
+- \`fingerprint\`;
+- \`device_installation_id\`;
+- \`display_name\`;
+- \`os\`;
+- \`arch\`;
+- \`agent_version\`;
+- \`user_code_digest\` — HMAC keyed; código humano nunca em claro;
 - \`challenge_digest\`;
+- \`challenge_used_at?\`;
+- \`verification_attempts\`;
+- \`proof_attempts\`;
 - \`expires_at\`;
 - \`verified_at?\`;
+- \`proved_at?\`;
 - \`activated_at?\`;
+- \`activated_device_id?\`;
 - \`created_at\`.
 
 Estados: \`CREATED\`, \`USER_VERIFIED\`, \`DEVICE_PROVED_KEY\`, \`ACTIVE\`, \`EXPIRED\`, \`REVOKED\`.
+
+`devices` e `device_keys` são criados somente na ativação transacional após prova Ed25519 válida. Private key nunca é armazenada no D1.
 
 ### workspaces
 

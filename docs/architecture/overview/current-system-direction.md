@@ -1,6 +1,6 @@
 # Direção Atual da Arquitetura
 
-**Status:** arquitetura aceita; contratos da Phase 0 congelados; Local Agent Core (Phase 1) e control-plane skeleton (Phase 2) implementados; nenhum deploy de produção realizado.
+**Status:** arquitetura aceita; contratos da Phase 0 congelados; Local Agent Core (Phase 1), control-plane skeleton (Phase 2) e Pairing/Device Identity (Phase 3) implementados; nenhum deploy de produção realizado.
 
 ## Boundary do produto
 
@@ -60,7 +60,9 @@ Decisões já encerradas:
 - licenciamento do core: Apache-2.0 (ADR-0005);
 - linguagem do agent: Rust (ADR-0007);
 - device transport: WebSocket outbound (ADR-0006);
-- state ownership: ADR-0008.
+- state ownership: ADR-0008;
+- device identity baseline Ed25519: ADR-0009;
+- material público pendente no pairing antes de `ACTIVE`: ADR-0010.
 
 Blueprint vivo: `docs/architecture/overview/product-technical-blueprint-v2.md`.
 

@@ -1,15 +1,15 @@
 # Especificações do Telechir
 
-**Status:** Phase 0 concluída  
+**Status:** baseline Phase 0 congelada; contratos de auth materializados/refinados na Phase 3
 **Versão de baseline:** `0.1`
 
-Este diretório contém os contratos congelados para iniciar a Phase 1. Nenhum arquivo aqui implica que o runtime já exista; a implementação deverá conformar-se a estes contratos ou alterá-los por ADR/versionamento explícito.
+Este diretório é a fonte de verdade dos contratos cross-language. As implementações Rust/TypeScript devem conformar-se a estes contratos ou alterá-los por ADR/versionamento explícito. A Phase 3 adicionou contratos versionados de pairing sem quebrar o Device Wire Protocol `0.1`.
 
 ## Fontes de verdade por assunto
 
 - `protocol/` — transporte interno cloud↔device, envelopes, lifecycle e versionamento;
 - `tools/` — superfície pública de tools e schemas do MVP;
-- `auth/` — identidade de device, pairing e autenticação;
+- `auth/` — identidade de device, pairing, pairing proof v1, API device-side e autenticação;
 - `policy/` — autorização, risk model e approvals;
 - `data/` — ownership de estado e modelo conceitual persistente;
 - `fixtures/` — exemplos válidos/inválidos usados em testes de contrato;

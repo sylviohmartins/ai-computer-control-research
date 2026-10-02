@@ -4,7 +4,7 @@ Este repositório pode ser utilizado por ChatGPT, Codex, Claude Code, Gemini CLI
 
 ## Guardrail da fase atual
 
-O projeto concluiu discovery e as Phases 0–2. **Não inicie automaticamente a Phase 3 apenas porque `PROJECT_STATE.md` registra `PHASE_2_COMPLETE`: pairing/device identity deve começar somente em uma tarefa explicitamente dedicada a Build, Test & Iterate.** Não atravesse para realtime, MCP/OAuth ou fases posteriores sem o gate correspondente. Nunca faça deploy de produção, crie recursos pagos ou publique plugin sem autorização específica da fase correspondente.
+O projeto concluiu discovery e as Phases 0–3. **Não inicie automaticamente a Phase 4 apenas porque `PROJECT_STATE.md` registra `PHASE_3_COMPLETE`: o Device Realtime Channel deve começar somente em uma tarefa explicitamente dedicada a Build, Test & Iterate.** Não atravesse para MCP/OAuth ou fases posteriores sem o gate correspondente. Nunca faça deploy de produção, crie recursos pagos ou publique plugin sem autorização específica da fase correspondente.
 
 ## Ordem de fonte de verdade
 

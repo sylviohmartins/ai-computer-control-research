@@ -2,10 +2,11 @@ import type { Env } from "./env";
 import { bindingStatus, coreBindingsReady } from "./env";
 import { failure, success } from "./http";
 import { PROJECT_PHASE, SERVICE_NAME, SERVICE_VERSION } from "./meta";
+import { pairingHttpRoute } from "./pairing-http";
 
 export { DeviceCoordinator } from "./device-coordinator";
 
-function route(request: Request, env: Env): Response {
+async function route(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
 
   if (request.method === "GET" && url.pathname === "/health") {
@@ -39,11 +40,16 @@ function route(request: Request, env: Env): Response {
     });
   }
 
+  const pairingResponse = await pairingHttpRoute(request, env, url);
+  if (pairingResponse) {
+    return pairingResponse;
+  }
+
   return failure("ROUTE_NOT_FOUND", "Route not found", 404);
 }
 
 export default {
-  fetch(request: Request, env: Env): Response {
+  async fetch(request: Request, env: Env): Promise<Response> {
     return route(request, env);
   },
 } satisfies ExportedHandler<Env>;
