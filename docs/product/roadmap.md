@@ -11,13 +11,14 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 5. **Licensing/open-source strategy** — concluída: core Apache-2.0 / ADR-0005.
 6. **Definition of Ready** — concluída para Phase 0.
 7. **Phase 0** — concluída em 2026-10-02; contratos congelados em `specs/`.
-8. **Phase 1 readiness** — `READY_FOR_PHASE_1`, mas implementação só deve começar em execução explicitamente dedicada a build/test.
+8. **Phase 1 readiness** — `READY_FOR_PHASE_1` concluído.
+9. **Phase 1** — Local Agent Core concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase1-exit-review-2026-10-02.md`.
 
 ## Fases após readiness
 
 0. Repository and protocol specifications — **concluída**
-1. Local agent core — **próxima fase**
-2. Hosted control-plane skeleton
+1. Local agent core — **concluída**
+2. Hosted control-plane skeleton — **próxima fase**
 3. Pairing and device identity
 4. Device realtime channel
 5. Remote MCP integration and OAuth
