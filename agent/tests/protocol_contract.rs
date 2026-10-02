@@ -161,6 +161,22 @@ fn rust_enums_match_phase0_json_schemas() {
 }
 
 #[test]
+fn side_effect_classification_matches_phase0_schema() {
+    let schema_side_effects = schema_enum(
+        "device-payloads.schema.json",
+        "/$defs/command_request/allOf/0/if/properties/operation/enum",
+    );
+    let rust_side_effects = CommandOperation::ALL
+        .iter()
+        .copied()
+        .filter(|operation| operation.has_side_effect())
+        .map(|operation| operation.as_str().to_owned())
+        .collect::<Vec<_>>();
+
+    assert_eq!(rust_side_effects, schema_side_effects);
+}
+
+#[test]
 fn baseline_models_all_fifteen_message_types() {
     let expected = [
         "agent.hello",
