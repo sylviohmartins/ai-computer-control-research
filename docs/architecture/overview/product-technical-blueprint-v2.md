@@ -1,7 +1,7 @@
 # Product & Technical Blueprint v2
 
 **Data:** 2026-10-01  
-**Status:** arquitetura de discovery consolidada; nenhuma implementação de produto iniciada  
+**Status:** arquitetura consolidada; Phase 0 de especificações concluída; runtime ainda não iniciado  
 **Marca:** **Telechir** (`NAME_READY`); commercial/legal clearance permanece pendente antes de lançamento  
 **Objetivo:** consolidar a direção técnica após naming discovery e validação empírica do caminho ChatGPT Plus + plugin público + Remote MCP.
 
@@ -180,7 +180,7 @@ Não colocar o caminho síncrono normal de tool calls na Queue.
 
 ### Linguagem recomendada
 
-**Rust** permanece a recomendação para o core.
+**Rust** é a decisão aceita para o core (ADR-0007).
 
 Razões:
 - memory safety;
@@ -437,29 +437,22 @@ O working name **MachinaPort está rejeitado** e permanece apenas em histórico.
 
 O clearance de domínio, package namespaces, handles e trademarks passa a ser um gate separado (`COMMERCIAL_CLEARANCE_PENDING`) para lançamento público/comercial.
 
-O nome físico do repositório `ai-computer-control-research` é temporário; target de rename: `telechir`.
+O repositório físico foi renomeado para `telechir` em 2026-10-02.
 
 ## 21. Open-source strategy
 
-Ainda não decidida.
+Decidida em ADR-0005:
+- core público sob **Apache License 2.0**;
+- marca Telechir protegida separadamente;
+- agent, protocolo, adapters MCP, CLI/SDKs e policy primitives interoperáveis entram no core público;
+- serviço hospedado e futuros recursos enterprise podem ter componentes operacionais separados mediante ADR.
 
-Opções a avaliar antes do primeiro release:
-- fully OSS;
-- open-core;
-- local agent/protocol OSS + hosted control plane proprietário;
-- self-hostable control plane.
-
-A decisão precisa considerar:
-- confiança e auditabilidade;
-- sustentabilidade do SaaS;
-- segurança;
-- adoção de developer tooling;
-- contribuição comunitária.
+`LICENSE` e contributor policy foram adicionados na Phase 0.
 
 ## 22. Roadmap
 
-1. Phase 0 — Repository and protocol specifications
-2. Phase 1 — Local agent core
+1. Phase 0 — Repository and protocol specifications — **concluída em 2026-10-02**
+2. Phase 1 — Local agent core — **próxima fase**
 3. Phase 2 — Hosted control-plane skeleton
 4. Phase 3 — Pairing and device identity
 5. Phase 4 — Device realtime channel
@@ -490,7 +483,7 @@ A decisão precisa considerar:
 - quota/metering medidos.
 
 ### Security
-- threat model formal;
+- threat model formal — **baseline concluído; manter atualizado por fase**;
 - path boundary tests;
 - pairing/replay tests;
 - approval binding;
@@ -532,6 +525,6 @@ Sem commit/push automático.
 
 ## 26. Resultado
 
-A arquitetura está suficientemente estável para especificar contratos de Phase 0.
+A Phase 0 materializou os contratos em `specs/`, formalizou threat model/tabletops e aceitou os ADRs centrais.
 
-Ainda não há autorização para iniciar implementação de produção até a Definition of Ready ser reavaliada.
+O projeto está **READY_FOR_PHASE_1** do ponto de vista de design. A implementação do runtime deve ocorrer em execução separada de Build, Test & Iterate, respeitando os release gates ainda pendentes.
