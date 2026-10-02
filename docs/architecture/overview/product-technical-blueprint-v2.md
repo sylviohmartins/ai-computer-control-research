@@ -2,7 +2,7 @@
 
 **Data:** 2026-10-01  
 **Status:** arquitetura de discovery consolidada; nenhuma implementação de produto iniciada  
-**Marca:** TBD — primary candidate atual: **Telechir** (`NAME_CONDITIONAL`)  
+**Marca:** **Telechir** (`NAME_READY`); commercial/legal clearance permanece pendente antes de lançamento  
 **Objetivo:** consolidar a direção técnica após naming discovery e validação empírica do caminho ChatGPT Plus + plugin público + Remote MCP.
 
 ## 1. Visão
@@ -433,9 +433,11 @@ Obrigatório cobrir:
 
 O working name **MachinaPort está rejeitado** e permanece apenas em histórico.
 
-O primary candidate atual é **Telechir**, com status `NAME_CONDITIONAL`.
+**Telechir é a marca oficial do produto**, com status `NAME_READY`.
 
-O repositório permanece descritivo como `ai-computer-control-research` até clearance autoritativo/reserva suficiente para `NAME_READY`.
+O clearance de domínio, package namespaces, handles e trademarks passa a ser um gate separado (`COMMERCIAL_CLEARANCE_PENDING`) para lançamento público/comercial.
+
+O nome físico do repositório `ai-computer-control-research` é temporário; target de rename: `telechir`.
 
 ## 21. Open-source strategy
 
@@ -478,7 +480,8 @@ A decisão precisa considerar:
 ## 23. Release gates
 
 ### Naming
-- `NAME_READY` antes de rename/brand launch.
+- `NAME_READY` concluído em 2026-10-02 — marca oficial: **Telechir**.
+- `COMMERCIAL_CLEARANCE_PENDING` antes de lançamento comercial: domínio, packages, handles e trademark.
 
 ### OpenAI
 - plugin próprio aprovado;
