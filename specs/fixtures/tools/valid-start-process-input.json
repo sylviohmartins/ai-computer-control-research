@@ -1,0 +1,7 @@
+{
+  "device_id": "dev_demo",
+  "command": "mvn test",
+  "cwd": "C:\\\\workspace\\\\demo",
+  "idempotency_key": "idem_demo_0001",
+  "env_refs": []
+}
