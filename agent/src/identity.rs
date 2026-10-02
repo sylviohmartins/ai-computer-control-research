@@ -19,6 +19,8 @@ const NATIVE_KEYRING_ACCOUNT: &str = "device-identity-v1";
 pub const DEVICE_KEY_ALGORITHM: &str = "Ed25519";
 pub const PAIRING_PROOF_VERSION: &str = "telechir-pairing-proof-v1";
 pub const PAIRING_PROOF_AUDIENCE: &str = "telechir-control-plane";
+pub const CONNECTION_PROOF_VERSION: &str = "telechir-connection-credential-proof-v1";
+pub const CONNECTION_PROOF_AUDIENCE: &str = "telechir-control-plane/realtime";
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct DevicePublicIdentity {
@@ -54,6 +56,14 @@ pub struct PairingRegistration {
 pub struct PairingProof {
     pub device_key_id: String,
     pub device_installation_id: String,
+    pub signature: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct ConnectionCredentialProof {
+    pub device_key_id: String,
+    pub connection_nonce: String,
+    pub requested_at: String,
     pub signature: String,
 }
 
@@ -196,6 +206,29 @@ impl DeviceIdentity {
             signature: URL_SAFE_NO_PAD.encode(signature.to_bytes()),
         })
     }
+
+    pub fn sign_connection_credential_request(
+        &self,
+        device_id: &str,
+        connection_nonce: &str,
+        requested_at: &str,
+    ) -> Result<ConnectionCredentialProof, IdentityError> {
+        let message = connection_credential_proof_message(
+            device_id,
+            &self.device_key_id.to_string(),
+            connection_nonce,
+            requested_at,
+            CONNECTION_PROOF_AUDIENCE,
+        )?;
+        let signature = self.signing_key.sign(message.as_bytes());
+
+        Ok(ConnectionCredentialProof {
+            device_key_id: self.device_key_id.to_string(),
+            connection_nonce: connection_nonce.to_owned(),
+            requested_at: requested_at.to_owned(),
+            signature: URL_SAFE_NO_PAD.encode(signature.to_bytes()),
+        })
+    }
 }
 pub struct DeviceIdentityManager<S> {
     store: S,
@@ -251,6 +284,30 @@ pub fn pairing_proof_message(
 
     Ok(format!(
         "{PAIRING_PROOF_VERSION}\npairing_id={pairing_id}\ndevice_key_id={device_key_id}\ndevice_installation_id={device_installation_id}\nchallenge={challenge}\naudience={audience}"
+    ))
+}
+
+pub fn connection_credential_proof_message(
+    device_id: &str,
+    device_key_id: &str,
+    connection_nonce: &str,
+    requested_at: &str,
+    audience: &str,
+) -> Result<String, IdentityError> {
+    for (name, value) in [
+        ("device_id", device_id),
+        ("device_key_id", device_key_id),
+        ("connection_nonce", connection_nonce),
+        ("requested_at", requested_at),
+        ("audience", audience),
+    ] {
+        if value.is_empty() || value.contains(['\n', '\r']) {
+            return Err(IdentityError::InvalidProofField(name));
+        }
+    }
+
+    Ok(format!(
+        "{CONNECTION_PROOF_VERSION}\ndevice_id={device_id}\ndevice_key_id={device_key_id}\nconnection_nonce={connection_nonce}\nrequested_at={requested_at}\naudience={audience}"
     ))
 }
 fn generate_identity() -> Result<DeviceIdentity, IdentityError> {
@@ -437,6 +494,44 @@ mod tests {
                 .verify(altered.as_bytes(), &signature)
                 .is_err()
         );
+    }
+
+    #[test]
+    fn connection_credential_proof_verifies_with_public_key() {
+        let identity = generate_identity().unwrap();
+        let public = identity.public_identity();
+        let proof = identity
+            .sign_connection_credential_request(
+                "11111111-1111-4111-8111-111111111111",
+                "nonce_abcdefghijklmnopqrstuvwxyz",
+                "2026-10-02T18:45:00Z",
+            )
+            .unwrap();
+        let message = connection_credential_proof_message(
+            "11111111-1111-4111-8111-111111111111",
+            &proof.device_key_id,
+            &proof.connection_nonce,
+            &proof.requested_at,
+            CONNECTION_PROOF_AUDIENCE,
+        )
+        .unwrap();
+
+        let public_bytes: [u8; 32] = URL_SAFE_NO_PAD
+            .decode(public.public_key)
+            .unwrap()
+            .try_into()
+            .unwrap();
+        let verifying_key = VerifyingKey::from_bytes(&public_bytes).unwrap();
+        let signature_bytes: [u8; 64] = URL_SAFE_NO_PAD
+            .decode(proof.signature)
+            .unwrap()
+            .try_into()
+            .unwrap();
+        let signature = Signature::from_bytes(&signature_bytes);
+
+        verifying_key
+            .verify(message.as_bytes(), &signature)
+            .unwrap();
     }
 
     #[test]
