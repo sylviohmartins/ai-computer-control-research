@@ -2,7 +2,7 @@
 
 Repositório de pesquisa, discovery de produto e arquitetura para uma futura plataforma que permita que clientes de IA autorizados operem computadores e ambientes executáveis por meio de uma camada de controle segura e auditável.
 
-> **Estado do projeto:** discovery técnico/de produto concluído e `READY_FOR_PHASE_0`. Nenhuma implementação de runtime/produção foi iniciada. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
+> **Estado do projeto:** discovery e **Phase 0 — Repository & Protocol Specifications concluídos**; estado atual `READY_FOR_PHASE_1`. Nenhuma implementação de runtime/produção foi iniciada. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
 
 ## Por que este repositório existe
 
@@ -67,11 +67,11 @@ Veja `docs/language-and-naming-conventions.md`.
 
 O repositório físico já foi renomeado para **`telechir`**, alinhando o namespace do projeto à marca oficial.
 
-A estratégia de licenciamento do core foi definida em `docs/architecture/adr/0005-open-source-licensing-strategy.md`: **Apache License 2.0** para o core público, com marca Telechir tratada separadamente. O arquivo `LICENSE` será adicionado na Phase 0 antes do primeiro código distribuível; até lá, não presumir que o conteúdo histórico já esteja retroativamente licenciado.
+A estratégia de licenciamento do core foi definida em `docs/architecture/adr/0005-open-source-licensing-strategy.md`: **Apache License 2.0** para o core público, com marca Telechir tratada separadamente. O arquivo `LICENSE` já está na raiz; snapshots históricos em `artifacts/` continuam sujeitos às observações de proveniência e não devem ser tratados automaticamente como core distribuível.
 
 ## Contribuição
 
-O projeto ainda está em discovery. Consulte `CONTRIBUTING.md` antes de abrir issues ou propor alterações.
+O projeto concluiu discovery e especificação da Phase 0. Consulte `CONTRIBUTING.md` e `PROJECT_STATE.md` antes de propor implementação.
 
 ## Segurança
 
