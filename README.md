@@ -1,8 +1,8 @@
-# Pesquisa sobre Controle de Computadores por IA
+# Telechir — Pesquisa e Arquitetura
 
 Repositório de pesquisa, discovery de produto e arquitetura para uma futura plataforma que permita que clientes de IA autorizados operem computadores e ambientes executáveis por meio de uma camada de controle segura e auditável.
 
-> **Estado do projeto:** pesquisa e discovery técnico/de produto. Nenhuma implementação de produção foi iniciada. O nome do produto permanece juridicamente/operacionalmente **TBD**; o naming está em `NAME_CONDITIONAL`, com **Telechir** como primary candidate.
+> **Estado do projeto:** pesquisa e discovery técnico/de produto. Nenhuma implementação de produção foi iniciada. **Telechir** é a marca oficial (`NAME_READY`); domínio, packages, handles e trademark permanecem em `COMMERCIAL_CLEARANCE_PENDING` antes do lançamento público/comercial.
 
 ## Por que este repositório existe
 
@@ -65,7 +65,7 @@ Veja `docs/language-and-naming-conventions.md`.
 
 ## Observações importantes
 
-O nome do repositório é descritivo e temporário. Ele **não** é a marca final do produto.
+O nome físico do repositório ainda é descritivo e temporário. A marca oficial do produto é **Telechir**; o target de rename do repositório é `telechir` quando a operação administrativa e a reserva do namespace forem concluídas.
 
 O repositório é público para transparência da pesquisa. **Nenhuma licença open source foi escolhida ainda**; visibilidade pública não implica permissão automática de reutilização ou redistribuição além do permitido pela legislação aplicável.
 
