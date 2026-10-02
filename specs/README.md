@@ -1,9 +1,9 @@
 # Especificações do Telechir
 
-**Status:** Phase 0  
-**Versão de baseline:** `0.1-draft`
+**Status:** Phase 0 concluída  
+**Versão de baseline:** `0.1`
 
-Este diretório contém os contratos que separam intenção de produto de implementação. Nenhum arquivo aqui implica que o runtime já exista.
+Este diretório contém os contratos congelados para iniciar a Phase 1. Nenhum arquivo aqui implica que o runtime já exista; a implementação deverá conformar-se a estes contratos ou alterá-los por ADR/versionamento explícito.
 
 ## Fontes de verdade por assunto
 
