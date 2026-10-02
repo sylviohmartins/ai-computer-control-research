@@ -22,12 +22,18 @@ export default defineConfig(async () => {
             PAIRING_VERIFICATION_URI: "https://telechir.test/pair",
             REALTIME_SERVER_SECRET:
               "phase4-test-secret-0123456789-abcdefghijklmnopqrstuvwxyz",
+            MCP_RESOURCE_URI: "https://telechir.test/mcp",
+            OAUTH_ISSUER: "https://auth.telechir.test",
+            OAUTH_JWKS_URI: "https://auth.telechir.test/jwks.json",
+            OAUTH_SUBJECT_CLAIM: "sub",
+            OAUTH_SCOPE_CLAIM: "scope",
           },
         },
       }),
     ],
     test: {
       setupFiles: ["./test/setup.ts"],
+      maxWorkers: 1,
     },
   };
 });
