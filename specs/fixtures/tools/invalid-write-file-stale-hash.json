@@ -1,0 +1,9 @@
+{
+  "device_id": "dev_demo",
+  "path": "C:\\\\workspace\\\\demo\\\\src\\\\Main.java",
+  "content": "class Main {}",
+  "encoding": "utf-8",
+  "expected_hash": "stale-example-hash",
+  "create_if_missing": false,
+  "expected_result": "CONFLICT"
+}
