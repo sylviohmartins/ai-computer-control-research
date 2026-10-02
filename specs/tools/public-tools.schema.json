@@ -134,9 +134,13 @@
           "format": "date-time"
         },
         "policy_summary": {
-          "type": [
-            "object",
-            "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/policy_summary"
+            }
           ]
         }
       }
@@ -270,7 +274,7 @@
           "type": "string"
         },
         "kind": {
-          "type": "string"
+          "$ref": "#/$defs/file_kind"
         },
         "size": {
           "type": "integer",
@@ -943,7 +947,7 @@
                 "maxLength": 160
               },
               "state": {
-                "type": "string"
+                "$ref": "#/$defs/managed_process_state"
               },
               "started_at": {
                 "type": "string",
@@ -1110,12 +1114,12 @@
           "maximum": 100
         },
         "memory": {
-          "type": "object"
+          "$ref": "#/$defs/memory_metrics"
         },
         "disks": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/$defs/disk_metrics"
           }
         },
         "agent_uptime_seconds": {
@@ -1183,6 +1187,145 @@
             "null"
           ],
           "format": "date-time"
+        }
+      }
+    },
+    "file_kind": {
+      "type": "string",
+      "enum": [
+        "file",
+        "directory",
+        "link",
+        "other"
+      ]
+    },
+    "managed_process_state": {
+      "type": "string",
+      "enum": [
+        "starting",
+        "running",
+        "exited",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "permission_domain": {
+      "type": "string",
+      "enum": [
+        "FS_READ",
+        "FS_WRITE",
+        "FS_DELETE",
+        "SHELL_SAFE",
+        "SHELL_FULL",
+        "PROCESS_CONTROL",
+        "NETWORK",
+        "GIT_WRITE",
+        "GIT_REMOTE_WRITE",
+        "SCREEN_READ",
+        "INPUT_CONTROL",
+        "BROWSER",
+        "SECRET_USE",
+        "ELEVATION",
+        "ADMIN"
+      ]
+    },
+    "policy_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "execution_mode",
+        "permissions"
+      ],
+      "properties": {
+        "policy_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": [
+            "HOST",
+            "GUARDED_HOST",
+            "SANDBOX"
+          ]
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "permission",
+              "effect"
+            ],
+            "properties": {
+              "permission": {
+                "$ref": "#/$defs/permission_domain"
+              },
+              "effect": {
+                "type": "string",
+                "enum": [
+                  "ALLOW",
+                  "ASK",
+                  "DENY"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "memory_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_bytes",
+        "used_bytes",
+        "available_bytes"
+      ],
+      "properties": {
+        "total_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "used_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "available_bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "disk_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mount",
+        "total_bytes",
+        "used_bytes",
+        "available_bytes"
+      ],
+      "properties": {
+        "mount": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "total_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "used_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "available_bytes": {
+          "type": "integer",
+          "minimum": 0
         }
       }
     }

@@ -1,7 +1,8 @@
 # OAuth and Client Access
 
 **Status:** Phase 0  
-**Target:** Remote MCP público autenticado
+**Target:** Remote MCP público autenticado  
+**Verificado em:** 2026-10-02
 
 ## 1. Separar duas identidades
 
@@ -18,10 +19,10 @@ O endpoint público deve expor metadata de protected resource e exigir OAuth par
 
 Target conceitual:
 
-\`\`\`text
+```text
 https://<mcp-host>/.well-known/oauth-protected-resource
 https://<mcp-host>/mcp
-\`\`\`
+```
 
 Metadata deve informar:
 - canonical resource URI;
@@ -48,7 +49,7 @@ Para ChatGPT/Codex, suportar o contrato MCP/OpenAI vigente:
 - DCR somente quando necessário;
 - predefined client quando aplicável;
 - resource parameter propagado na autorização/token;
-- \`aud\`/resource validado pelo MCP resource server.
+- `aud`/resource validado pelo MCP resource server.
 
 A implementação deve seguir a documentação oficial vigente na data do desenvolvimento, porque registration/callback details podem mudar.
 
@@ -56,7 +57,7 @@ A implementação deve seguir a documentação oficial vigente na data do desenv
 
 Scopes externos iniciais:
 
-\`\`\`text
+```text
 telechir:devices:read
 telechir:files:read
 telechir:files:write
@@ -65,26 +66,31 @@ telechir:processes:write
 telechir:git:read
 telechir:metrics:read
 telechir:artifacts:read
-\`\`\`
+```
 
 Esses scopes são **teto remoto**, não substituem policy local.
 
-Não criar scope \`admin\` genérico para o MVP.
+Não criar scope `admin` genérico para o MVP.
 
 ## 6. Tool security schemes
 
-Cada tool pública declara explicitamente seus scopes.
+Cada tool pública declara `securitySchemes` explicitamente no `specs/tools/tool-catalog.json`; não depender de um default implícito do servidor.
 
-Exemplos:
-- \`list_devices\` → \`telechir:devices:read\`;
-- \`read_file\` → \`telechir:files:read\`;
-- \`write_file\` → \`telechir:files:write\`;
-- \`start_process\` → \`telechir:processes:write\`;
-- \`get_git_diff\` → \`telechir:git:read\`.
+O descriptor MCP deve materializar:
+- `securitySchemes: [{ "type": "oauth2", "scopes": [...] }]` no nível da tool;
+- `inputSchema` e `outputSchema` derivados das refs congeladas no catálogo;
+- mirror em `_meta.securitySchemes` somente quando necessário por compatibilidade do host.
+
+O catálogo é a fonte de verdade do mapping de scopes. Exemplos:
+- `list_devices` → `telechir:devices:read`;
+- `read_file` → `telechir:files:read`;
+- `write_file` → `telechir:files:write`;
+- `start_process` → `telechir:processes:write`;
+- `get_git_diff` → `telechir:git:read`.
 
 ## 7. Authorization pipeline
 
-\`\`\`text
+```text
 Bearer token
  -> signature
  -> issuer
@@ -96,11 +102,11 @@ Bearer token
  -> session/workspace constraints
  -> route to device
  -> local policy enforcement
-\`\`\`
+```
 
 Falha OAuth → 401/challenge.  
 Token válido sem permissão → authorization error.  
-Policy local nega → \`POLICY_DENIED\`.
+Policy local nega → `POLICY_DENIED`.
 
 ## 8. Dados não propagados
 
@@ -114,7 +120,7 @@ Não enviar ao model/tool result por padrão:
 
 ## 9. Profile tool
 
-Um futuro \`get_profile\` read-only pode ser adicionado para UX de múltiplas contas quando exigido pelo host. Não faz parte do vertical slice funcional atual.
+Um futuro `get_profile` read-only pode ser adicionado para UX de múltiplas contas quando exigido pelo host. Não faz parte do vertical slice funcional atual.
 
 ## 10. Release gate OpenAI
 

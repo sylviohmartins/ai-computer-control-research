@@ -12,7 +12,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#list-devices"
+      "contract": "contracts.md#list-devices",
+      "internal_operation": "device.list",
+      "execution_plane": "control-plane",
+      "input_schema_ref": "public-tools.schema.json#/$defs/list_devices_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/list_devices_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:devices:read"
+          ]
+        }
+      ]
     },
     {
       "name": "get_device",
@@ -24,7 +36,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#get-device"
+      "contract": "contracts.md#get-device",
+      "internal_operation": "device.info",
+      "execution_plane": "control-plane",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_device_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_device_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:devices:read"
+          ]
+        }
+      ]
     },
     {
       "name": "list_files",
@@ -36,7 +60,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#list-files"
+      "contract": "contracts.md#list-files",
+      "internal_operation": "fs.list",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/list_files_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/list_files_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
     },
     {
       "name": "get_file_metadata",
@@ -48,7 +84,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#get-file-metadata"
+      "contract": "contracts.md#get-file-metadata",
+      "internal_operation": "fs.stat",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_file_metadata_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_file_metadata_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
     },
     {
       "name": "read_file",
@@ -60,7 +108,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#read-file"
+      "contract": "contracts.md#read-file",
+      "internal_operation": "fs.read",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/read_file_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/read_file_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
     },
     {
       "name": "write_file",
@@ -72,7 +132,19 @@
         "openWorldHint": false,
         "idempotentHint": false
       },
-      "contract": "contracts.md#write-file"
+      "contract": "contracts.md#write-file",
+      "internal_operation": "fs.write",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/write_file_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/write_file_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:write"
+          ]
+        }
+      ]
     },
     {
       "name": "patch_file",
@@ -84,7 +156,19 @@
         "openWorldHint": false,
         "idempotentHint": false
       },
-      "contract": "contracts.md#patch-file"
+      "contract": "contracts.md#patch-file",
+      "internal_operation": "fs.patch",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/patch_file_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/patch_file_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:write"
+          ]
+        }
+      ]
     },
     {
       "name": "search_files",
@@ -96,7 +180,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#search-files"
+      "contract": "contracts.md#search-files",
+      "internal_operation": "fs.search",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/search_files_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/search_files_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:files:read"
+          ]
+        }
+      ]
     },
     {
       "name": "run_command",
@@ -108,7 +204,19 @@
         "openWorldHint": true,
         "idempotentHint": false
       },
-      "contract": "contracts.md#run-command"
+      "contract": "contracts.md#run-command",
+      "internal_operation": "shell.exec",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/run_command_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/run_command_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
     },
     {
       "name": "start_process",
@@ -120,7 +228,19 @@
         "openWorldHint": true,
         "idempotentHint": false
       },
-      "contract": "contracts.md#start-process"
+      "contract": "contracts.md#start-process",
+      "internal_operation": "process.start",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/start_process_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/start_process_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
     },
     {
       "name": "read_process_output",
@@ -132,7 +252,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#read-process-output"
+      "contract": "contracts.md#read-process-output",
+      "internal_operation": "process.read",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/read_process_output_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/read_process_output_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:read"
+          ]
+        }
+      ]
     },
     {
       "name": "write_process_input",
@@ -144,7 +276,19 @@
         "openWorldHint": true,
         "idempotentHint": false
       },
-      "contract": "contracts.md#write-process-input"
+      "contract": "contracts.md#write-process-input",
+      "internal_operation": "process.write",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/write_process_input_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/write_process_input_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
     },
     {
       "name": "cancel_process",
@@ -156,7 +300,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#cancel-process"
+      "contract": "contracts.md#cancel-process",
+      "internal_operation": "process.cancel",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/cancel_process_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/cancel_process_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:write"
+          ]
+        }
+      ]
     },
     {
       "name": "list_managed_processes",
@@ -168,7 +324,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#list-managed-processes"
+      "contract": "contracts.md#list-managed-processes",
+      "internal_operation": "process.list",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/list_managed_processes_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/list_managed_processes_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:processes:read"
+          ]
+        }
+      ]
     },
     {
       "name": "get_git_status",
@@ -180,7 +348,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#get-git-status"
+      "contract": "contracts.md#get-git-status",
+      "internal_operation": "git.status",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_git_status_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_git_status_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:git:read"
+          ]
+        }
+      ]
     },
     {
       "name": "get_git_diff",
@@ -192,7 +372,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#get-git-diff"
+      "contract": "contracts.md#get-git-diff",
+      "internal_operation": "git.diff",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_git_diff_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_git_diff_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:git:read"
+          ]
+        }
+      ]
     },
     {
       "name": "get_system_metrics",
@@ -204,7 +396,19 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#get-system-metrics"
+      "contract": "contracts.md#get-system-metrics",
+      "internal_operation": "system.metrics",
+      "execution_plane": "device",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_system_metrics_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_system_metrics_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:metrics:read"
+          ]
+        }
+      ]
     },
     {
       "name": "get_artifact",
@@ -216,7 +420,21 @@
         "openWorldHint": false,
         "idempotentHint": true
       },
-      "contract": "contracts.md#get-artifact"
+      "contract": "contracts.md#get-artifact",
+      "internal_operation": "artifact.get",
+      "execution_plane": "control-plane",
+      "input_schema_ref": "public-tools.schema.json#/$defs/get_artifact_input",
+      "output_schema_ref": "public-tools.schema.json#/$defs/get_artifact_output",
+      "securitySchemes": [
+        {
+          "type": "oauth2",
+          "scopes": [
+            "telechir:artifacts:read"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "tool_schema_version": "0.1",
+  "external_contracts_verified_on": "2026-10-02"
 }
