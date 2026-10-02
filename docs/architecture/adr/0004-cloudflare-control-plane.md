@@ -1,26 +1,44 @@
-# ADR-0004: Usar Cloudflare como Principal Candidato ao Control Plane Hospedado
+# ADR-0004: Usar Cloudflare como Control Plane Hospedado Inicial
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Data:** 2026-10-01
+- **Aceito em:** 2026-10-02
 
 ## Contexto
 
-O produto precisa de endpoints HTTPS públicos, autenticação, routing de baixo custo, presença realtime de dispositivos, metadata durável e armazenamento de artefatos. O discovery anterior identificou Workers, Durable Objects, D1 e R2 como stack coerente.
+O produto precisa de endpoints HTTPS públicos, autenticação, routing, presença realtime de devices, metadata durável, artifacts e observabilidade. O discovery identificou Workers, Durable Objects, D1 e R2 como stack coerente com esses requisitos.
 
-## Decisão proposta
+## Decisão
 
-Utilizar Cloudflare como alvo padrão do primeiro control plane hospedado, mantendo protocolo de dispositivo e agente local independentes do provedor.
+Usar Cloudflare como deployment target padrão do primeiro control plane hospedado, mantendo o protocolo cloud↔device e o agent independentes do provedor.
 
-## Mapeamento esperado
+Mapeamento:
+- Workers: MCP/OAuth/API e routing;
+- Durable Objects: presença, conexão, command correlation e locks por device;
+- D1: metadata durável;
+- R2: artifacts grandes;
+- Analytics Engine: telemetry agregada;
+- Queues: cleanup/fanout assíncrono;
+- KV: cache/feature flags não críticos.
 
-- Workers: APIs públicas, MCP/OAuth e routing;
-- Durable Objects: coordenação/presença realtime por dispositivo;
-- D1: metadata durável e referências de policy;
-- R2: artefatos grandes;
-- Analytics Engine/Queues/KV: papéis auxiliares quando justificados.
+## Restrições
 
-## Riscos
+- workloads do computador do usuário nunca executam em Workers;
+- Queue não entra no caminho síncrono normal de tool calls;
+- KV não é source of truth de autorização, revocation ou approval;
+- Durable Objects coordenam estado realtime, mas o processo real continua pertencendo ao agent;
+- wire protocol não contém tipos proprietários da Cloudflare.
 
-- billing/limites de WebSocket e mensagens exigem load validation;
-- processos long-running do usuário jamais devem executar em Workers;
-- futura opção self-hosted/private pode exigir adapters.
+## Riscos e gates
+
+- pricing/quotas e comportamento realtime precisam ser revalidados antes da Phase 2;
+- load test é obrigatório antes de beta;
+- provider outage deve falhar fechado para novas execuções;
+- opção self-hosted/private pode exigir adapters no futuro.
+
+## Evidência
+
+Detalhamento em:
+- `specs/data/state-ownership.md`;
+- `specs/data/d1-conceptual-model.md`;
+- `docs/research/cloudflare/README.md`.
