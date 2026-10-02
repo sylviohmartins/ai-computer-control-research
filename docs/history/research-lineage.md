@@ -101,7 +101,7 @@ Artefatos:
 - `artifacts/datasets/naming/2026-10-01-constructed-name-shortlist.csv`
 - `artifacts/datasets/naming/2026-10-01-constructed-name-catalog.json`
 
-O rename do repositório continua bloqueado até clearance autoritativo de domínio/packages/trademark/handles e teste oral.
+Naquele momento, o rename do repositório ainda estava bloqueado por decisão de processo. Em 2026-10-02, após `NAME_READY`, o repositório foi posteriormente renomeado para `telechir`; o clearance comercial permaneceu separado.
 
 ## 8. Naming discovery — seleção definitiva (2026-10-02)
 
@@ -124,7 +124,7 @@ Artefatos:
 
 ## 9. Por que o repositório existe antes e depois da marca final
 
-O nome descritivo `ai-computer-control-research` é intencional. O repositório funciona como memória versionada enquanto o naming ainda não fechou.
+O nome descritivo original `ai-computer-control-research` foi intencional enquanto o naming estava aberto. Após `NAME_READY`, o repositório foi renomeado para `telechir`, preservando todo o histórico Git e a linhagem documental.
 
 Ele preserva:
 
@@ -141,13 +141,14 @@ Isso evita que agentes ou colaboradores futuros confundam o documento mais recen
 
 ## 10. Estado atual
 
-O projeto permanece em **Product & Technical Discovery / Research Foundation**.
+O discovery técnico/de produto foi concluído o suficiente para **`READY_FOR_PHASE_0`**; runtime/produção ainda não começou.
 
 Gates atuais:
 1. naming concluído: **Telechir / `NAME_READY`**;
-2. completar `COMMERCIAL_CLEARANCE_PENDING` antes de lançamento comercial;
-3. caminho ChatGPT Plus + plugin público continua como release gate do plugin próprio;
-4. fechar estratégia de licenciamento;
-5. reexecutar Definition of Ready antes da implementação de runtime/produção.
+2. repositório renomeado para `telechir`;
+3. estratégia de licenciamento do core definida em ADR-0005;
+4. completar `COMMERCIAL_CLEARANCE_PENDING` antes de lançamento comercial;
+5. caminho ChatGPT Plus + plugin público continua como release gate do plugin próprio;
+6. executar Phase 0 documental/especificativa antes de qualquer Phase 1/runtime.
 
 Artefatos históricos nunca devem ser silenciosamente reescritos para refletir decisões novas. Conclusões novas substituem antigas por documentação viva e ADRs.
