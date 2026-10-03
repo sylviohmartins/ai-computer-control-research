@@ -137,7 +137,11 @@ describe("OAuth resource server", () => {
     expect(protectedResourceMetadata(config)).toEqual({
       resource,
       authorization_servers: [issuer],
-      scopes_supported: ["telechir:devices:read"],
+      scopes_supported: [
+        "telechir:devices:read",
+        "telechir:files:read",
+        "telechir:files:write",
+      ],
     });
   });
 

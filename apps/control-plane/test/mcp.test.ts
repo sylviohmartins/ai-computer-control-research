@@ -12,7 +12,7 @@ import {
 import { beforeEach, describe, expect, it } from "vitest";
 
 import type { Env } from "../src/env";
-import { PHASE5_TOOLS, publicSchema } from "../src/mcp-catalog";
+import { PHASE6_TOOLS, publicSchema } from "../src/mcp-catalog";
 import { MCP_MAX_REQUEST_BYTES, mcpHttpRoute } from "../src/mcp-http";
 
 const bindings = env as unknown as Env;
@@ -205,7 +205,7 @@ beforeEach(async () => {
 });
 
 describe("Remote MCP 2026-07-28", () => {
-  it("negotiates server/discover and advertises only Phase 5 tools", async () => {
+  it("negotiates server/discover and advertises exactly the Phase 6 tool surface", async () => {
     const userId = await seedUser("MCP User");
     await seedDevice(userId, "Device A");
     const captured: CapturedExchange[] = [];
@@ -222,14 +222,26 @@ describe("Remote MCP 2026-07-28", () => {
     const listed = await client.listTools();
     expect(listed.tools.map((tool) => tool.name).sort()).toEqual([
       "get_device",
+      "get_file_metadata",
       "list_devices",
+      "list_files",
+      "patch_file",
+      "read_file",
+      "search_files",
+      "write_file",
     ]);
     expect(
       captured.some((exchange) => exchange.method === "server/discover"),
     ).toBe(true);
-    expect(PHASE5_TOOLS.map((tool) => tool.name).sort()).toEqual([
+    expect(PHASE6_TOOLS.map((tool) => tool.name).sort()).toEqual([
       "get_device",
+      "get_file_metadata",
       "list_devices",
+      "list_files",
+      "patch_file",
+      "read_file",
+      "search_files",
+      "write_file",
     ]);
 
     await client.close();
@@ -254,9 +266,9 @@ describe("Remote MCP 2026-07-28", () => {
     expect(toolExchange).toBeDefined();
 
     const descriptors = wireTools(toolExchange?.responseBody);
-    expect(descriptors).toHaveLength(2);
+    expect(descriptors).toHaveLength(8);
 
-    for (const tool of PHASE5_TOOLS) {
+    for (const tool of PHASE6_TOOLS) {
       const descriptor = descriptors.find(
         (candidate) => candidate.name === tool.name,
       );
@@ -332,7 +344,7 @@ describe("Remote MCP 2026-07-28", () => {
     await client.close();
   });
 
-  it("never advertises or executes future-phase host tools", async () => {
+  it("advertises filesystem tools but keeps Phase 7+ host tools unavailable", async () => {
     const userId = await seedUser("Boundary User");
     const captured: CapturedExchange[] = [];
     const verifier = verifierFor({
@@ -345,14 +357,21 @@ describe("Remote MCP 2026-07-28", () => {
     );
 
     const tools = await client.listTools();
-    expect(tools.tools.some((tool) => tool.name === "read_file")).toBe(false);
+    expect(tools.tools.some((tool) => tool.name === "read_file")).toBe(true);
+    expect(tools.tools.some((tool) => tool.name === "run_command")).toBe(false);
+    expect(tools.tools.some((tool) => tool.name === "start_process")).toBe(
+      false,
+    );
+    expect(tools.tools.some((tool) => tool.name === "get_git_status")).toBe(
+      false,
+    );
 
     await expect(
       client.callTool({
-        name: "read_file",
+        name: "run_command",
         arguments: {
           device_id: "device",
-          path: "/tmp/example",
+          command: "echo denied",
         },
       }),
     ).rejects.toThrow();
@@ -424,6 +443,53 @@ describe("Remote MCP 2026-07-28", () => {
     expect(response?.headers.get("www-authenticate")).toContain(
       "resource_metadata=",
     );
+  });
+
+  it("enforces filesystem read/write scopes before device dispatch", async () => {
+    const userId = await seedUser("Filesystem Scope User");
+    const captured: CapturedExchange[] = [];
+    const verifier = verifierFor({
+      "phase6-read-only": authInfo(userId, ["telechir:files:read"]),
+    });
+    const { client } = await connectedClient(
+      "phase6-read-only",
+      verifier,
+      captured,
+    );
+
+    const read = await client.callTool({
+      name: "read_file",
+      arguments: {
+        device_id: crypto.randomUUID(),
+        path: "README.md",
+      },
+    });
+    expect(read.isError).toBe(true);
+    expect(JSON.stringify(read.content)).toContain("not found");
+
+    await expect(
+      client.callTool({
+        name: "write_file",
+        arguments: {
+          device_id: crypto.randomUUID(),
+          path: "notes.txt",
+          content: "denied",
+          encoding: "utf-8",
+          expected_hash: null,
+          create_if_missing: true,
+        },
+      }),
+    ).rejects.toThrow();
+
+    const writeCall = [...captured]
+      .reverse()
+      .find((exchange) => exchange.method === "tools/call");
+    expect(writeCall?.status).toBe(403);
+    expect(writeCall?.wwwAuthenticate).toContain(
+      'scope="telechir:files:write"',
+    );
+
+    await client.close();
   });
 
   it("enforces OAuth scope challenge at tool-call time", async () => {
