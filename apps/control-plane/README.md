@@ -47,15 +47,24 @@ Control plane do Telechir em TypeScript para Cloudflare Workers.
 
 - endpoint `/mcp` por Streamable HTTP;
 - discovery e catálogo de tools derivados de `../../specs/tools/`;
-- superfície atual limitada a `list_devices` e `get_device`;
 - Protected Resource Metadata e validação de access token;
 - ownership de devices aplicado no D1;
-- migration `0003_oauth_identity_uniqueness.sql`;
-- tools de fases futuras permanecem indisponíveis.
+- migration `0003_oauth_identity_uniqueness.sql`.
+
+### Phase 6 — Filesystem Tools
+
+- superfície MCP acumulada de 8 tools: `list_devices`, `get_device` e seis filesystem tools;
+- scopes `telechir:files:read` / `telechir:files:write` por tool;
+- ownership, revogação, presence e capability antes do dispatch;
+- `device_id` usado apenas para routing, não incluído em `arguments` enviados ao agent;
+- `command.request` via `DeviceCoordinator` com deadline, permission/risk e idempotency;
+- correlação bounded por `command_id` e remoção após consumo;
+- nenhuma credencial OAuth é encaminhada ao agent;
+- shell/process/Git permanecem indisponíveis.
 
 ## Boundaries de autenticação
 
-A Phase 5 implementa o resource-server boundary, mas não um authorization server próprio nem browser login.
+A Phase 5 implementa o resource-server boundary, e a Phase 6 reutiliza esse boundary para filesystem. O projeto não implementa authorization server próprio nem browser login.
 
 `PairingService.verifyUser(...)` recebe um `user_id` já autenticado. O futuro adapter browser/OAuth deverá chamar esse domínio sem alterar suas invariantes.
 
@@ -79,10 +88,11 @@ Sem essas configurações, `/ready` falha fechado com `503`.
 
 Ainda não implementados:
 
-- filesystem/process/Git;
+- shell/process lifecycle;
+- Git;
 - dashboard.
 
-Rotas administrativas como `/devices` e `/ws` continuam fechadas; `/mcp` é a superfície pública da Phase 5.
+Rotas administrativas como `/devices` e `/ws` continuam fechadas; `/mcp` é a superfície pública e, na Phase 6, expõe apenas device info e filesystem typed tools.
 
 ## Desenvolvimento local
 

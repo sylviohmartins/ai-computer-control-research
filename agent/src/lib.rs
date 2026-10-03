@@ -1,6 +1,7 @@
 #![forbid(unsafe_code)]
 
 pub mod config;
+pub mod filesystem;
 pub mod identity;
 pub mod lifecycle;
 pub mod ports;
@@ -8,6 +9,7 @@ pub mod protocol;
 pub mod realtime;
 
 pub use config::AgentConfig;
+pub use filesystem::{FILESYSTEM_CAPABILITIES, FilesystemExecutor, FilesystemPolicy};
 pub use identity::{
     CONNECTION_PROOF_AUDIENCE, CONNECTION_PROOF_VERSION, ConnectionCredentialProof,
     DEVICE_KEY_ALGORITHM, DeviceIdentity, DeviceIdentityManager, DeviceIdentityStore,

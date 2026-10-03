@@ -1,12 +1,12 @@
 # Estado do Projeto
 
-**Atualizado em:** 2026-10-02
+**Atualizado em:** 2026-10-03
 
 ## Fase atual
 
-**Discovery concluído / Phases 0–5 concluídas / Phase 5 — Remote MCP Integration and OAuth concluída**
+**Discovery concluído / Phases 0–6 concluídas / Phase 6 — Filesystem Tools concluída**
 
-A implementação possui Local Agent Core, control plane, identidade/pairing Ed25519, canal realtime outbound e um Remote MCP autenticado como OAuth resource server. A superfície MCP atual expõe somente `list_devices` e `get_device`; o projeto **não possui deploy de produção** e ainda não iniciou integrações de filesystem/process/Git.
+A implementação possui Local Agent Core, control plane, identidade/pairing Ed25519, canal realtime outbound, Remote MCP/OAuth e seis typed filesystem tools com enforcement final no agent. A superfície MCP atual possui oito tools; o projeto **não possui deploy de produção** e ainda não iniciou shell/process lifecycle ou Git.
 
 ## Gates atuais
 
@@ -24,7 +24,8 @@ A implementação possui Local Agent Core, control plane, identidade/pairing Ed2
 - [x] Phase 3 — Pairing and Device Identity: **`PHASE_3_COMPLETE`**.
 - [x] Phase 4 — Device Realtime Channel: **`PHASE_4_COMPLETE`**.
 - [x] Phase 5 — Remote MCP Integration and OAuth: **`PHASE_5_COMPLETE`**.
-- [ ] Phase 6 — Filesystem Tools iniciada.
+- [x] Phase 6 — Filesystem Tools: **`PHASE_6_COMPLETE`**.
+- [ ] Phase 7 — Shell/Process Lifecycle iniciada.
 
 ## Decisões atuais
 
@@ -71,21 +72,22 @@ As avaliações relevantes estão em:
 - `docs/testing/acceptance/phase3-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase4-exit-review-2026-10-02.md`
 - `docs/testing/acceptance/phase5-exit-review-2026-10-02.md`
+- `docs/testing/acceptance/phase6-exit-review-2026-10-03.md`
 - `docs/research/cloudflare/phase2-revalidation-2026-10-02.md`
 - `docs/research/cloudflare/phase4-revalidation-2026-10-02.md`
 - `docs/research/mcp/phase5-revalidation-2026-10-02.md`
 
 Resultado atual:
 
-> **PHASE_5_COMPLETE**
+> **PHASE_6_COMPLETE**
 
-A Phase 5 implementa o Remote MCP via Streamable HTTP, `server/discover`, `tools/list` e `tools/call`, materializando schemas e `securitySchemes` do catálogo congelado. O resource server OAuth publica Protected Resource Metadata, valida JWT por assinatura, issuer, audience/resource, `exp`/`nbf`, `kid` e scopes, vincula o principal externo ao `user_id` do Telechir e aplica ownership antes de retornar devices. A superfície ativa nesta fase é deliberadamente limitada a `list_devices` e `get_device`.
+A Phase 6 implementa `fs.list`, `fs.stat`, `fs.read`, `fs.write`, `fs.patch` e `fs.search` no agent com roots deny-by-default, traversal/symlink protection, hard deny de paths sensíveis, limites, hash/preconditions, escrita atômica e idempotência. O MCP expõe as seis tools correspondentes com `telechir:files:read/write`, ownership, presença/capability e dispatch pelo realtime channel.
 
-O control plane passou em format/typecheck, 53 testes, migrations `0001 + 0002 + 0003`, Wrangler dry-run e `npm audit` sem vulnerabilidades. A Phase 5 preserva os boundaries do roadmap: não há authorization server próprio, filesystem, shell/processos, Git, dashboard ou deploy de produção implementados.
+O agent passou em fmt/clippy, 45 testes e compile checks Windows/macOS. O control plane passou em format/typecheck, 60 testes, migrations `0001 + 0002 + 0003` aplicadas do zero, Wrangler dry-run e `npm audit` sem vulnerabilidades. A Phase 6 preserva os boundaries do roadmap: não há shell/process lifecycle, Git, dashboard ou deploy de produção implementados.
 
 ## Próximos trabalhos
 
-1. Em uma execução dedicada de build/test, iniciar **Phase 6 — Filesystem Tools**.
+1. Em uma execução dedicada de build/test, iniciar **Phase 7 — Shell/Process Lifecycle**.
 2. Em paralelo, completar/reservar ativos comerciais de Telechir antes de lançamento.
 3. Manter os release gates de OpenAI, segurança operacional, signing e custos antes de beta/publicação.
 

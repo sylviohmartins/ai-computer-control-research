@@ -5,7 +5,7 @@ use base64::Engine;
 use base64::engine::general_purpose::URL_SAFE_NO_PAD;
 use chrono::Utc;
 use futures_util::{SinkExt, StreamExt};
-use serde_json::to_value;
+use serde_json::{Map, Value, to_value};
 use thiserror::Error;
 use tokio::net::TcpStream;
 use tokio::time::timeout;
@@ -17,8 +17,10 @@ use tokio_tungstenite::{MaybeTlsStream, WebSocketStream, connect_async_with_conf
 use url::Url;
 use uuid::Uuid;
 
+use crate::ports::{CommandExecutor, ExecutionOutcome};
 use crate::protocol::{
-    AgentHello, AgentHelloAck, DeviceMessage, Heartbeat, MessageType, PROTOCOL_VERSION,
+    AgentHello, AgentHelloAck, CommandAccepted, CommandCompleted, CommandFailed, CommandRequest,
+    DeviceMessage, ErrorCode, Heartbeat, MessageType, PROTOCOL_VERSION, TelechirError,
     decode_and_validate,
 };
 
@@ -254,6 +256,155 @@ impl RealtimeConnection {
                 Message::Ping(_) | Message::Pong(_) | Message::Frame(_) => continue,
             }
         }
+    }
+
+    pub async fn handle_next_server_message<E>(
+        &mut self,
+        executor: &mut E,
+    ) -> Result<Option<String>, RealtimeError>
+    where
+        E: CommandExecutor,
+        E::Error: std::fmt::Display,
+    {
+        let message = self.receive().await?;
+        if message.message_type != MessageType::CommandRequest {
+            return Ok(None);
+        }
+
+        let request: CommandRequest = serde_json::from_value(message.payload.clone())
+            .map_err(|error| RealtimeError::Protocol(error.to_string()))?;
+        let command_id = request.command_id.clone();
+
+        if message
+            .deadline_at
+            .is_some_and(|deadline| deadline <= Utc::now())
+        {
+            self.send_command_failed(
+                &message.message_id,
+                &command_id,
+                TelechirError {
+                    code: ErrorCode::DeadlineExceeded,
+                    message: "command deadline elapsed before local execution".to_owned(),
+                    retryable: false,
+                    retry_after_ms: None,
+                    details: None,
+                },
+            )
+            .await?;
+            return Ok(Some(command_id));
+        }
+
+        self.send_command_accepted(&message.message_id, &command_id)
+            .await?;
+
+        let outcome = executor.execute(&request).map_err(|_error| {
+            RealtimeError::Protocol("local command executor failed unexpectedly".to_owned())
+        })?;
+
+        match outcome {
+            ExecutionOutcome::Completed(Value::Object(result)) => {
+                self.send_command_completed(&message.message_id, &command_id, result)
+                    .await?;
+            }
+            ExecutionOutcome::Completed(_) => {
+                self.send_command_failed(
+                    &message.message_id,
+                    &command_id,
+                    TelechirError {
+                        code: ErrorCode::InternalError,
+                        message: "local command result must be a JSON object".to_owned(),
+                        retryable: false,
+                        retry_after_ms: None,
+                        details: None,
+                    },
+                )
+                .await?;
+            }
+            ExecutionOutcome::Failed(error) => {
+                self.send_command_failed(&message.message_id, &command_id, error)
+                    .await?;
+            }
+        }
+
+        Ok(Some(command_id))
+    }
+
+    async fn send_command_accepted(
+        &mut self,
+        correlation_id: &str,
+        command_id: &str,
+    ) -> Result<(), RealtimeError> {
+        let payload = CommandAccepted {
+            command_id: command_id.to_owned(),
+            accepted_at: Utc::now(),
+            process_id: None,
+        };
+        self.send_protocol_payload(
+            MessageType::CommandAccepted,
+            Some(correlation_id.to_owned()),
+            to_value(payload).map_err(|error| RealtimeError::Protocol(error.to_string()))?,
+        )
+        .await
+    }
+
+    async fn send_command_completed(
+        &mut self,
+        correlation_id: &str,
+        command_id: &str,
+        result: Map<String, Value>,
+    ) -> Result<(), RealtimeError> {
+        let payload = CommandCompleted {
+            command_id: command_id.to_owned(),
+            completed_at: Utc::now(),
+            result,
+        };
+        self.send_protocol_payload(
+            MessageType::CommandCompleted,
+            Some(correlation_id.to_owned()),
+            to_value(payload).map_err(|error| RealtimeError::Protocol(error.to_string()))?,
+        )
+        .await
+    }
+
+    async fn send_command_failed(
+        &mut self,
+        correlation_id: &str,
+        command_id: &str,
+        error: TelechirError,
+    ) -> Result<(), RealtimeError> {
+        let payload = CommandFailed {
+            command_id: command_id.to_owned(),
+            failed_at: Utc::now(),
+            error,
+        };
+        self.send_protocol_payload(
+            MessageType::CommandFailed,
+            Some(correlation_id.to_owned()),
+            to_value(payload).map_err(|error| RealtimeError::Protocol(error.to_string()))?,
+        )
+        .await
+    }
+
+    async fn send_protocol_payload(
+        &mut self,
+        message_type: MessageType,
+        correlation_id: Option<String>,
+        payload: Value,
+    ) -> Result<(), RealtimeError> {
+        let message = DeviceMessage {
+            protocol_version: PROTOCOL_VERSION.to_owned(),
+            message_type,
+            message_id: new_message_id(),
+            correlation_id,
+            device_id: self.config.device_id.clone(),
+            session_id: None,
+            connection_id: Some(self.connection_id.clone()),
+            sequence: self.sequence.next_outbound(),
+            sent_at: Utc::now(),
+            deadline_at: None,
+            payload,
+        };
+        self.send_message(&message).await
     }
 
     pub async fn close(mut self) -> Result<(), RealtimeError> {
