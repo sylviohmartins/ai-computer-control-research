@@ -201,6 +201,7 @@ export function serverEnvelope(input: {
   connectionId: string;
   sequence: number;
   correlationId?: string | null;
+  deadlineAt?: string | null;
   payload: Record<string, unknown>;
 }): DeviceEnvelope {
   return {
@@ -213,7 +214,7 @@ export function serverEnvelope(input: {
     connection_id: input.connectionId,
     sequence: input.sequence,
     sent_at: new Date().toISOString(),
-    deadline_at: null,
+    deadline_at: input.deadlineAt ?? null,
     payload: input.payload,
   };
 }

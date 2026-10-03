@@ -11,7 +11,13 @@ import {
 import { DeviceToolsError, DeviceToolsService } from "./device-tools";
 import type { Env } from "./env";
 import {
-  PHASE5_TOOLS,
+  FilesystemToolsError,
+  FilesystemToolsService,
+  PHASE6_FILESYSTEM_TOOL_NAMES,
+  type FilesystemToolName,
+} from "./filesystem-tools";
+import {
+  PHASE6_TOOLS,
   publicSchema,
   type PublicToolDefinition,
 } from "./mcp-catalog";
@@ -77,6 +83,43 @@ function toolFailure(error: unknown) {
   if (error instanceof DeviceToolsError && error.code === "NOT_FOUND") {
     return {
       content: [{ type: "text" as const, text: "Device not found." }],
+      isError: true,
+    };
+  }
+
+  if (error instanceof FilesystemToolsError) {
+    const safe = new Map<string, string>([
+      ["NOT_FOUND", "Filesystem target or device was not found."],
+      ["DEVICE_OFFLINE", "The selected device is offline."],
+      [
+        "UNSUPPORTED_CAPABILITY",
+        "The selected device does not support this filesystem operation.",
+      ],
+      [
+        "POLICY_DENIED",
+        "The local device policy denied this filesystem operation.",
+      ],
+      [
+        "CONFLICT",
+        "The filesystem operation conflicted with current file state.",
+      ],
+      [
+        "IDEMPOTENCY_CONFLICT",
+        "The filesystem operation conflicts with a previous idempotent request.",
+      ],
+      ["DEADLINE_EXCEEDED", "The filesystem operation exceeded its deadline."],
+      ["TIMEOUT", "The filesystem operation timed out on the device."],
+      ["INVALID_ARGUMENT", "The filesystem request is invalid."],
+    ]);
+    return {
+      content: [
+        {
+          type: "text" as const,
+          text:
+            safe.get(error.code) ??
+            "The Telechir filesystem operation could not be completed.",
+        },
+      ],
       isError: true,
     };
   }
@@ -171,6 +214,58 @@ function registerGetDevice(
   );
 }
 
+function registerFilesystemTool(
+  server: McpServer,
+  env: Env,
+  tool: PublicToolDefinition,
+): void {
+  if (!PHASE6_FILESYSTEM_TOOL_NAMES.includes(tool.name as FilesystemToolName)) {
+    throw new Error(`unexpected filesystem tool: ${tool.name}`);
+  }
+
+  const scopes = tool.securitySchemes.flatMap((scheme) => scheme.scopes);
+  server.registerTool(
+    tool.name,
+    {
+      title: tool.title,
+      description: tool.description,
+      inputSchema: fromJsonSchema(publicSchema(tool.input_schema_ref)),
+      outputSchema: fromJsonSchema(publicSchema(tool.output_schema_ref)),
+      annotations: tool.annotations,
+      _meta: {
+        securitySchemes: tool.securitySchemes,
+      },
+      scopeChallenge: scopedChallenge(scopes),
+    },
+    async (args, ctx) => {
+      try {
+        const userId = telechirUserId(ctx.http?.authInfo);
+        if (!args || typeof args !== "object" || Array.isArray(args)) {
+          throw new FilesystemToolsError(
+            "INVALID_ARGUMENT",
+            "Filesystem tool arguments must be an object",
+          );
+        }
+
+        const output = await new FilesystemToolsService(
+          env.DB,
+          env.DEVICE_COORDINATOR,
+        ).execute(
+          userId,
+          tool.name as FilesystemToolName,
+          args as Record<string, unknown>,
+        );
+        return {
+          content: [{ type: "text", text: jsonText(output) }],
+          structuredContent: output,
+        };
+      } catch (error) {
+        return toolFailure(error);
+      }
+    },
+  );
+}
+
 export function createTelechirMcpServer(env: Env): McpServer {
   const server = new McpServer({
     name: "telechir",
@@ -178,7 +273,7 @@ export function createTelechirMcpServer(env: Env): McpServer {
     title: "Telechir",
   });
 
-  for (const tool of PHASE5_TOOLS) {
+  for (const tool of PHASE6_TOOLS) {
     switch (tool.name) {
       case "list_devices":
         registerListDevices(server, env, tool);
@@ -186,8 +281,16 @@ export function createTelechirMcpServer(env: Env): McpServer {
       case "get_device":
         registerGetDevice(server, env, tool);
         break;
+      case "list_files":
+      case "get_file_metadata":
+      case "read_file":
+      case "write_file":
+      case "patch_file":
+      case "search_files":
+        registerFilesystemTool(server, env, tool);
+        break;
       default:
-        throw new Error(`unexpected Phase 5 tool: ${tool.name}`);
+        throw new Error(`unexpected Phase 6 tool: ${tool.name}`);
     }
   }
 
@@ -212,7 +315,7 @@ async function materializeOpenAiSecuritySchemes(
   }
 
   const catalogByName = new Map(
-    PHASE5_TOOLS.map((tool) => [tool.name, tool.securitySchemes]),
+    PHASE6_TOOLS.map((tool) => [tool.name, tool.securitySchemes]),
   );
 
   const visit = (value: unknown): void => {

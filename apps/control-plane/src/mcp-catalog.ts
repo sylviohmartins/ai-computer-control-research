@@ -24,23 +24,40 @@ export interface PublicToolDefinition {
 }
 
 const PHASE5_TOOL_NAMES = new Set(["list_devices", "get_device"]);
+const PHASE6_TOOL_NAMES = new Set([
+  ...PHASE5_TOOL_NAMES,
+  "list_files",
+  "get_file_metadata",
+  "read_file",
+  "write_file",
+  "patch_file",
+  "search_files",
+]);
 
 const catalogTools = toolCatalog.tools as PublicToolDefinition[];
 
 export const PHASE5_TOOLS = catalogTools.filter((tool) =>
   PHASE5_TOOL_NAMES.has(tool.name),
 );
+export const PHASE6_TOOLS = catalogTools.filter((tool) =>
+  PHASE6_TOOL_NAMES.has(tool.name),
+);
 
 if (
-  PHASE5_TOOLS.length !== PHASE5_TOOL_NAMES.size ||
-  PHASE5_TOOLS.some((tool) => tool.execution_plane !== "control-plane")
+  PHASE6_TOOLS.length !== PHASE6_TOOL_NAMES.size ||
+  PHASE6_TOOLS.some((tool) => {
+    const expectedPlane = PHASE5_TOOL_NAMES.has(tool.name)
+      ? "control-plane"
+      : "device";
+    return tool.execution_plane !== expectedPlane;
+  })
 ) {
-  throw new Error("Phase 5 MCP tool catalog is inconsistent");
+  throw new Error("Phase 6 MCP tool catalog is inconsistent");
 }
 
-export const PHASE5_OAUTH_SCOPES = [
+export const PHASE6_OAUTH_SCOPES = [
   ...new Set(
-    PHASE5_TOOLS.flatMap((tool) =>
+    PHASE6_TOOLS.flatMap((tool) =>
       tool.securitySchemes.flatMap((scheme) => scheme.scopes),
     ),
   ),
@@ -108,6 +125,14 @@ export function phase5Tool(name: string): PublicToolDefinition {
   const tool = PHASE5_TOOLS.find((candidate) => candidate.name === name);
   if (!tool) {
     throw new Error(`tool is not enabled in Phase 5: ${name}`);
+  }
+  return tool;
+}
+
+export function phase6Tool(name: string): PublicToolDefinition {
+  const tool = PHASE6_TOOLS.find((candidate) => candidate.name === name);
+  if (!tool) {
+    throw new Error(`tool is not enabled in Phase 6: ${name}`);
   }
   return tool;
 }

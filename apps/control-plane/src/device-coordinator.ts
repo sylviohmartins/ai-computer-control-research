@@ -12,9 +12,41 @@ import { PROJECT_PHASE, SERVICE_VERSION } from "./meta";
 
 const MAX_RECENT_MESSAGE_IDS = 32;
 const MAX_RECENT_CREDENTIALS = 128;
+const MAX_CORRELATED_COMMANDS = 256;
+const PHASE6_FILESYSTEM_OPERATIONS = new Set([
+  "fs.list",
+  "fs.stat",
+  "fs.read",
+  "fs.write",
+  "fs.patch",
+  "fs.search",
+]);
 const REPLACED_CLOSE_CODE = 4001;
 const PROTOCOL_CLOSE_CODE = 4002;
 const REVOKED_CLOSE_CODE = 4003;
+
+interface InternalCommandRequest {
+  command_id: string;
+  idempotency_key: string | null;
+  operation: string;
+  arguments: Record<string, unknown>;
+  requested_permissions: string[];
+  risk: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+  deadline_at: string;
+}
+
+interface CorrelatedCommandState {
+  command_id: string;
+  message_type:
+    | "command.request"
+    | "command.accepted"
+    | "command.completed"
+    | "command.failed";
+  message_id: string;
+  sequence: number;
+  received_at: string;
+  payload?: Record<string, unknown>;
+}
 
 interface ConnectionAttachment {
   deviceId: string;
@@ -89,12 +121,22 @@ export class DeviceCoordinator {
       return this.acceptConnection(request);
     }
 
+    if (request.method === "POST" && url.pathname === "/internal/commands") {
+      return this.dispatchCommand(request);
+    }
+
     const commandMatch = /^\/internal\/commands\/([^/]+)$/u.exec(url.pathname);
     if (commandMatch && request.method === "GET") {
-      const state = await this.state.storage.get(`command:${commandMatch[1]!}`);
-      return state
-        ? success(state)
+      const command = await this.state.storage.get<CorrelatedCommandState>(
+        `command:${commandMatch[1]!}`,
+      );
+      return command
+        ? success(command)
         : failure("NOT_FOUND", "Command correlation not found", 404);
+    }
+    if (commandMatch && request.method === "DELETE") {
+      await this.state.storage.delete(`command:${commandMatch[1]!}`);
+      return success({ deleted: true });
     }
 
     return failure("ROUTE_NOT_FOUND", "Route not found", 404);
@@ -207,13 +249,21 @@ export class DeviceCoordinator {
       case "command.cancelled":
       case "approval.request": {
         const commandId = frame.payload.command_id as string;
-        await this.state.storage.put(`command:${commandId}`, {
+        const correlated: CorrelatedCommandState = {
           command_id: commandId,
-          message_type: frame.message_type,
+          message_type:
+            frame.message_type as CorrelatedCommandState["message_type"],
           message_id: frame.message_id,
           sequence: frame.sequence,
           received_at: new Date().toISOString(),
-        });
+        };
+        if (
+          frame.message_type === "command.completed" ||
+          frame.message_type === "command.failed"
+        ) {
+          correlated.payload = frame.payload;
+        }
+        await this.state.storage.put(`command:${commandId}`, correlated);
         break;
       }
       case "protocol.error":
@@ -234,6 +284,172 @@ export class DeviceCoordinator {
   webSocketError(socket: WebSocket, error: unknown): void {
     void error;
     socket.close(1011, "realtime channel error");
+  }
+
+  private async dispatchCommand(request: Request): Promise<Response> {
+    if (await this.state.storage.get<boolean>("revoked")) {
+      return failure("DEVICE_REVOKED", "Device is revoked", 403);
+    }
+
+    const expectedDeviceId = request.headers.get("x-telechir-device-id");
+    if (!expectedDeviceId) {
+      return failure(
+        "UNAUTHENTICATED",
+        "Internal device identity missing",
+        401,
+      );
+    }
+
+    let command: InternalCommandRequest;
+    try {
+      const parsed = (await request.json()) as unknown;
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        throw new Error("command must be an object");
+      }
+      command = parsed as InternalCommandRequest;
+    } catch {
+      return failure(
+        "INVALID_ARGUMENT",
+        "Invalid internal command request",
+        400,
+      );
+    }
+
+    if (
+      typeof command.command_id !== "string" ||
+      command.command_id.length < 8 ||
+      command.command_id.length > 160 ||
+      !PHASE6_FILESYSTEM_OPERATIONS.has(command.operation) ||
+      !command.arguments ||
+      typeof command.arguments !== "object" ||
+      Array.isArray(command.arguments) ||
+      !Array.isArray(command.requested_permissions) ||
+      !command.requested_permissions.every(
+        (permission) => typeof permission === "string",
+      ) ||
+      !["LOW", "MEDIUM", "HIGH", "CRITICAL"].includes(command.risk)
+    ) {
+      return failure(
+        "INVALID_ARGUMENT",
+        "Internal command contract is invalid",
+        400,
+      );
+    }
+
+    const sideEffect =
+      command.operation === "fs.write" || command.operation === "fs.patch";
+    if (
+      (sideEffect &&
+        (typeof command.idempotency_key !== "string" ||
+          command.idempotency_key.length < 8 ||
+          command.idempotency_key.length > 160)) ||
+      (!sideEffect &&
+        command.idempotency_key !== null &&
+        command.idempotency_key !== undefined)
+    ) {
+      return failure(
+        "INVALID_ARGUMENT",
+        "Filesystem idempotency contract is invalid",
+        400,
+      );
+    }
+
+    const deadline = Date.parse(command.deadline_at);
+    const now = Date.now();
+    if (
+      !Number.isFinite(deadline) ||
+      deadline <= now ||
+      deadline > now + 15_000
+    ) {
+      return failure("INVALID_ARGUMENT", "Command deadline is invalid", 400);
+    }
+
+    const sockets = this.state
+      .getWebSockets("active")
+      .filter((socket) => socket.readyState === WebSocket.OPEN);
+    const active = sockets.find((socket) => {
+      const attachment =
+        socket.deserializeAttachment() as ConnectionAttachment | null;
+      return (
+        attachment?.helloReceived === true &&
+        attachment.deviceId === expectedDeviceId
+      );
+    });
+    if (!active) {
+      return failure("DEVICE_OFFLINE", "Device is offline", 409);
+    }
+
+    const attachment =
+      active.deserializeAttachment() as ConnectionAttachment | null;
+    if (!attachment || attachment.deviceId !== expectedDeviceId) {
+      return failure("DEVICE_OFFLINE", "Device is offline", 409);
+    }
+    if (!attachment.capabilities.includes(command.operation)) {
+      return failure(
+        "UNSUPPORTED_CAPABILITY",
+        "Device does not advertise the requested capability",
+        409,
+      );
+    }
+
+    const existing = await this.state.storage.get(
+      `command:${command.command_id}`,
+    );
+    if (existing) {
+      return failure("CONFLICT", "Command identifier already exists", 409);
+    }
+    const correlated = await this.state.storage.list({
+      prefix: "command:",
+      limit: MAX_CORRELATED_COMMANDS + 1,
+    });
+    if (correlated.size >= MAX_CORRELATED_COMMANDS) {
+      return failure("RATE_LIMITED", "Too many correlated commands", 429);
+    }
+
+    const payload: Record<string, unknown> = {
+      command_id: command.command_id,
+      idempotency_key: command.idempotency_key,
+      operation: command.operation,
+      arguments: command.arguments,
+      requested_permissions: command.requested_permissions,
+      risk: command.risk,
+      workspace_id: null,
+      approval_id: null,
+    };
+
+    let messageId: string;
+    try {
+      messageId = this.send(
+        active,
+        attachment,
+        "command.request",
+        null,
+        payload,
+        command.deadline_at,
+      );
+    } catch {
+      return failure(
+        "INVALID_ARGUMENT",
+        "Command request exceeds the realtime frame limit",
+        413,
+      );
+    }
+    active.serializeAttachment(attachment);
+    await this.state.storage.put<CorrelatedCommandState>(
+      `command:${command.command_id}`,
+      {
+        command_id: command.command_id,
+        message_type: "command.request",
+        message_id: messageId,
+        sequence: attachment.nextOutboundSequence - 1,
+        received_at: new Date().toISOString(),
+      },
+    );
+
+    return success({
+      command_id: command.command_id,
+      state: "dispatched",
+    });
   }
 
   private async acceptConnection(request: Request): Promise<Response> {
@@ -327,20 +543,24 @@ export class DeviceCoordinator {
     messageType: string,
     correlationId: string | null,
     payload: Record<string, unknown>,
-  ): void {
+    deadlineAt: string | null = null,
+  ): string {
     const sequence = attachment.nextOutboundSequence;
     attachment.nextOutboundSequence += 1;
-    socket.send(
-      JSON.stringify(
-        serverEnvelope({
-          messageType,
-          deviceId: attachment.deviceId,
-          connectionId: attachment.connectionId,
-          sequence,
-          correlationId,
-          payload,
-        }),
-      ),
-    );
+    const envelope = serverEnvelope({
+      messageType,
+      deviceId: attachment.deviceId,
+      connectionId: attachment.connectionId,
+      sequence,
+      correlationId,
+      deadlineAt,
+      payload,
+    });
+    const encoded = JSON.stringify(envelope);
+    if (new TextEncoder().encode(encoded).byteLength > MAX_FRAME_BYTES) {
+      throw new Error("outbound protocol frame exceeds configured limit");
+    }
+    socket.send(encoded);
+    return envelope.message_id;
   }
 }
