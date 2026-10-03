@@ -38,3 +38,7 @@ Camadas esperadas:
 ## Phase 5
 
 - `acceptance/phase5-exit-review-2026-10-02.md` — exit gate da integração MCP e autenticação da Phase 5.
+
+## Phase 6
+
+- `acceptance/phase6-exit-review-2026-10-03.md` — exit gate de Filesystem Tools, incluindo policy local deny-by-default, traversal/symlink/junction hardening, idempotência, vertical slice MCP → realtime → agent e checks cross-platform.

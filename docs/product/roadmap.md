@@ -17,6 +17,7 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 11. **Phase 3** — Pairing and Device Identity concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase3-exit-review-2026-10-02.md`.
 12. **Phase 4** — Device Realtime Channel concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase4-exit-review-2026-10-02.md`.
 13. **Phase 5** — Remote MCP Integration and OAuth concluída em 2026-10-02; exit review em `docs/testing/acceptance/phase5-exit-review-2026-10-02.md`.
+14. **Phase 6** — Filesystem Tools concluída em 2026-10-03; exit review em `docs/testing/acceptance/phase6-exit-review-2026-10-03.md`.
 
 ## Fases após readiness
 
@@ -26,8 +27,8 @@ Este roadmap é intencionalmente gated. Ele descreve a ordem de maturação do p
 3. Pairing and device identity — **concluída**
 4. Device realtime channel — **concluída**
 5. Remote MCP integration and OAuth — **concluída**
-6. Filesystem tools — **próxima fase**
-7. Shell/process lifecycle
+6. Filesystem tools — **concluída**
+7. Shell/process lifecycle — **próxima fase**
 8. Basic Git
 9. Policy, approvals and audit
 10. Dashboard

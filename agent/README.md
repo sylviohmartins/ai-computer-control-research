@@ -38,6 +38,20 @@ Core local do Telechir implementado em Rust.
 - reconnect não reproduz comandos automaticamente;
 - contrato compartilhado em `../specs/auth/connection-credential-v1.md`.
 
+### Phase 6 — Filesystem Tools
+
+- `fs.list`, `fs.stat`, `fs.read`, `fs.write`, `fs.patch` e `fs.search`;
+- roots explícitos e deny-by-default;
+- hard deny local de paths sensíveis, inclusive quando o próprio root configurado é sensível;
+- traversal defense por canonicalização/componentes de path;
+- symlink e Windows junction/reparse defense;
+- leitura chunked para preservar o frame wire de 256 KiB;
+- write atômico e bounded;
+- patch unified diff com `expected_hash`;
+- busca text/regex/glob bounded;
+- idempotency para write/patch;
+- dispatcher `command.request` sem shell/process/Git.
+
 A private key não faz parte de nenhum DTO serializável do agent.
 
 ## Native keyring
@@ -52,12 +66,10 @@ O `MemoryIdentityStore` existe somente para testes e adapters controlados.
 
 ## Limites atuais
 
-O agent já possui o adapter realtime outbound, mas **não executa operações do host** e não existe deploy de produção.
+O agent já possui realtime outbound e filesystem typed tools com enforcement local. Não existe deploy de produção.
 
 Ficam para fases posteriores:
 
-- Remote MCP/OAuth;
-- filesystem;
 - shell/processos;
 - Git;
 - approvals/audit operacional.
@@ -73,7 +85,7 @@ cargo test --all-features
 cargo run
 ```
 
-As Phases 3–4 também exigem compile checks para:
+As Phases 3–6 também exigem compile checks para:
 
 ```text
 x86_64-pc-windows-msvc
@@ -90,4 +102,5 @@ Evidências:
 
 - `../docs/testing/acceptance/phase1-exit-review-2026-10-02.md`;
 - `../docs/testing/acceptance/phase3-exit-review-2026-10-02.md`;
-- `../docs/testing/acceptance/phase4-exit-review-2026-10-02.md`.
+- `../docs/testing/acceptance/phase4-exit-review-2026-10-02.md`;
+- `../docs/testing/acceptance/phase6-exit-review-2026-10-03.md`.
